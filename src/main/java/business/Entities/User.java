@@ -15,9 +15,11 @@ public class User {
     @GeneratedValue(generator="clients_ids")
     @GenericGenerator(name="clients_ids", strategy = "increment")
     private long id;
-    private String mail;
+    private long document;
     private String nombre;
     private String apellido;
+    private String mail;
+    private String direccion;
     private String password;
 
     public User() {
@@ -27,6 +29,15 @@ public class User {
         this.mail = mail;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.password = password;
+    }
+
+    public User(long document, String nombre, String apellido, String mail, String direccion, String password) {
+        this.document = document;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.mail = mail;
+        this.direccion = direccion;
         this.password = password;
     }
 
