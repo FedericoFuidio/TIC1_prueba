@@ -4,7 +4,7 @@ import business.Entities.User;
 
 import java.util.Optional;
 
-public class UserRepositoryImp implements persistance.UserRepository {
+public class UserRepositoryImp implements Persistance.UserRepository {
 
     @Override
     public User findOneByDocument(long document) {
