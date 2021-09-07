@@ -1,7 +1,7 @@
-package Persistance;
+package um.persistance;
 
 import org.springframework.data.repository.CrudRepository;
-import business.Entities.User;
+import um.business.Entities.User;
 
 
 public interface UserRepository extends CrudRepository<User, Long> {

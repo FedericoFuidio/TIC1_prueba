@@ -1,5 +1,6 @@
-package UI.cliente;
+package um.ui.user;
 
+import um.ui.cliente.UserController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
-import UI.Main;
+import um.Main;
 //import UI.cliente.ClientController;
 
 @Component

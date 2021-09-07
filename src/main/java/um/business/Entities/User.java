@@ -1,4 +1,4 @@
-package business.Entities;
+package um.business.Entities;
 
 import org.hibernate.annotations.GenericGenerator;
 

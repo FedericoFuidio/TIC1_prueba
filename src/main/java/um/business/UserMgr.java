@@ -1,20 +1,18 @@
-package business;
+package um.business;
 
-import Persistance.UserRepositoryImp;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
-import business.Entities.User;
+import um.business.Entities.User;
+import um.persistance.UserRepository;
 //import um.edu.uy.business.exceptions.ClientAlreadyExists;
 //import um.edu.uy.business.exceptions.InvalidClientInformation;
 
 
 @Service
-
-public class UserMgr<UserRepository> {
+public class UserMgr{
 
     @Autowired
-    private UserRepositoryImp UserRepositoryimp;
+    private UserRepository UserRepositoryimp;
 
     public void addUser(long document, String nombre, String apellido, String mail,
                           String address, String password)

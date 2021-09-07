@@ -1,10 +1,10 @@
-package UI;
+package um;
 
 import javafx.application.Application;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import UI.cliente.JavaFXApplication;
+import um.ui.cliente.JavaFXApplication;
 
 @SpringBootApplication
 public class Main {

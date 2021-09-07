@@ -1,6 +1,5 @@
-package UI.cliente;
+package um.ui.cliente;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -9,15 +8,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
-import business.UserMgr;
+import um.business.UserMgr;
 //import um.edu.uy.business.exceptions.ClientAlreadyExists;
 //import um.edu.uy.business.exceptions.InvalidClientInformation;
 import org.springframework.stereotype.Component;
 
+
 @Component
 public class UserController {
 
-    //@Autowired
+   @Autowired
     private UserMgr userMgr;
 
     @FXML
@@ -67,8 +67,8 @@ public class UserController {
 
                 Long document = Long.valueOf(txtDocument.getText());
                 String nombre = txtNombre.getText();
-                String address = txtAddress.getText();
                 String apellido = txtApellido.getText();
+                String address = txtAddress.getText();
                 String mail = txtMail.getText();
                 String password = txtPassword.getText();
 

@@ -8,7 +8,7 @@ plugins {
 
 group = 'com.ejemplo'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '16'
+
 
 repositories {
     mavenCentral()
