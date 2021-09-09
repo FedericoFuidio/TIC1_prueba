@@ -7,28 +7,27 @@
 <?import javafx.scene.layout.*?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="274.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.UserController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.UserController">
     <center>
         <AnchorPane prefHeight="317.0" prefWidth="459.0" BorderPane.alignment="CENTER">
             <children>
-                <Label layoutX="23.0" layoutY="35.0" text="Documento" />
-                <Label layoutX="23.0" layoutY="70.0" text="Nombre" />
-                <Label layoutX="23.0" layoutY="105.0" text="Apellido" />
-                <Label layoutX="23.0" layoutY="140.0" text="Dirección" />
-                <Label layoutX="23.0" layoutY="175.0" text="Mail" />
+                <Label layoutX="23.0" layoutY="35.0" text="Nombre" />
+                <Label layoutX="23.0" layoutY="70.0" text="Apellido" />
+                <Label layoutX="23.0" layoutY="105.0" text="Nombre de usuario" />
+                <Label layoutX="23.0" layoutY="140.0" text="Mail" />
+                <Label layoutX="23.0" layoutY="175.0" text="Pais" />
                 <Label layoutX="23.0" layoutY="210.0" text="Contraseña" />
-                <TextField fx:id="txtDocument" layoutX="158.0" layoutY="32.0" />
-                <TextField fx:id="txtNombre" layoutX="158.0" layoutY="67.0" />
-                <TextField fx:id="txtApellido" layoutX="158.0" layoutY="102.0" />
-                <TextField fx:id="txtAddress" layoutX="158.0" layoutY="137.0" prefHeight="27.0" prefWidth="253.0" />
-                <TextField fx:id="txtMail" layoutX="158.0" layoutY="172.0" />
+                <TextField fx:id="txtNombre" layoutX="158.0" layoutY="32.0" />
+                <TextField fx:id="txtApellido" layoutX="158.0" layoutY="67.0" />
+                <TextField fx:id="txtUsername" layoutX="158.0" layoutY="102.0" />
+                <TextField fx:id="txtMail" layoutX="158.0" layoutY="137.0" prefHeight="27.0" prefWidth="253.0" />
+                <TextField fx:id="txtCountry" layoutX="158.0" layoutY="172.0" />
                 <TextField fx:id="txtPassword" layoutX="158.0" layoutY="207.0" />
-                <Label layoutX="23.0" layoutY="116.0" text="Direccion" />
             </children>
         </AnchorPane>
     </center>
     <top>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Crear un Cliente" BorderPane.alignment="CENTER">
+        <Text strokeType="OUTSIDE" strokeWidth="1.0" text="Registrar nuevo usuario" BorderPane.alignment="TOP_LEFT">
             <font>
                 <Font size="28.0" />
             </font>

@@ -1,4 +1,4 @@
-package um.ui.cliente;
+package um.ui.user;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +20,7 @@ public class JavaFXApplication extends Application  {
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-        root = fxmlLoader.load(UserController.class.getResourceAsStream("agregarUsuario.fxml"));
+        root = fxmlLoader.load(JavaFXApplication.class.getResourceAsStream("User.fxml"));
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }

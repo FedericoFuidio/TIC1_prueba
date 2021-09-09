@@ -4,7 +4,7 @@ import javafx.application.Application;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import um.ui.cliente.JavaFXApplication;
+import um.ui.user.JavaFXApplication;
 
 @SpringBootApplication
 public class Main {

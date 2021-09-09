@@ -15,31 +15,25 @@ public class User {
     @GeneratedValue(generator="clients_ids")
     @GenericGenerator(name="clients_ids", strategy = "increment")
     private long id;
-    private long document;
+    private String country;
+    private String userName;
     private String nombre;
     private String apellido;
     private String mail;
-    private String direccion;
     private String password;
 
     public User() {
     }
 
-    public User(String mail, String nombre, String apellido, String password) {
+    public User(String mail, String nombre, String apellido, String userName, String password, String country) {
         this.mail = mail;
         this.nombre = nombre;
         this.apellido = apellido;
         this.password = password;
+        this.country = country;
+        this.userName = userName;
     }
 
-    public User(long document, String nombre, String apellido, String mail, String direccion, String password) {
-        this.document = document;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.mail = mail;
-        this.direccion = direccion;
-        this.password = password;
-    }
 
     public long getId() {
         return id;
@@ -79,6 +73,22 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }
 

@@ -1,6 +1,5 @@
-package um.ui.user;
+package um.ui.cliente;
 
-import um.ui.cliente.UserController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,7 +22,7 @@ public class Principal {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
 
-        Parent root = fxmlLoader.load(UserController.class.getResourceAsStream("AddClient.fxml"));
+        Parent root = fxmlLoader.load(UserController.class.getResourceAsStream("agregarUsuario.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();

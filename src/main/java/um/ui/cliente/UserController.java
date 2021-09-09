@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserController {
 
-   @Autowired
+    @Autowired
     private UserMgr userMgr;
 
     @FXML
@@ -27,16 +27,16 @@ public class UserController {
     private Button btnAdd;
 
     @FXML
-    private TextField txtAddress;
-
-    @FXML
-    private TextField txtDocument;
+    private TextField txtCountry;
 
     @FXML
     private TextField txtNombre;
 
     @FXML
     private TextField txtApellido;
+
+    @FXML
+    private TextField txtUsername;
 
     @FXML
     private TextField txtMail;
@@ -53,52 +53,53 @@ public class UserController {
 
     @FXML
     void addClient(ActionEvent event) {
-        if (txtDocument.getText() == null || txtDocument.getText().equals("") ||
-                txtAddress.getText() == null || txtAddress.getText().equals("") ||
-                txtAddress.getText() == null || txtAddress.getText().equals("")) {
+        if (txtCountry.getText() == null || txtCountry.getText().equals("") ||
+                txtApellido.getText() == null || txtApellido.getText().equals("") ||
+                txtUsername.getText() == null || txtUsername.getText().equals("") ||
+                txtMail.getText() == null || txtMail.getText().equals("") ||
+                txtNombre.getText() == null || txtNombre.getText().equals("") ||
+                txtPassword.getText() == null || txtPassword.getText().equals("")) {
 
             showAlert(
                     "Datos faltantes!",
-                    "No se ingresaron los datos necesarios para completar el ingreso.");
+                    "No se ingresaron los datos necesarios para completar el registro");
 
         } else {
 
             try {
 
-                Long document = Long.valueOf(txtDocument.getText());
+                String userName = txtUsername.getText();
                 String nombre = txtNombre.getText();
                 String apellido = txtApellido.getText();
-                String address = txtAddress.getText();
+                String country = txtCountry.getText();
                 String mail = txtMail.getText();
                 String password = txtPassword.getText();
 
                 try {
 
-                    userMgr.addUser(document, nombre, apellido, mail, address, password);
+                    userMgr.addUser(userName, nombre, apellido, mail, country, password);
 
-                    showAlert("Cliente agregado", "Se agrego con exito el cliente!");
+                    showAlert("Usuario registrado", "Se agrego existosamente el usuario!");
 
                     close(event);
                 } catch (Exception e) {
                     showAlert(
-                            "Informacion invalida !",
-                            "Se encontro un error en los datos ingresados.");
+                            "Informacion invalida!",
+                            "Hay un error en los datos ingresados");
                 }
-
-            } catch (NumberFormatException e) {
-
+            } catch (Exception e){
                 showAlert(
-                        "Datos incorrectos !",
-                        "El documento no tiene el formato esperado (numerico).");
-
+                        "Informacion invalida!",
+                        "Hay un error en los datos ingresados");
             }
+
         }
 
     }
 
     private void clean() {
-        txtDocument.setText(null);
-        txtAddress.setText(null);
+        txtCountry.setText(null);
+        txtUsername.setText(null);
         txtNombre.setText(null);
         txtApellido.setText(null);
         txtMail.setText(null);
