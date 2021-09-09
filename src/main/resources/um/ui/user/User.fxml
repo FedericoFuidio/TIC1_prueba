@@ -13,7 +13,7 @@
                 <Menu mnemonicParsing="false" text="Ingresar">
                     <items>
                         <MenuItem fx:id="mItemAcceso" mnemonicParsing="false" onAction="#agregarClientAction" text="Registrar nuevo usuario"></MenuItem>
-                        <MenuItem fx:id="mItemIngreso" mnemonicParsing="false" text="Ingresar a tu cuenta"></MenuItem>
+                        <MenuItem fx:id="mItemIngreso" mnemonicParsing="false" onAction="#ingresarUserAction" text="Ingresar a tu cuenta"></MenuItem>
                     </items>
                 </Menu>
             </menus>

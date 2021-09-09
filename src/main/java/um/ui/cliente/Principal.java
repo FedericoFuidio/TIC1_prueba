@@ -28,4 +28,17 @@ public class Principal {
         stage.show();
     }
 
+    @FXML
+    void ingresarUserAction(ActionEvent event) throws Exception{
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+        Parent root = fxmlLoader.load(UserController.class.getResourceAsStream("ingresarUsuario.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+
+    }
+
+
 }

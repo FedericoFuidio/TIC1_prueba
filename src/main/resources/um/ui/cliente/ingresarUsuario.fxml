@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="235.0" prefWidth="355.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.UserController">
+    <center>
+        <AnchorPane prefHeight="317.0" prefWidth="459.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="23.0" layoutY="35.0" text="Nombre de usuario" />
+                <Label layoutX="23.0" layoutY="70.0" text="Contraseña" />
+                <TextField fx:id="txtUsername" layoutX="158.0" layoutY="35.0" />
+                <TextField fx:id="txtPassword" layoutX="158.0" layoutY="70.0" />
+            </children>
+        </AnchorPane>
+    </center>
+    <top>
+        <Text strokeType="OUTSIDE" strokeWidth="1.0" text="Ingresar a tu cuenta" BorderPane.alignment="TOP_LEFT">
+            <font>
+                <Font size="28.0" />
+            </font>
+        </Text>
+    </top>
+    <bottom>
+        <HBox alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="btnClose" mnemonicParsing="false" onAction="#close" text="Cancelar">
+                    <HBox.margin>
+                        <Insets left="10.0" right="5.0" />
+                    </HBox.margin>
+                </Button>
+                <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#addClient" text="Agregar" />
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>

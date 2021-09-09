@@ -114,4 +114,27 @@ public class UserController {
         alert.showAndWait();
     }
 
+    @FXML
+    void IngresarUser(ActionEvent event) {
+        if (txtUsername.getText() == null || txtUsername.getText().equals("") ||
+                txtPassword.getText() == null || txtPassword.getText().equals("")) {
+
+            showAlert(
+                    "Datos faltantes!",
+                    "No se ingreso el nombre de usuario o la contraseña");
+        }
+
+        String userName = txtUsername.getText();
+        String password = txtPassword.getText();
+
+        try {
+            userMgr.IngresarUser(userName, password);
+
+            showAlert("Bienvenido " + userName, "");
+        } catch (Exception e){
+
+            showAlert("Conraseña incorrecta", "Intente nuevamente");
+        }
+    }
+
 }
