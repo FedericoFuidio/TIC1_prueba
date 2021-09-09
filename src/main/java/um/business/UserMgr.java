@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import um.business.Entities.User;
 import um.persistance.UserRepository;
-import um.business.Exception.IncorrectPassword;
 //import um.edu.uy.business.exceptions.ClientAlreadyExists;
 //import um.edu.uy.business.exceptions.InvalidClientInformation;
 
@@ -40,7 +39,7 @@ public class UserMgr{
 
     }
 
-    public boolean IngresarUser(String userName, String password) throws incorrectPassword, {
+    public boolean IngresarUser(String userName, String password) throws Exception {
 
         if(UserRepositoryimp.findOneByUserName(userName) == null){
             throw new Exception();
