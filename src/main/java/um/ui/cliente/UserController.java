@@ -133,7 +133,7 @@ public class UserController {
             showAlert("Bienvenido " + userName, "");
         } catch (Exception e){
 
-            showAlert("Conraseña incorrecta", "Intente nuevamente");
+            showAlert("Contraseña incorrecta", "Intente nuevamente");
         }
     }
 
