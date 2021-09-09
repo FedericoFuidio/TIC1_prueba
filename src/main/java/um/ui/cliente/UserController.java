@@ -53,6 +53,8 @@ public class UserController {
 
     @FXML
     void addClient(ActionEvent event) {
+
+        //Controlo que las entradas no sean nulas:
         if (txtCountry.getText() == null || txtCountry.getText().equals("") ||
                 txtApellido.getText() == null || txtApellido.getText().equals("") ||
                 txtUsername.getText() == null || txtUsername.getText().equals("") ||
@@ -77,6 +79,7 @@ public class UserController {
 
                 try {
 
+                    //Agrego el usuario, en caso de una excepcion lanzo una alerta de informacion invalida:
                     userMgr.addUser(userName, nombre, apellido, mail, country, password);
 
                     showAlert("Usuario registrado", "Se agrego existosamente el usuario!");
@@ -116,6 +119,8 @@ public class UserController {
 
     @FXML
     void IngresarUser(ActionEvent event) {
+
+        //Verifio que los datos ingrasados son no nulos:
         if (txtUsername.getText() == null || txtUsername.getText().equals("") ||
                 txtPassword.getText() == null || txtPassword.getText().equals("")) {
 
@@ -128,13 +133,23 @@ public class UserController {
         String password = txtPassword.getText();
 
         try {
-            userMgr.IngresarUser(userName, password);
 
-            showAlert("Bienvenido " + userName, "");
+            //Ingreso el usuario, si el resultado de la operacion es true, la contraseña es correcta,
+            //Si se lanza una excepcion, el usuario ingresado no existe:
+            boolean ingreso = userMgr.IngresarUser(userName, password);
+
+            if(ingreso) {
+                showAlert("", "Bienvenido " + userName);
+            } else{
+                showAlert("Contraseña incorrecta", "Intente nuevamente");
+            }
         } catch (Exception e){
 
-            showAlert("Contraseña incorrecta", "Intente nuevamente");
+            showAlert("Usuario no encontrado", "Intente nuevamente");
         }
+
+        close(event);
+
     }
 
 }

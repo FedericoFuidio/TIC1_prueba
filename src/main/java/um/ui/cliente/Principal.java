@@ -17,6 +17,8 @@ public class Principal {
     @FXML
     private MenuItem mItemAgregarCliente;
 
+    //Defino la accion agregarClient, en agregarUsuario.fxml defino las operaciones que quiero que
+    //realize esta accion (addUser), y la clase donde esta la funcion (UserController):
     @FXML
     void agregarClientAction(ActionEvent event) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -28,6 +30,8 @@ public class Principal {
         stage.show();
     }
 
+    //Defino la accion ingresarUser, en ingresarUsuario.fxml, pongo el nombre de la funcion que quiero usar,
+    //(IngresarUser), y la clase donde esta la funcion (UserController)
     @FXML
     void ingresarUserAction(ActionEvent event) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader();
