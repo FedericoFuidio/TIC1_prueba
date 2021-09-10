@@ -15,14 +15,16 @@
                 <Label layoutX="23.0" layoutY="70.0" text="Apellido" />
                 <Label layoutX="23.0" layoutY="105.0" text="Nombre de usuario" />
                 <Label layoutX="23.0" layoutY="140.0" text="Mail" />
-                <Label layoutX="23.0" layoutY="175.0" text="Pais" />
-                <Label layoutX="23.0" layoutY="210.0" text="Contraseña" />
+                <Label layoutX="23.0" layoutY="175.0" text="Fecha de nacimiento" />
+                <Label layoutX="23.0" layoutY="210.0" text="Pais" />
+                <Label layoutX="23.0" layoutY="245.0" text="Contraseña" />
                 <TextField fx:id="txtNombre" layoutX="158.0" layoutY="32.0" />
                 <TextField fx:id="txtApellido" layoutX="158.0" layoutY="67.0" />
                 <TextField fx:id="txtUsername" layoutX="158.0" layoutY="102.0" />
                 <TextField fx:id="txtMail" layoutX="158.0" layoutY="137.0" prefHeight="27.0" prefWidth="253.0" />
-                <TextField fx:id="txtCountry" layoutX="158.0" layoutY="172.0" />
-                <TextField fx:id="txtPassword" layoutX="158.0" layoutY="207.0" />
+                <DatePicker fx:id="pickerFecha" layoutX="158.0" layoutY="172.0" />
+                <TextField fx:id="txtCountry" layoutX="158.0" layoutY="207.0" />
+                <TextField fx:id="txtPassword" layoutX="158.0" layoutY="242.0" />
             </children>
         </AnchorPane>
     </center>

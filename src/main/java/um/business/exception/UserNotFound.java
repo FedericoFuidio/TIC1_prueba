@@ -1,4 +1,4 @@
-package um.business.Exception;
+package um.business.exception;
 
 public class UserNotFound extends Exception{
 

@@ -2,10 +2,10 @@ package um.business;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import um.business.Entities.User;
+import um.business.entities.User;
 import um.persistance.UserRepository;
-//import um.edu.uy.business.exceptions.ClientAlreadyExists;
-//import um.edu.uy.business.exceptions.InvalidClientInformation;
+
+import java.time.LocalDate;
 
 
 @Service
@@ -15,14 +15,15 @@ public class UserMgr{
     private UserRepository UserRepositoryimp;
 
     //Agregar un usuario al sistema:
-    public void addUser(String userName, String nombre, String apellido, String mail,
-                          String country, String password)
+    public void addUser(String nombre, String apellido, String userName, String mail, LocalDate birthDate,
+                        String country, String password)
             throws Exception {
 
         //verifico si algun dato es nulo, o igual al string nulo:
         if (nombre == null || "".equals(nombre) || userName == null || "".equals(userName)
         || apellido == null || "".equals(apellido) || mail == null || "".equals(mail)
-        || password == null || "".equals(password) || country == null || "".equals(country)) {
+        || password == null || "".equals(password) || country == null || "".equals(country)
+        || birthDate == null) {
 
             throw new Exception("Alguno de los datos ingresados no es correcto");
 
@@ -34,7 +35,7 @@ public class UserMgr{
         }
 
         //Creo un nuevo cliente y lo guardo
-        User oClient = new User(mail, nombre, apellido, userName, password, country);
+        User oClient = new User(nombre, apellido, userName, mail, birthDate, country, password);
         System.out.println(oClient.getUserName());
 
         UserRepositoryimp.save(oClient);

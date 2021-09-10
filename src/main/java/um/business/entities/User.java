@@ -1,4 +1,4 @@
-package um.business.Entities;
+package um.business.entities;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "usuario")
@@ -21,11 +22,12 @@ public class User {
     private String apellido;
     private String mail;
     private String password;
+    private LocalDate birthDay;
 
     public User() {
     }
 
-    public User(String mail, String nombre, String apellido, String userName, String password, String country) {
+    public User(String nombre, String apellido, String userName, String mail, LocalDate birthDate, String country, String password) {
         this.mail = mail;
         this.nombre = nombre;
         this.apellido = apellido;

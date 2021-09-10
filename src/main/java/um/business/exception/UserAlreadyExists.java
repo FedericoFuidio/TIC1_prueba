@@ -1,4 +1,4 @@
-package um.business.Exception;
+package um.business.exception;
 
 //Creacion de excepcion:
 public class UserAlreadyExists extends Exception{

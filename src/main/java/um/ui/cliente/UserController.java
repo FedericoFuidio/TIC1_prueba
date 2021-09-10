@@ -5,20 +5,28 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import um.business.UserMgr;
+
+import java.time.LocalDate;
+
 //import um.edu.uy.business.exceptions.ClientAlreadyExists;
 //import um.edu.uy.business.exceptions.InvalidClientInformation;
-import org.springframework.stereotype.Component;
 
 
 @Component
 public class UserController {
 
+
     @Autowired
     private UserMgr userMgr;
+
+    @FXML
+    private DatePicker pickerFecha;
 
     @FXML
     private Button btnClose;
@@ -60,7 +68,8 @@ public class UserController {
                 txtUsername.getText() == null || txtUsername.getText().equals("") ||
                 txtMail.getText() == null || txtMail.getText().equals("") ||
                 txtNombre.getText() == null || txtNombre.getText().equals("") ||
-                txtPassword.getText() == null || txtPassword.getText().equals("")) {
+                txtPassword.getText() == null || txtPassword.getText().equals("") ||
+                pickerFecha.getValue() == null) {
 
             showAlert(
                     "Datos faltantes!",
@@ -70,6 +79,7 @@ public class UserController {
 
             try {
 
+                LocalDate birthDay = pickerFecha.getValue();
                 String userName = txtUsername.getText();
                 String nombre = txtNombre.getText();
                 String apellido = txtApellido.getText();
@@ -80,7 +90,7 @@ public class UserController {
                 try {
 
                     //Agrego el usuario, en caso de una excepcion lanzo una alerta de informacion invalida:
-                    userMgr.addUser(userName, nombre, apellido, mail, country, password);
+                    userMgr.addUser(nombre, apellido, userName, mail, birthDay, country, password);
 
                     showAlert("Usuario registrado", "Se agrego existosamente el usuario!");
 
@@ -140,6 +150,8 @@ public class UserController {
 
             if(ingreso) {
                 showAlert("", "Bienvenido " + userName);
+
+                close(event);
             } else{
                 showAlert("Contraseña incorrecta", "Intente nuevamente");
             }
@@ -148,7 +160,6 @@ public class UserController {
             showAlert("Usuario no encontrado", "Intente nuevamente");
         }
 
-        close(event);
 
     }
 
