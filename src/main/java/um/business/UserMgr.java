@@ -35,7 +35,7 @@ public class UserMgr{
         }
 
         //Creo un nuevo cliente y lo guardo
-        User oClient = new User(nombre, apellido, userName, mail, birthDate, country, password);
+        User oClient = new User(mail, userName, password);
         System.out.println(oClient.getUserName());
 
         UserRepositoryimp.save(oClient);
