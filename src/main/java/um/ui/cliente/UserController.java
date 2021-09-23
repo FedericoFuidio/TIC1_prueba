@@ -130,7 +130,7 @@ public class UserController {
     @FXML
     void IngresarUser(ActionEvent event) {
 
-        //Verifio que los datos ingrasados son no nulos:
+        //Verifico que los datos ingrasados son no nulos:
         if (txtUsername.getText() == null || txtUsername.getText().equals("") ||
                 txtPassword.getText() == null || txtPassword.getText().equals("")) {
 

@@ -4,7 +4,7 @@ public class Operador extends User{
 
     private String foto;
     private String name;
-    private String contacto;
+    private String phone;
     private String descripcion;
     private String sitioWeb;
     private String ubicacion;
@@ -15,12 +15,12 @@ public class Operador extends User{
     }
 
     public Operador(String mail, String userName, String password, String foto, String name,
-                    String contacto, String descripcion, String sitioWeb, String ubicacion){
+                    String phone, String descripcion, String sitioWeb, String ubicacion){
 
         super(mail, userName, password);
         this.foto = foto;
         this.name = name;
-        this.contacto = contacto;
+        this.phone = phone;
         this.descripcion = descripcion;
         this.sitioWeb = sitioWeb;
         this.ubicacion = ubicacion;
@@ -45,11 +45,11 @@ public class Operador extends User{
     }
 
     public String getContacto() {
-        return contacto;
+        return phone;
     }
 
     public void setContacto(String contacto) {
-        this.contacto = contacto;
+        this.phone = contacto;
     }
 
     public String getDescripcion() {
