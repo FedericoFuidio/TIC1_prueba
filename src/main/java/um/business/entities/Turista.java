@@ -1,6 +1,7 @@
 package um.business.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -11,6 +12,7 @@ public class Turista extends User{
     private String name;
     private String apellido;
     private String pais;
+    @Id
     private Long passport;
 
     public Turista(){
