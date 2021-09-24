@@ -1,5 +1,8 @@
 package um.business.entities;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Operador extends User{
 
     private String foto;
@@ -11,7 +14,7 @@ public class Operador extends User{
     private boolean validado;
 
     public Operador(){
-        super();
+
     }
 
     public Operador(String mail, String userName, String password, String foto, String name,
