@@ -24,7 +24,7 @@ public class Principal {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
 
-        Parent root = fxmlLoader.load(UserController.class.getResourceAsStream("agregarUsuario.fxml"));
+        Parent root = fxmlLoader.load(TuristaController.class.getResourceAsStream("agregarUsuario.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();

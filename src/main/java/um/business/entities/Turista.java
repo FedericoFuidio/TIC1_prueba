@@ -1,23 +1,21 @@
 package um.business.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "turistas")
 public class Turista extends User{
 
 
     private String name;
     private String apellido;
     private String pais;
-    @Id
+    @Column(unique = true)
     private Long passport;
 
     public Turista(){
-        super();
     }
+
 
     public Turista(String mail, String userName, String password, String name, String apellido, String pais, Long passport){
 

@@ -12,4 +12,5 @@ public interface TuristaRepository extends CrudRepository<Turista, Long> {
      */
 
     Turista findTuristaByUserName(String userName);
+    Turista findTuristaByMail(String mail);
 }
