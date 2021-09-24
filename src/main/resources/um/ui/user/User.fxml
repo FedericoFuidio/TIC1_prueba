@@ -5,19 +5,18 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.Principal">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.Principal">
     <top>
         <MenuBar BorderPane.alignment="CENTER">
             <menus>
                 <Menu mnemonicParsing="false" text="Ingresar">
                     <items>
-                        <MenuItem fx:id="mItemAcceso" mnemonicParsing="false" onAction="#agregarClientAction" text="Registrar nuevo usuario"></MenuItem>
-                        <MenuItem fx:id="mItemIngreso" mnemonicParsing="false" onAction="#ingresarUserAction" text="Ingresar a tu cuenta"></MenuItem>
+                        <MenuItem fx:id="mItemAcceso" mnemonicParsing="false" onAction="#agregarClientAction" text="Registrar nuevo usuario" />
+                        <MenuItem fx:id="mItemIngreso" mnemonicParsing="false" onAction="#ingresarUserAction" text="Ingresar a tu cuenta" />
+                  <MenuItem fx:id="mItemAccesoOp" mnemonicParsing="false" onAction="#agregarOperadorAction" text="Registrar nuevo operador" />
                     </items>
                 </Menu>
             </menus>
         </MenuBar>
     </top>
 </BorderPane>
-

@@ -30,6 +30,17 @@ public class Principal {
         stage.show();
     }
 
+    @FXML
+    void agregarOperadorAction(ActionEvent event) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+        Parent root = fxmlLoader.load(OperadorController.class.getResourceAsStream("agregarOperador.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
     //Defino la accion ingresarUser, en ingresarUsuario.fxml, pongo el nombre de la funcion que quiero usar,
     //(IngresarUser), y la clase donde esta la funcion (UserController)
     @FXML

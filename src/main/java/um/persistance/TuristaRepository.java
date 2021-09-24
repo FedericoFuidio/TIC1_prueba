@@ -6,7 +6,7 @@ import um.business.entities.Turista;
 public interface TuristaRepository extends CrudRepository<Turista, Long> {
 
     /**
-     * Retorna un cliente por documento si encuentra mas de una lanza una excepcion
+     * Retorna un operador por userName si encuentra mas de una lanza una excepcion
      * @param userName
      * @return
      */
