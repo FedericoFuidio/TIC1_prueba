@@ -17,14 +17,14 @@ public class Principal {
     @FXML
     private MenuItem mItemAgregarCliente;
 
-    //Defino la accion agregarClient, en agregarUsuario.fxml defino las operaciones que quiero que
+    //Defino la accion agregarClient, en agregarTurista.fxml defino las operaciones que quiero que
     //realize esta accion (addUser), y la clase donde esta la funcion (UserController):
     @FXML
     void agregarClientAction(ActionEvent event) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
 
-        Parent root = fxmlLoader.load(TuristaController.class.getResourceAsStream("agregarUsuario.fxml"));
+        Parent root = fxmlLoader.load(TuristaController.class.getResourceAsStream("agregarTurista.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
