@@ -39,6 +39,7 @@ public class OperadorMgr {
 
         Operador nuevo = new Operador(mail, userName, password, foto, name, phone, descripcion, sitioWeb, ubicacion);
         operadorRepository.save(nuevo);
+        //System.out.println(operadorRepository.findAllByIdExists());
 
     }
 }
