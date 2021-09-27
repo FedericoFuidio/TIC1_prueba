@@ -3,10 +3,10 @@ package um.business;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import um.business.entities.Turista;
-import um.business.exception.RepitedMail;
-import um.persistance.TuristaRepository;
-import um.business.exception.RepitedUserName;
 import um.business.exception.InvalidInformation;
+import um.business.exception.RepitedMail;
+import um.business.exception.RepitedUserName;
+import um.persistance.TuristaRepository;
 
 @Service
 public class TuristaMgr {
@@ -37,6 +37,17 @@ public class TuristaMgr {
 
         Turista nuevo = new Turista(mail, userName, password, name, apellido, pais, passport);
         turistaRepository.save(nuevo);
+        Iterable<Turista> turistaList = turistaRepository.findAll();
 
+        for(Turista s:turistaList){
+
+            System.out.println(s.getUserName());
+        }
     }
+
+    public Iterable<Turista> GetTuristas(){
+
+        return turistaRepository.findAll();
+    }
+
 }
