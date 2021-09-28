@@ -48,6 +48,7 @@ public class TuristaMgr {
     public Iterable<Turista> GetTuristas(){
 
         return turistaRepository.findAll();
+
     }
 
 }
