@@ -47,11 +47,11 @@ public class Operador extends User{
         this.name = name;
     }
 
-    public String getContacto() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setContacto(String contacto) {
+    public void setPhone(String contacto) {
         this.phone = contacto;
     }
 

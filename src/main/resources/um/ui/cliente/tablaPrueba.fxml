@@ -11,15 +11,16 @@
         <columns>
             <TableColumn fx:id="id" prefWidth="68.0" text="ID" />
             <TableColumn fx:id="name" prefWidth="116.79995727539062" text="Nombre" />
-            <TableColumn fx:id="picture" prefWidth="122.40003967285156" text="Foto" />
-            <TableColumn fx:id="description" prefWidth="204.800048828125" text="Descripción" />
+            <TableColumn fx:id="foto" prefWidth="122.40003967285156" text="Foto" />
+            <TableColumn fx:id="descripcion" prefWidth="204.800048828125" text="Descripción" />
             <TableColumn minWidth="0.0" prefWidth="225.5999755859375" text="Contacto">
                <columns>
                   <TableColumn fx:id="mail" prefWidth="87.5999755859375" text="Mail" />
                   <TableColumn fx:id="phone" prefWidth="75.0" text="Teléfono" />
                </columns>
             </TableColumn>
-            <TableColumn fx:id="valid" prefWidth="75.0" text="Validada" />
+            <TableColumn fx:id="ubicacion" prefWidth="75.0" text="Ubicación" />
+            <TableColumn fx:id="validado" prefWidth="75.0" text="Validada" />
         </columns>
       </TableView>
    </children>
