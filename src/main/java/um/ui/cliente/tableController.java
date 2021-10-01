@@ -2,11 +2,14 @@ package um.ui.cliente;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import um.business.OperadorMgr;
@@ -25,10 +28,16 @@ public class tableController implements Initializable {
     private TableView<Operador> operatorsTable;
 
     @FXML
+    private Button btnBlock;
+
+    @FXML
+    private Button BtnValidate;
+
+    @FXML
     private TableColumn<Operador, Integer> id;
 
     @FXML
-    private TableColumn<Operador, String> name;
+    public TableColumn<Operador, String> name;
 
     @FXML
     private TableColumn<Operador, String> foto;
@@ -48,6 +57,21 @@ public class tableController implements Initializable {
     @FXML
     private TableColumn<Operador, Boolean> validado;
 
+    @FXML
+    void blockUsers(ActionEvent event) {
+        operadorMgr.setValidado(seleccionado, false);
+    }
+
+    @FXML
+    void validateUsers(ActionEvent event) {
+        operadorMgr.setValidado(seleccionado, true);
+    }
+
+    Operador seleccionado = new Operador();
+    @FXML
+    void getSelected(MouseEvent mouse){
+        seleccionado = operatorsTable.getSelectionModel().getSelectedItem();
+    }
 
     private ObservableList<Operador> operadores = FXCollections.observableArrayList();
 

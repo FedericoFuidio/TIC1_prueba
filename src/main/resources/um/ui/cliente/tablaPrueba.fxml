@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.tableController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="928.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.tableController">
    <children>
-      <TableView fx:id="operatorsTable" layoutX="14.0" layoutY="14.0" prefHeight="400.0" prefWidth="783.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane prefHeight="400.0" prefWidth="132.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="BtnValidate" layoutX="14.0" layoutY="162.0" mnemonicParsing="false" onAction="#validateUsers" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: green;" text="Validar" />
+            <Button fx:id="btnBlock" layoutX="14.0" layoutY="214.0" mnemonicParsing="false" onAction="#blockUsers" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: red;" text="Bloquear" />
+         </children>
+      </AnchorPane>
+      <TableView fx:id="operatorsTable" layoutX="132.0" layoutY="14.0" onMouseClicked="#getSelected" prefHeight="400.0" prefWidth="618.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="132.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columns>
-            <TableColumn fx:id="id" prefWidth="68.0" text="ID" />
-            <TableColumn fx:id="name" prefWidth="116.79995727539062" text="Nombre" />
-            <TableColumn fx:id="foto" prefWidth="122.40003967285156" text="Foto" />
-            <TableColumn fx:id="descripcion" prefWidth="204.800048828125" text="Descripción" />
-            <TableColumn minWidth="0.0" prefWidth="225.5999755859375" text="Contacto">
+            <TableColumn fx:id="id" prefWidth="50.399993896484375" text="ID" />
+            <TableColumn fx:id="name" prefWidth="135.20001220703125" text="Nombre" />
+            <TableColumn fx:id="foto" prefWidth="55.199951171875" text="Foto" />
+            <TableColumn fx:id="descripcion" prefWidth="216.800048828125" text="Descripción" />
+            <TableColumn minWidth="0.0" prefWidth="109.60003662109375" text="Contacto">
                <columns>
                   <TableColumn fx:id="mail" prefWidth="87.5999755859375" text="Mail" />
                   <TableColumn fx:id="phone" prefWidth="75.0" text="Teléfono" />
                </columns>
             </TableColumn>
-            <TableColumn fx:id="ubicacion" prefWidth="75.0" text="Ubicación" />
-            <TableColumn fx:id="validado" prefWidth="75.0" text="Validada" />
+            <TableColumn fx:id="ubicacion" prefWidth="94.39990234375" text="Ubicación" />
+            <TableColumn fx:id="validado" prefWidth="81.5999755859375" text="Validada" />
         </columns>
       </TableView>
    </children>

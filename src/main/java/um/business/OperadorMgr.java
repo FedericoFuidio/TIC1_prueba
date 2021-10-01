@@ -3,6 +3,7 @@ package um.business;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import um.business.entities.Operador;
+import um.business.entities.Turista;
 import um.business.exception.InvalidInformation;
 import um.business.exception.RepitedMail;
 import um.business.exception.RepitedUserName;
@@ -42,11 +43,15 @@ public class OperadorMgr {
 
 
     }
-
     public Iterable<Operador> GetOperadores(){
 
         return operadorRepository.findAll();
 
+    }
+
+    public void setValidado(Operador op, boolean b){
+        op.setValidado(b);
+        operadorRepository.save(op);
     }
 
 }

@@ -11,7 +11,6 @@ public interface OperadorRepository extends CrudRepository<Operador, Long> {
      */
 
     Operador findOperadorByUserName(String userName);
-    //Operador findAllByIdExists();
     Operador findOperadorByMail(String mail);
 
 }
