@@ -60,11 +60,13 @@ public class tableController implements Initializable {
     @FXML
     void blockUsers(ActionEvent event) {
         operadorMgr.setValidado(seleccionado, false);
+        updateTable();
     }
 
     @FXML
     void validateUsers(ActionEvent event) {
         operadorMgr.setValidado(seleccionado, true);
+        updateTable();
     }
 
     Operador seleccionado = new Operador();
@@ -76,9 +78,8 @@ public class tableController implements Initializable {
     private ObservableList<Operador> operadores = FXCollections.observableArrayList();
 
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
+    @FXML
+    void updateTable(){
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
@@ -97,6 +98,9 @@ public class tableController implements Initializable {
         }
 
         operatorsTable.setItems(operadores);
-
+    }
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        updateTable();
     }
 }
