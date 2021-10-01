@@ -121,6 +121,7 @@ public class tableController implements Initializable {
         foto.setCellValueFactory(new PropertyValueFactory<>("foto"));
         ubicacion.setCellValueFactory(new PropertyValueFactory<>("ubicacion"));
 
+        dataList.clear();
         Iterable<Operador> iterableOperadores = operadorMgr.GetOperadores();
         for (Operador s : iterableOperadores) {
             dataList.add(s);
