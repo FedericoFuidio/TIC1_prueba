@@ -1,10 +1,20 @@
 package um.business.entities;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
-public class Operador extends User{
+public class Operador {
 
+
+    @Id
+    @GeneratedValue(generator="operadores_ids")
+    @GenericGenerator(name="operadores_ids", strategy = "increment")
+    private long id;
+    private String mail;
     private String foto;
     private String name;
     private String phone;
@@ -17,10 +27,10 @@ public class Operador extends User{
 
     }
 
-    public Operador(String mail, String userName, String password, String foto, String name,
+    public Operador(String mail, String foto, String name,
                     String phone, String descripcion, String sitioWeb, String ubicacion){
 
-        super(mail, userName, password);
+        this.mail = mail;
         this.foto = foto;
         this.name = name;
         this.phone = phone;
@@ -85,5 +95,22 @@ public class Operador extends User{
 
     public void setValidado(boolean validado) {
         this.validado = validado;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

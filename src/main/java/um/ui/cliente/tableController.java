@@ -19,7 +19,6 @@ import um.business.OperadorMgr;
 import um.business.entities.Operador;
 
 import java.net.URL;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 @Component
@@ -126,6 +125,7 @@ public class tableController implements Initializable {
         for (Operador s : iterableOperadores) {
             dataList.add(s);
         }
+
         operatorsTable.setItems(dataList);
         FilteredList<Operador> filteredData = new FilteredList<>(dataList, b -> true);
         filterField.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -156,6 +156,7 @@ public class tableController implements Initializable {
         sortedData.comparatorProperty().bind(operatorsTable.comparatorProperty());
         operatorsTable.setItems(sortedData);
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         updateTable();

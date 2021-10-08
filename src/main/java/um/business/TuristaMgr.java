@@ -39,10 +39,6 @@ public class TuristaMgr {
         turistaRepository.save(nuevo);
         Iterable<Turista> turistaList = turistaRepository.findAll();
 
-        for(Turista s:turistaList){
-
-            System.out.println(s.getUserName());
-        }
     }
 
     public Iterable<Turista> GetTuristas(){

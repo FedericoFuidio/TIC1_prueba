@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 import um.business.OperadorMgr;
 import um.business.exception.InvalidInformation;
 import um.business.exception.RepitedMail;
-import um.business.exception.RepitedUserName;
 
 @Component
 public class OperadorController {
@@ -41,8 +40,6 @@ public class OperadorController {
     @FXML
     private TextField txtWebsite;
 
-    @FXML
-    private TextField txtUserName;
 
     @FXML
     private TextField txtPicture;
@@ -65,7 +62,6 @@ public class OperadorController {
         try{
 
             String mail = txtMail.getText();
-            String userName = txtUserName.getText();
             String password = txtPassword.getText();
             String name = txtName.getText();
             String foto = txtPicture.getText();
@@ -75,7 +71,7 @@ public class OperadorController {
             String ubicacion = txtLocation.getText();
 
 
-            operadorMgr.addOperador(mail, userName, password, foto, name, phone, descripcion, sitioWeb, ubicacion);
+            operadorMgr.addOperador(mail, foto, name, phone, descripcion, sitioWeb, ubicacion);
 
             showAlert("Usuario registrado", "Se agrego existosamente el usuario!");
 
@@ -85,11 +81,8 @@ public class OperadorController {
             showAlert(
                     "Mail ya usado por otro usuario",
                     "Ingrese otro mail");
-        } catch (RepitedUserName e){
-            showAlert(
-                    "Nombre de usuario ya existente",
-                    "Ingrese otro nombre de usuario");
-        } catch (InvalidInformation e){
+        }
+        catch (InvalidInformation e){
             showAlert(
                     "Información invalida!",
                     "Todos los datos son oblgatorios");
@@ -107,7 +100,6 @@ public class OperadorController {
 
     private void clean() {
         txtLocation.setText(null);
-        txtUserName.setText(null);
         txtName.setText(null);
         txtPhone.setText(null);
         txtMail.setText(null);
