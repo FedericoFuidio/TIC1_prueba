@@ -62,7 +62,6 @@ public class OperadorController {
         try{
 
             String mail = txtMail.getText();
-            String password = txtPassword.getText();
             String name = txtName.getText();
             String foto = txtPicture.getText();
             String phone = txtPhone.getText();

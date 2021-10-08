@@ -39,7 +39,6 @@ public class Principal {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
-
     }
 
     //Defino la accion ingresarUser, en ingresarUsuario.fxml, pongo el nombre de la funcion que quiero usar,
@@ -61,7 +60,7 @@ public class Principal {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
 
-        Parent root = fxmlLoader.load(tableController.class.getResourceAsStream("tablaPrueba.fxml"));
+        Parent root = fxmlLoader.load(TableController.class.getResourceAsStream("tablaPrueba.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();

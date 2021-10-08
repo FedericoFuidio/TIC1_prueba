@@ -39,7 +39,6 @@ public class AdminOperador {
         this.id = id;
     }
 
-    @Id
     public Long getId() {
         return id;
     }
