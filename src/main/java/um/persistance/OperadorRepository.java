@@ -5,7 +5,7 @@ import um.business.entities.Operador;
 
 public interface OperadorRepository extends CrudRepository<Operador, Long> {
     /**
-     * Retorna un turista por documento si encuentra mas de una lanza una excepcion
+     * Retorna un operador por documento si encuentra mas de una lanza una excepcion
      * @param mail
      * @return
      */

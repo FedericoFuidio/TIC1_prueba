@@ -6,15 +6,20 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import um.Main;
 import um.business.OperadorMgr;
 import um.business.entities.Operador;
 
@@ -22,7 +27,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 @Component
-public class tableController implements Initializable {
+public class TableController implements Initializable {
 
     @Autowired
     private OperadorMgr operadorMgr;
@@ -77,7 +82,7 @@ public class tableController implements Initializable {
         searchOperator();
     }
 
-    Operador seleccionado = new Operador();
+    static Operador seleccionado = new Operador();
     @FXML
     void getSelected(MouseEvent mouse){
         seleccionado = operatorsTable.getSelectionModel().getSelectedItem();
@@ -86,6 +91,17 @@ public class tableController implements Initializable {
     private ObservableList<Operador> operadores = FXCollections.observableArrayList();
     private ObservableList<Operador> dataList = FXCollections.observableArrayList();
 
+
+    @FXML
+    void agregarAdminOpAction(ActionEvent event) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+        Parent root = fxmlLoader.load(TableController.class.getResourceAsStream("agregarAdminoperador.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 
     @FXML
     void updateTable(){
@@ -144,9 +160,9 @@ public class tableController implements Initializable {
                 return true;
             }else if (person.getMail().toLowerCase().indexOf(lowerCaseFilter) != -1){
                 return true;
-            }else if (person.getFoto().toLowerCase().indexOf(lowerCaseFilter) != -1){
+            }/*else if (person.getFoto().toLowerCase().indexOf(lowerCaseFilter) != -1){
                 return true;
-            }else if (person.getUbicacion().toLowerCase().indexOf(lowerCaseFilter) != -1){
+            }*/else if (person.getUbicacion().toLowerCase().indexOf(lowerCaseFilter) != -1){
                 return true;
             }else{return false;}
         });
