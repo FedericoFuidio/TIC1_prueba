@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import um.business.ExperienciaGeneralMgr;
 import um.business.OperadorMgr;
-import um.business.entities.Operador;
 import um.business.exception.InvalidInformation;
+import um.business.exception.UserNotFound;
 
 @Component
 public class ExperienciaController {
@@ -51,9 +51,9 @@ public class ExperienciaController {
             System.out.println(descripcion);
             System.out.println(foto);
 
-            Operador operador = operadorMgr.getByMail(mail);
+            experienciaGeneralMgr.addExperiencia(nombre, ubicacion, descripcion, foto, mail);
 
-            experienciaGeneralMgr.addExperiencia(nombre, ubicacion, descripcion, foto, operador);
+            showAlert("Experiencia registrada", "Se agrego exitosamente la experiencia!");
 
             close(actionEvent);
 
@@ -61,13 +61,18 @@ public class ExperienciaController {
             showAlert(
                     "Información invalida!",
                     "Todos los datos son oblgatorios");
-        } catch (Exception e){
+        } catch (UserNotFound e){
+            showAlert(
+                    "Operador inexistente!",
+                    "No pudimos encontrar al operador en la base de datos"
+            );
+
+
+        } catch (Exception e) {
             showAlert(
                     "Algo salio mal!",
                     "Por favor, revise los datos ingresados"
             );
-
-
         }
     }
 
