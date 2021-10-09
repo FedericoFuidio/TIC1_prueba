@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class AdminOperadorController {
     private TextField txtApellido;
 
     @FXML
-    private TextField txtPassword;
+    private PasswordField txtPassword;
 
     @FXML
     private Button btnAdd;
@@ -43,10 +44,13 @@ public class AdminOperadorController {
             String apellido = txtApellido.getText();
             String password = txtPassword.getText();
 
-            adminOperadorMgr.addAdminOperador(nombre, apellido, password, TableController.seleccionado);
-
-            showAlert("Administrador registrado", "Se agrego existosamente el Administrador!");
-            close(event);
+            if (TableController.seleccionado.getMail() == null){
+                showAlert("ERROR", "Seleccione un operador");
+            }else{
+                adminOperadorMgr.addAdminOperador(nombre, apellido, password, TableController.seleccionado);
+                showAlert("Administrador registrado", "Se agrego existosamente el Administrador!");
+                close(event);
+            }
         } catch (InvalidInformation e){
             showAlert(
                     "Información invalida!",
