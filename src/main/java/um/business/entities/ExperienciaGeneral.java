@@ -7,37 +7,41 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-@Entity(name = "adminOperadores")
-public class AdminOperador {
+@Entity(name = "Experiencias")
+public class ExperienciaGeneral {
 
     @Id
-    @GeneratedValue(generator="admins_ids")
-    @GenericGenerator(name="admins_ids", strategy = "increment")
+    @GeneratedValue(generator="experiencias_ids")
+    @GenericGenerator(name="experiencias_ids", strategy = "increment")
     private Long id;
     private String nombre;
-    private String apellido;
-    private String password;
+    private String ubicacion;
+    private String descripcion;
     private boolean validado;
+    private String foto;
 
     @ManyToOne
     private Operador operador;
 
-    public AdminOperador(){
+    public ExperienciaGeneral(){
 
     }
 
-    public AdminOperador(String nombre, String apellido, String password, Operador operador){
+    public ExperienciaGeneral(String nombre, String ubicacion, String descripcion, String foto, Operador operador){
+
         this.nombre = nombre;
-        this.apellido = apellido;
-        this.password = password;
+        this.ubicacion = ubicacion;
         this.operador = operador;
         this.validado = false;
+        this.descripcion = descripcion;
+        this.foto = foto;
 
     }
 
     public void setId(Long id) {
         this.id = id;
     }
+
 
     public Long getId() {
         return id;
@@ -51,20 +55,12 @@ public class AdminOperador {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getUbicacion() {
+        return ubicacion;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
     }
 
     public boolean isValidado() {

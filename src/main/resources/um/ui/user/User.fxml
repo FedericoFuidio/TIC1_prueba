@@ -15,6 +15,7 @@
                         <MenuItem fx:id="mItemIngreso" mnemonicParsing="false" onAction="#ingresarUserAction" text="Ingresar a tu cuenta" />
                         <MenuItem fx:id="mItemAccesoOp" mnemonicParsing="false" onAction="#agregarOperadorAction" text="Registrar nuevo operador" />
                         <MenuItem fx:id="mItemTabla" mnemonicParsing="false" onAction="#tablaOperadoresAction" text="Mostrar operadores" />
+                        <MenuItem fx:id="mItemExperiencia" mnemonicParsing="false" onAction="#ingresarExperienciaAction" text="Ingresar nueva experiencia" />
                     </items>
                 </Menu>
             </menus>

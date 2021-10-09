@@ -33,13 +33,15 @@ public class AdminOperadorController {
     private Button btnClose;
 
     void addAdministrador(ActionEvent event, Operador operador){
-        try{
+        /*try{
             String nombre = txtNombre.getText();
             String apellido = txtApellido.getText();
             String password = txtPassword.getText();
 
             adminOperadorMgr.addAdminOperador(nombre, apellido, password, operador);
         } catch ()
+
+         */
 
     }
 

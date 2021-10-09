@@ -48,4 +48,8 @@ public class OperadorMgr {
         operadorRepository.save(op);
     }
 
+    public Operador getByMail(String mail){
+        return operadorRepository.findOperadorByMail(mail);
+    }
+
 }
