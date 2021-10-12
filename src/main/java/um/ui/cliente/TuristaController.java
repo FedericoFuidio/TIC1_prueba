@@ -37,6 +37,9 @@ public class TuristaController {
     private PasswordField txtPassword;
 
     @FXML
+    private PasswordField txtPasswordValidation;
+
+    @FXML
     private TextField txtName;
 
     @FXML
@@ -51,15 +54,15 @@ public class TuristaController {
 
     @FXML
     void close(ActionEvent actionEvent) {
-        Node source = (Node)  actionEvent.getSource();
-        Stage stage  = (Stage) source.getScene().getWindow();
+        Node source = (Node) actionEvent.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
     }
 
     @FXML
-    void addTurista(ActionEvent actionEvent){
+    void addTurista(ActionEvent actionEvent) {
 
-        try{
+        try {
 
             String mail = txtMail.getText();
             String userName = txtUserName.getText();
@@ -76,22 +79,22 @@ public class TuristaController {
 
             close(actionEvent);
 
-        } catch (RepitedMail e){
+        } catch (RepitedMail e) {
             showAlert(
                     "Mail ya usado por otro usuario",
                     "Ingrese otro mail");
-        } catch (RepitedUserName e){
+        } catch (RepitedUserName e) {
             showAlert(
                     "Nombre de usuario ya existente",
                     "Ingrese otro nombre de usuario");
-        } catch (InvalidInformation e){
+        } catch (InvalidInformation e) {
             showAlert(
                     "Información invalida!",
                     "Todos los datos son oblgatorios");
         } //catch (Exception e){
-            //showAlert(
-                    //"Información invalida!",
-                    //"Revise los datos ingresados");
+        //showAlert(
+        //"Información invalida!",
+        //"Revise los datos ingresados");
         //}
 
     }

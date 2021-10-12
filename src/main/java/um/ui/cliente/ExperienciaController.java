@@ -48,8 +48,6 @@ public class ExperienciaController {
             String foto = txtFoto.getText();
             String mail = txtMailoperador.getText();
 
-            System.out.println(descripcion);
-            System.out.println(foto);
 
             experienciaGeneralMgr.addExperiencia(nombre, ubicacion, descripcion, foto, mail);
 
