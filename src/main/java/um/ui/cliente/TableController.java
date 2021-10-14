@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -22,7 +23,6 @@ import org.springframework.stereotype.Component;
 import um.Main;
 import um.business.OperadorMgr;
 import um.business.entities.Operador;
-import um.persistance.OperadorRepository;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,9 +33,6 @@ public class TableController implements Initializable {
 
     @Autowired
     private OperadorMgr operadorMgr;
-
-    @Autowired
-    OperadorRepository operadorRepository;
 
     @FXML
     private TableView<Operador> operatorsTable;
@@ -125,7 +122,7 @@ public class TableController implements Initializable {
 
 
         operadores.clear();
-        Iterable<Operador> iterableOperadores = operadorRepository.findAll();
+        Iterable<Operador> iterableOperadores = operadorMgr.GetOperadores();
         for (Operador s : iterableOperadores) {
             operadores.add(s);
         }
@@ -195,7 +192,13 @@ public class TableController implements Initializable {
         Parent root = fxmlLoader.load(OperadorController.class.getResourceAsStream("agregarOperador.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
-        stage.show();
 
+    }
+
+    @FXML
+    void close(ActionEvent actionEvent) {
+        Node source = (Node) actionEvent.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 }
