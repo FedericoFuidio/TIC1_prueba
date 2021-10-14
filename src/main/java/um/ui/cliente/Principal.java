@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
@@ -16,6 +17,21 @@ public class Principal {
 
     @FXML
     private MenuItem mItemAgregarCliente;
+
+    @FXML
+    private Button registrarse;
+
+    @FXML
+    private Button ingresar;
+
+    @FXML
+    private Button tablaOperadores;
+
+    @FXML
+    private Button agregarOperador;
+
+    @FXML
+    private Button agregarExperiencia;
 
     //Defino la accion agregarClient, en agregarTurista.fxml defino las operaciones que quiero que
     //realize esta accion (addUser), y la clase donde esta la funcion (UserController):

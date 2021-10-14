@@ -22,7 +22,9 @@ import org.springframework.stereotype.Component;
 import um.Main;
 import um.business.OperadorMgr;
 import um.business.entities.Operador;
+import um.persistance.OperadorRepository;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -31,6 +33,9 @@ public class TableController implements Initializable {
 
     @Autowired
     private OperadorMgr operadorMgr;
+
+    @Autowired
+    OperadorRepository operadorRepository;
 
     @FXML
     private TableView<Operador> operatorsTable;
@@ -67,6 +72,9 @@ public class TableController implements Initializable {
 
     @FXML
     private TextField filterField;
+
+    @FXML
+    private Button btnAddOperators;
 
     @FXML
     void blockUsers(ActionEvent event) {
@@ -117,7 +125,7 @@ public class TableController implements Initializable {
 
 
         operadores.clear();
-        Iterable<Operador> iterableOperadores = operadorMgr.GetOperadores();
+        Iterable<Operador> iterableOperadores = operadorRepository.findAll();
         for (Operador s : iterableOperadores) {
             operadores.add(s);
         }
@@ -177,5 +185,17 @@ public class TableController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         updateTable();
         searchOperator();
+    }
+
+    @FXML
+    void agregarOperadorAction(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+        Parent root = fxmlLoader.load(OperadorController.class.getResourceAsStream("agregarOperador.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+
     }
 }

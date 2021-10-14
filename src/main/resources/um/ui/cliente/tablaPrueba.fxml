@@ -8,14 +8,15 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="928.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.TableController">
    <children>
-      <AnchorPane prefHeight="400.0" prefWidth="132.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane prefHeight="400.0" prefWidth="180.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="BtnValidate" layoutX="16.0" layoutY="140.0" mnemonicParsing="false" onAction="#validateUsers" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: green;" text="Validar" />
-            <Button fx:id="btnBlock" layoutX="16.0" layoutY="191.0" mnemonicParsing="false" onAction="#blockUsers" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: red;" text="Bloquear" />
-            <Button layoutX="16.0" layoutY="241.0" mnemonicParsing="false" onAction="#agregarAdminOpAction" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: Yellow;" text="Agregar Admin" />
+            <Button fx:id="BtnValidate" layoutX="16.0" layoutY="140.0" mnemonicParsing="false" onAction="#validateUsers" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: green;" text="Validar" />
+            <Button fx:id="btnBlock" layoutX="16.0" layoutY="190.0" mnemonicParsing="false" onAction="#blockUsers" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: red;" text="Bloquear" />
+            <Button layoutX="16.0" layoutY="240.0" mnemonicParsing="false" onAction="#agregarAdminOpAction" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: Yellow;" text="Agregar Admin" />
+             <Button layoutX="16.0" layoutY="290.0" mnemonicParsing="false" onAction="#agregarOperadorAction" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: Yellow;" text="Agregar Operador" />
          </children>
       </AnchorPane>
-      <TableView fx:id="operatorsTable" layoutX="132.0" layoutY="51.0" onMouseClicked="#getSelected" prefHeight="349.0" prefWidth="796.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="132.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="51.0">
+      <TableView fx:id="operatorsTable" layoutX="132.0" layoutY="51.0" onMouseClicked="#getSelected" prefHeight="349.0" prefWidth="796.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="51.0">
         <columns>
             <TableColumn fx:id="id" prefWidth="50.399993896484375" text="ID" />
             <TableColumn fx:id="name" prefWidth="135.20001220703125" text="Nombre" />

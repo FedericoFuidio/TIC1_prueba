@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Button?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.Principal">
     <top>
-        <MenuBar BorderPane.alignment="CENTER">
-            <menus>
-                <Menu mnemonicParsing="false" text="Ingresar">
-                    <items>
-                        <MenuItem fx:id="mItemAcceso" mnemonicParsing="false" onAction="#agregarClientAction" text="Registrar nuevo usuario" />
-                        <MenuItem fx:id="mItemIngreso" mnemonicParsing="false" onAction="#ingresarUserAction" text="Ingresar a tu cuenta" />
-                        <MenuItem fx:id="mItemAccesoOp" mnemonicParsing="false" onAction="#agregarOperadorAction" text="Registrar nuevo operador" />
-                        <MenuItem fx:id="mItemTabla" mnemonicParsing="false" onAction="#tablaOperadoresAction" text="Mostrar operadores" />
-                        <MenuItem fx:id="mItemExperiencia" mnemonicParsing="false" onAction="#ingresarExperienciaAction" text="Ingresar nueva experiencia" />
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
+        <Text strokeType="OUTSIDE" strokeWidth="20.0" text="Bienvenido!" BorderPane.alignment="CENTER">
+            <font>
+                <Font size="28.0" />
+            </font>
+        </Text>
     </top>
+    <center>
+        <AnchorPane prefHeight="317.0" prefWidth="459.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="ingresar" mnemonicParsing="false"  onAction="#ingresarUserAction" text="Ingresar a tu cuenta" layoutY="50.0" layoutX="20.0"  />
+                <Button fx:id="registrarse" mnemonicParsing="false"  onAction="#agregarClientAction" text="Registrarte" layoutY="100.0" layoutX="20.0" />
+                <Button fx:id="tablaOperadores" mnemonicParsing="false"  onAction="#tablaOperadoresAction" text="Mostrar operadores" layoutY="150.0" layoutX="20.0" />
+                <Button fx:id="agregarExperiencia" mnemonicParsing="false"  onAction="#ingresarExperienciaAction" text="Agregar nueva experiencia" layoutY="200.0" layoutX="20.0" />
+            </children>
+        </AnchorPane>
+    </center>
 </BorderPane>

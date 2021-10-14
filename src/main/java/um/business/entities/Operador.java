@@ -22,6 +22,7 @@ public class Operador {
     private String sitioWeb;
     private String ubicacion;
     private boolean validado;
+    private byte[] image;
 
     public Operador(){
 
@@ -112,5 +113,13 @@ public class Operador {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 }
