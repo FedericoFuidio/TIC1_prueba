@@ -1,9 +1,9 @@
 package um.persistance;
 
 import org.springframework.data.repository.CrudRepository;
-import um.business.entities.ExperienciaGeneral;
+import um.business.entities.Experiencia;
 
-public interface ExperienciaGeneralRepository extends CrudRepository<ExperienciaGeneral, Long> {
+public interface ExperienciaGeneralRepository extends CrudRepository<Experiencia, Long> {
 
 
 }

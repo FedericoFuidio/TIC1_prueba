@@ -16,7 +16,7 @@ public class ValidarExperiencia {
     @ManyToOne
     @MapsId("experienciaId")
     @JoinColumn(name = "experiencia_id")
-    private ExperienciaGeneral experiencia;
+    private Experiencia experiencia;
 
     private boolean resulatado;
 
@@ -24,7 +24,7 @@ public class ValidarExperiencia {
 
     }
 
-    public ValidarExperiencia(Administrador admin, ExperienciaGeneral experiencia, boolean resulatado){
+    public ValidarExperiencia(Administrador admin, Experiencia experiencia, boolean resulatado){
 
         this.admin = admin;
         this.experiencia = experiencia;
@@ -47,11 +47,11 @@ public class ValidarExperiencia {
         this.admin = admin;
     }
 
-    public ExperienciaGeneral getExperiencia() {
+    public Experiencia getExperiencia() {
         return experiencia;
     }
 
-    public void setExperiencia(ExperienciaGeneral experiencia) {
+    public void setExperiencia(Experiencia experiencia) {
         this.experiencia = experiencia;
     }
 

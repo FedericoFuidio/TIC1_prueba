@@ -20,13 +20,13 @@ public class Cupo {
     private int cuposLibres;
 
     @ManyToOne
-    private ExperienciaGeneral experiencia;
+    private Experiencia experiencia;
 
     public Cupo(){
 
     }
 
-    public Cupo(int cupos, Date fecha, ExperienciaGeneral experiencia){
+    public Cupo(int cupos, Date fecha, Experiencia experiencia){
 
         this.cupos = cupos;
         this.fecha = fecha;
@@ -66,11 +66,11 @@ public class Cupo {
         this.cuposLibres = cuposLibres;
     }
 
-    public ExperienciaGeneral getExperiencia() {
+    public Experiencia getExperiencia() {
         return experiencia;
     }
 
-    public void setExperiencia(ExperienciaGeneral experiencia) {
+    public void setExperiencia(Experiencia experiencia) {
         this.experiencia = experiencia;
     }
 }

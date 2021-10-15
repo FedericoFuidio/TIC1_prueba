@@ -196,7 +196,7 @@ public class TableController implements Initializable {
         Parent root = fxmlLoader.load(OperadorController.class.getResourceAsStream("agregarOperador.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
-
+        stage.show();
     }
 
     @FXML

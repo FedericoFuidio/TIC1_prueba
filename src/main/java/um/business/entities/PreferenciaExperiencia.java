@@ -16,13 +16,13 @@ public class PreferenciaExperiencia {
     @ManyToOne
     @MapsId("experienciaId")
     @JoinColumn(name = "experiencia_id")
-    private ExperienciaGeneral experiencia;
+    private Experiencia experiencia;
 
     public PreferenciaExperiencia(){
 
     }
 
-    public PreferenciaExperiencia(Preferencia preferencia, ExperienciaGeneral experiencia){
+    public PreferenciaExperiencia(Preferencia preferencia, Experiencia experiencia){
 
         this.preferencia = preferencia;
         this.experiencia = experiencia;
@@ -44,11 +44,11 @@ public class PreferenciaExperiencia {
         this.preferencia = preferencia;
     }
 
-    public ExperienciaGeneral getExperiencia() {
+    public Experiencia getExperiencia() {
         return experiencia;
     }
 
-    public void setExperiencia(ExperienciaGeneral experiencia) {
+    public void setExperiencia(Experiencia experiencia) {
         this.experiencia = experiencia;
     }
 }

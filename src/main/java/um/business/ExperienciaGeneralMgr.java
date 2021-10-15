@@ -2,7 +2,7 @@ package um.business;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import um.business.entities.ExperienciaGeneral;
+import um.business.entities.Experiencia;
 import um.business.entities.Operador;
 import um.business.exception.InvalidInformation;
 import um.business.exception.UserNotFound;
@@ -30,7 +30,7 @@ public class ExperienciaGeneralMgr {
             throw new UserNotFound();
         }
 
-        ExperienciaGeneral nueva = new ExperienciaGeneral(nombre, ubicacion, descripcion, foto, operador);
+        Experiencia nueva = new Experiencia(nombre, ubicacion, descripcion, foto, operador);
         experienciaGeneralRepository.save(nueva);
 
     }

@@ -7,7 +7,7 @@ import java.util.List;
 
 
 @Entity(name = "Experiencias")
-public class ExperienciaGeneral {
+public class Experiencia {
 
     @Id
     @GeneratedValue(generator="experiencias_ids")
@@ -25,11 +25,11 @@ public class ExperienciaGeneral {
     @ManyToMany
     private List<Preferencia> preferencias;
 
-    public ExperienciaGeneral(){
+    public Experiencia(){
 
     }
 
-    public ExperienciaGeneral(String nombre, String ubicacion, String descripcion, String foto, Operador operador){
+    public Experiencia(String nombre, String ubicacion, String descripcion, String foto, Operador operador){
 
         this.nombre = nombre;
         this.ubicacion = ubicacion;
@@ -103,5 +103,13 @@ public class ExperienciaGeneral {
 
     public void setPreferencias(List<Preferencia> preferencias) {
         this.preferencias = preferencias;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

@@ -44,7 +44,7 @@ public class AdminOperadorController {
             String apellido = txtApellido.getText();
             String password = txtPassword.getText();
 
-            if (TableController.seleccionado.getMail() == null){
+            if (TableController.seleccionado == null  || TableController.seleccionado.getMail() == null){
                 showAlert("ERROR", "Seleccione un operador");
             }else{
                 adminOperadorMgr.addAdminOperador(nombre, apellido, password, TableController.seleccionado);
