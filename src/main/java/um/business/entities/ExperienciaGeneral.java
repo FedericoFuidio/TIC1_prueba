@@ -2,10 +2,9 @@ package um.business.entities;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.List;
+
 
 @Entity(name = "Experiencias")
 public class ExperienciaGeneral {
@@ -22,6 +21,9 @@ public class ExperienciaGeneral {
 
     @ManyToOne
     private Operador operador;
+
+    @ManyToMany
+    private List<Preferencia> preferencias;
 
     public ExperienciaGeneral(){
 
@@ -77,5 +79,29 @@ public class ExperienciaGeneral {
 
     public void setOperador(Operador operador) {
         this.operador = operador;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public List<Preferencia> getPreferencias() {
+        return preferencias;
+    }
+
+    public void setPreferencias(List<Preferencia> preferencias) {
+        this.preferencias = preferencias;
     }
 }

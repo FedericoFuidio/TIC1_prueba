@@ -1,7 +1,9 @@
 package um.business.entities;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+
 
 @Entity
 public class Turista extends User{
@@ -12,6 +14,8 @@ public class Turista extends User{
     private String pais;
     @Column(unique = true)
     private Long passport;
+
+
 
     public Turista(){
     }

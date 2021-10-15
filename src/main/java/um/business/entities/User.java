@@ -12,9 +12,12 @@ public class User {
     @Id
     @GeneratedValue(generator="clients_ids")
     @GenericGenerator(name="clients_ids", strategy = "increment")
+    @Column(name = "user_id")
     private long id;
+
     @Column(unique = true)
     private String userName;
+
     @Column(unique = true)
     private String mail;
     private String password;

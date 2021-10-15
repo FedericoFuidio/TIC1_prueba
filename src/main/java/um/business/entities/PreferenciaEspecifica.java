@@ -2,20 +2,19 @@ package um.business.entities;
 
 import javax.persistence.Entity;
 
-@Entity(name = "preferencias_generales")
-public class PreferenciaGeneral extends Preferencia{
+@Entity
+public class PreferenciaEspecifica extends Preferencia{
 
     private String nombre;
     private String descripcion;
 
 
-    public PreferenciaGeneral(){
+    public PreferenciaEspecifica(){
 
     }
 
-    public PreferenciaGeneral(String nombre, String descripcion){
+    public PreferenciaEspecifica(String nombre, String descripcion){
         super(nombre, descripcion);
-
     }
 
     public String getNombre() {
@@ -33,6 +32,5 @@ public class PreferenciaGeneral extends Preferencia{
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
 
 }
