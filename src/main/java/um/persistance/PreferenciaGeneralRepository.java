@@ -5,5 +5,5 @@ import um.business.entities.PreferenciaGeneral;
 
 public interface PreferenciaGeneralRepository extends CrudRepository<PreferenciaGeneral, Long> {
 
-    PreferenciaGeneral getPreferenciaGeneralByDescripcionAndAndNombre(String descripcion, String nombre);
+    PreferenciaGeneral getPreferenciaGeneralByNombre(String nombre);
 }
