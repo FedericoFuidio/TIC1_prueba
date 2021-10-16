@@ -85,6 +85,7 @@ public class TableController implements Initializable {
     }
 
     static Operador seleccionado = new Operador();
+
     @FXML
     void getSelected(MouseEvent mouse){
         seleccionado = operatorsTable.getSelectionModel().getSelectedItem();

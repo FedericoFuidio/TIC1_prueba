@@ -3,8 +3,10 @@ package um.ui.cliente;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import org.springframework.stereotype.Component;
 import um.business.entities.Experiencia;
 
+@Component
 public class VistaExperienciaController {
 
     @FXML
@@ -22,7 +24,9 @@ public class VistaExperienciaController {
     @FXML
     private Label contacto;
 
-    private void setData(Experiencia experiencia){
+
+    public void setData(Experiencia experiencia){
+       // foto.setImage(experiencia.getFoto());
         nombre.setText(experiencia.getNombre());
         descripcion.setText(experiencia.getDescripcion());
         ubicacion.setText(experiencia.getUbicacion());

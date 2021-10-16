@@ -2,11 +2,15 @@ package um.ui.cliente;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import um.Main;
 import um.business.UserMgr;
 
 import java.time.LocalDate;
@@ -146,14 +150,18 @@ public class UserController {
             boolean ingreso = userMgr.IngresarUser(userName, password);
 
             if(ingreso) {
-                showAlert("", "Bienvenido " + userName);
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setControllerFactory(Main.getContext()::getBean);
 
-                close(event);
+                Parent root = fxmlLoader.load(PantallaPrincipalController.class.getResourceAsStream("pantallaPrincipal.fxml"));
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.show();
             } else{
                 showAlert("Contraseña incorrecta", "Intente nuevamente");
             }
         } catch (Exception e){
-
+            e.printStackTrace();
             showAlert("Usuario no encontrado", "Intente nuevamente");
         }
 

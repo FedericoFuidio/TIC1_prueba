@@ -21,13 +21,13 @@
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../../../../../perfil.png" />
-                           </image>
+                        <ImageView fx:id="imgPerfil" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets bottom="15.0" left="10.0" top="15.0" />
                            </HBox.margin>
+                           <image>
+                              <Image url="@imgs/perfil.png" />
+                           </image>
                         </ImageView>
                         <Button fx:id="btnPerfil" alignment="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="60.0" text="Perfil" textAlignment="CENTER">
                            <HBox.margin>
@@ -41,13 +41,13 @@
                   </HBox>
                   <HBox prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../../../../../ajustes.png" />
-                           </image>
+                        <ImageView fx:id="imgAjustes" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets bottom="15.0" left="10.0" top="15.0" />
                            </HBox.margin>
+                           <image>
+                              <Image url="@imgs/ajustes.png" />
+                           </image>
                         </ImageView>
                         <Button fx:id="btnAjustes" alignment="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="60.0" text="Ajustes" textAlignment="CENTER">
                            <HBox.margin>
@@ -61,13 +61,13 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../../../../../historial.png" />
-                           </image>
+                        <ImageView fx:id="imgHistorial" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
                               <Insets bottom="15.0" left="10.0" top="15.0" />
                            </HBox.margin>
+                           <image>
+                              <Image url="@imgs/historial.png" />
+                           </image>
                         </ImageView>
                         <Button fx:id="btnHistorial" alignment="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="60.0" text="Historial" textAlignment="CENTER">
                            <HBox.margin>
@@ -82,13 +82,13 @@
          <top>
             <HBox prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../../../../../../busqueda.jpg" />
-                     </image>
+                  <ImageView fx:id="imgBusqueda" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <HBox.margin>
                         <Insets bottom="10.0" left="600.0" top="10.0" />
                      </HBox.margin>
+                     <image>
+                        <Image url="@imgs/busqueda.jpg" />
+                     </image>
                   </ImageView>
                   <TextField fx:id="searchField" prefHeight="20.0" prefWidth="300.0" promptText="Busqueda">
                      <HBox.margin>

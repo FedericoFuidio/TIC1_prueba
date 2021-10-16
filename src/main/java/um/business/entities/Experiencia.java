@@ -1,5 +1,7 @@
 package um.business.entities;
 
+import com.mysql.cj.protocol.ColumnDefinition;
+import javafx.scene.Node;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -17,19 +19,17 @@ public class Experiencia {
     private String ubicacion;
     private String descripcion;
     private boolean validado;
-    private String foto;
+    @Column(columnDefinition = "MEDIUMBLOB")
+    private byte[] foto;
 
     @ManyToOne
     private Operador operador;
-
-    @ManyToMany
-    private List<Preferencia> preferencias;
 
     public Experiencia(){
 
     }
 
-    public Experiencia(String nombre, String ubicacion, String descripcion, String foto, Operador operador){
+    public Experiencia(String nombre, String ubicacion, String descripcion, byte[] foto, Operador operador){
 
         this.nombre = nombre;
         this.ubicacion = ubicacion;
@@ -89,20 +89,13 @@ public class Experiencia {
         this.descripcion = descripcion;
     }
 
-    public String getFoto() {
+
+    public byte[] getFoto() {
         return foto;
     }
 
-    public void setFoto(String foto) {
+    public void setFoto(byte[] foto) {
         this.foto = foto;
-    }
-
-    public List<Preferencia> getPreferencias() {
-        return preferencias;
-    }
-
-    public void setPreferencias(List<Preferencia> preferencias) {
-        this.preferencias = preferencias;
     }
 
 }

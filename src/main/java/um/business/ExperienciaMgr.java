@@ -8,8 +8,10 @@ import um.business.exception.InvalidInformation;
 import um.business.exception.UserNotFound;
 import um.persistance.ExperienciaGeneralRepository;
 
+import java.util.List;
+
 @Service
-public class ExperienciaGeneralMgr {
+public class ExperienciaMgr {
 
     @Autowired
     ExperienciaGeneralRepository experienciaGeneralRepository;
@@ -17,7 +19,7 @@ public class ExperienciaGeneralMgr {
     @Autowired
     OperadorMgr operadorMgr;
 
-    public void addExperiencia(String nombre, String ubicacion, String descripcion, String foto, String mailOperador)
+    public void addExperiencia(String nombre, String ubicacion, String descripcion, byte[] foto, String mailOperador)
             throws InvalidInformation, UserNotFound {
 
         if(nombre == null || nombre.equals("") || ubicacion == null || ubicacion.equals("")){
@@ -33,5 +35,10 @@ public class ExperienciaGeneralMgr {
         Experiencia nueva = new Experiencia(nombre, ubicacion, descripcion, foto, operador);
         experienciaGeneralRepository.save(nueva);
 
+    }
+
+    public Iterable<Experiencia> getExperiencias(){
+
+        return experienciaGeneralRepository.findAll();
     }
 }
