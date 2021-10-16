@@ -15,6 +15,8 @@ public class Preferencia {
     private String nombre;
     private String descripcion;
 
+
+
     public Preferencia(){
 
     }

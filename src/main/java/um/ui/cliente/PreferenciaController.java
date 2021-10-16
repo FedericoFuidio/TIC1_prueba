@@ -14,7 +14,7 @@ import um.business.exception.ClassAlreadyExists;
 import um.business.exception.InvalidInformation;
 
 @Component
-public class PreferenciaGeneralController {
+public class PreferenciaController {
 
     @Autowired
     PreferenciasMgr preferenciasMgr;
@@ -41,6 +41,28 @@ public class PreferenciaGeneralController {
             preferenciasMgr.addPreferenciaGeneral(nombre, descripcion);
 
             showAlert("Preferencia registrada", "Se agregó una nueva preferencia general");
+
+        } catch (ClassAlreadyExists e){
+
+            showAlert("Preferencia ya registrada en el sistema",
+                    "ya existe una preferencia con el nombre ingresado");
+        } catch (InvalidInformation e){
+            showAlert("Información invalida!",
+                    "Todos los datos son obligaorios");
+        }
+    }
+
+
+    @FXML
+    void addPreferenciaEspecifica(ActionEvent actionEvent){
+
+        try{
+            String nombre = txtNombre.getText();
+            String descripcion = txtDescripcion.getText();
+
+            preferenciasMgr.addPreferenciaEspecifica(nombre, descripcion);
+
+            showAlert("Preferencia registrada", "Se agregó una nueva preferencia especifica");
 
         } catch (ClassAlreadyExists e){
 

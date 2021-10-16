@@ -16,7 +16,7 @@ repositories {
 
 javafx {
     version = "15.0.1"
-    modules = [ 'javafx.controls', 'javafx.fxml' ]
+    modules = [ 'javafx.controls', 'javafx.fxml']
 }
 
 
@@ -24,6 +24,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'mysql:mysql-connector-java'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation 'org.controlsfx:controlsfx:11.1.0'
 }
 
 test {

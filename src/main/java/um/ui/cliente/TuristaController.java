@@ -1,25 +1,34 @@
 package um.ui.cliente;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import um.business.PaisMgr;
 import um.business.TuristaMgr;
 import um.business.exception.InvalidInformation;
 import um.business.exception.RepitedMail;
 import um.business.exception.RepitedUserName;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 @Component
-public class TuristaController {
+public class TuristaController implements Initializable {
 
     @Autowired
     TuristaMgr turistaMgr;
+
+    @Autowired
+    PaisMgr paisMgr;
+
+    private ObservableList<String> temp = FXCollections.observableArrayList();;
 
     @FXML
     private Button btnClose;
@@ -49,8 +58,11 @@ public class TuristaController {
     private TextField txtPais;
 
     @FXML
-    private TextField txtPassport;
+    private ComboBox<String> cmbPais;
 
+
+    @FXML
+    private TextField txtPassport;
 
     @FXML
     void close(ActionEvent actionEvent) {
@@ -69,7 +81,7 @@ public class TuristaController {
             String password = txtPassword.getText();
             String name = txtName.getText();
             String apellido = txtApellido.getText();
-            String pais = txtPais.getText();
+            String pais = cmbPais.getValue();
             Long passport = Long.parseLong(txtPassport.getText());
 
 
@@ -115,5 +127,13 @@ public class TuristaController {
         txtMail.setText(null);
         txtPassword.setText(null);
         txtPassport.setText(null);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        temp = paisMgr.getPaises();
+        cmbPais.setItems(temp);
+
     }
 }

@@ -2,10 +2,12 @@ package um.business;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import um.business.entities.Pais;
 import um.business.entities.Turista;
 import um.business.exception.InvalidInformation;
 import um.business.exception.RepitedMail;
 import um.business.exception.RepitedUserName;
+import um.persistance.PaisRepository;
 import um.persistance.TuristaRepository;
 
 @Service
@@ -13,6 +15,9 @@ public class TuristaMgr {
 
     @Autowired
     private TuristaRepository turistaRepository;
+
+    @Autowired
+    private PaisRepository paisRepository;
 
     //Agregamos un Turista al sistema:
     public void addTurista(String mail, String userName, String password, String name,
@@ -34,8 +39,9 @@ public class TuristaMgr {
         if(turistaRepository.findTuristaByMail(mail) != null){
             throw new RepitedMail();
         }
+        Pais country = paisRepository.findPaisByNombre(pais);
 
-        Turista nuevo = new Turista(mail, userName, password, name, apellido, pais, passport);
+        Turista nuevo = new Turista(mail, userName, password, name, apellido, country, passport);
         turistaRepository.save(nuevo);
         Iterable<Turista> turistaList = turistaRepository.findAll();
 

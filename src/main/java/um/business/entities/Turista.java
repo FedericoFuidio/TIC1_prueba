@@ -3,6 +3,7 @@ package um.business.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
 
 @Entity
@@ -11,7 +12,9 @@ public class Turista extends User{
 
     private String name;
     private String apellido;
-    private String pais;
+
+    @ManyToOne
+    private Pais pais;
     @Column(unique = true)
     private Long passport;
 
@@ -21,7 +24,7 @@ public class Turista extends User{
     }
 
 
-    public Turista(String mail, String userName, String password, String name, String apellido, String pais, Long passport){
+    public Turista(String mail, String userName, String password, String name, String apellido, Pais pais, Long passport){
 
         super(mail, userName, password);
         this.name = name;
@@ -46,11 +49,11 @@ public class Turista extends User{
         this.apellido = apellido;
     }
 
-    public String getPais() {
+    public Pais getPais() {
         return pais;
     }
 
-    public void setPais(String pais) {
+    public void setPais(Pais pais) {
         this.pais = pais;
     }
 
