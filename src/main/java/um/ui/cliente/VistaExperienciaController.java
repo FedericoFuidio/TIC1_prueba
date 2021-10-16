@@ -2,6 +2,7 @@ package um.ui.cliente;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.springframework.stereotype.Component;
 import um.business.entities.Experiencia;
@@ -26,7 +27,9 @@ public class VistaExperienciaController {
 
 
     public void setData(Experiencia experiencia){
-       // foto.setImage(experiencia.getFoto());
+        /*if(experiencia.getFoto() != null){
+            Image image =   new Image(experiencia.getFoto());
+            foto.setImage(image);}*/
         nombre.setText(experiencia.getNombre());
         descripcion.setText(experiencia.getDescripcion());
         ubicacion.setText(experiencia.getUbicacion());

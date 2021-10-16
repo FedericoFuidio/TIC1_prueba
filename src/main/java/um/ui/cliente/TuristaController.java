@@ -103,7 +103,11 @@ public class TuristaController implements Initializable {
             showAlert(
                     "Información invalida!",
                     "Todos los datos son oblgatorios");
-        } //catch (Exception e){
+        } catch(NumberFormatException e){
+            showAlert(
+                    "Información invalida!",
+                    "El pasaporte debe ser netamente numérico");
+        }//catch (Exception e){
         //showAlert(
         //"Información invalida!",
         //"Revise los datos ingresados");
