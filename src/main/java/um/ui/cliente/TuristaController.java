@@ -4,14 +4,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import um.Main;
 import um.business.PaisMgr;
 import um.business.TuristaMgr;
+import um.business.entities.Turista;
 import um.business.exception.InvalidInformation;
 import um.business.exception.RepitedMail;
 import um.business.exception.RepitedUserName;
@@ -27,6 +32,8 @@ public class TuristaController implements Initializable {
 
     @Autowired
     PaisMgr paisMgr;
+
+    static Turista turistaIngresado;
 
     private ObservableList<String> temp = FXCollections.observableArrayList();;
 
@@ -86,10 +93,17 @@ public class TuristaController implements Initializable {
 
 
             turistaMgr.addTurista(mail, userName, password, name, apellido, pais, passport);
-
-            showAlert("Usuario registrado", "Se agrego existosamente el usuario!");
+            turistaIngresado = turistaMgr.getTuritstaByUserName(userName);
 
             close(actionEvent);
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+            Parent root = fxmlLoader.load(CheckListPreferenciaGen.class.getResourceAsStream("ElegirPreferenciasGen.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
 
         } catch (RepitedMail e) {
             showAlert(
@@ -107,11 +121,11 @@ public class TuristaController implements Initializable {
             showAlert(
                     "Información invalida!",
                     "El pasaporte debe ser netamente numérico");
-        }//catch (Exception e){
+        }catch (Exception e){
         //showAlert(
         //"Información invalida!",
         //"Revise los datos ingresados");
-        //}
+        }
 
     }
 

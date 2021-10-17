@@ -95,6 +95,30 @@ public class Principal {
 
     }
 
+    @FXML
+    void ingresarPreferenciaGeneralAction(ActionEvent event) throws Exception{
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+        Parent root = fxmlLoader.load(PreferenciaController.class.getResourceAsStream("agregarPreferenciaGen.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+
+    }
+
+    @FXML
+    void ingresarPreferenciaEspecificaAction(ActionEvent event) throws Exception{
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+        Parent root = fxmlLoader.load(PreferenciaController.class.getResourceAsStream("agregarPreferenciaEspecifica.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+
+    }
+
 
 
 }

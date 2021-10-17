@@ -19,6 +19,7 @@ public class TuristaMgr {
     @Autowired
     private PaisRepository paisRepository;
 
+
     //Agregamos un Turista al sistema:
     public void addTurista(String mail, String userName, String password, String name,
                       String apellido, String pais, Long passport) throws RepitedUserName,
@@ -51,6 +52,10 @@ public class TuristaMgr {
 
         return turistaRepository.findAll();
 
+    }
+
+    public Turista getTuritstaByUserName(String userName){
+        return turistaRepository.findTuristaByUserName(userName);
     }
 
 }

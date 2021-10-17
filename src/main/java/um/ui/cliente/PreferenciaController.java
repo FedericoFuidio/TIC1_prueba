@@ -42,6 +42,8 @@ public class PreferenciaController {
 
             showAlert("Preferencia registrada", "Se agregó una nueva preferencia general");
 
+            close(actionEvent);
+
         } catch (ClassAlreadyExists e){
 
             showAlert("Preferencia ya registrada en el sistema",
@@ -63,6 +65,8 @@ public class PreferenciaController {
             preferenciasMgr.addPreferenciaEspecifica(nombre, descripcion);
 
             showAlert("Preferencia registrada", "Se agregó una nueva preferencia especifica");
+
+            close(actionEvent);
 
         } catch (ClassAlreadyExists e){
 
@@ -94,7 +98,10 @@ public class PreferenciaController {
         stage.close();
     }
 
+    @FXML
+    void choosePreferencias(ActionEvent event){
 
+    }
 
 
 }

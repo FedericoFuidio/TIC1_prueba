@@ -24,11 +24,11 @@ public class PreferenciaTurista {
 
     }
 
-    public PreferenciaTurista(Turista turista, Preferencia preferencia, int puntuacion){
+    public PreferenciaTurista(PreferenciaTuristaKey id, Turista turista, Preferencia preferencia){
 
+        this.id = id;
         this.turista = turista;
         this.preferencia = preferencia;
-        this.puntuacion = puntuacion;
 
     }
 

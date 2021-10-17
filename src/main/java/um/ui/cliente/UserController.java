@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import um.Main;
 import um.business.UserMgr;
+import um.business.entities.Turista;
+import um.business.entities.User;
 
 import java.time.LocalDate;
 
@@ -59,6 +61,9 @@ public class UserController {
         Stage stage  = (Stage) source.getScene().getWindow();
         stage.close();
     }
+
+    static User usuarioIngresado;
+    static Turista turistaIngresado;
 
     @FXML
     void addClient(ActionEvent event) {
@@ -147,9 +152,10 @@ public class UserController {
 
             //Ingreso el usuario, si el resultado de la operacion es true, la contraseña es correcta,
             //Si se lanza una excepcion, el usuario ingresado no existe:
-            boolean ingreso = userMgr.IngresarUser(userName, password);
+            usuarioIngresado = userMgr.IngresarUser(userName, password);
+            turistaIngresado = userMgr.obtenerTurista(usuarioIngresado);
 
-            if(ingreso) {
+            if(usuarioIngresado != null && turistaIngresado != null) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setControllerFactory(Main.getContext()::getBean);
 

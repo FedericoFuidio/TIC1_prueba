@@ -1,5 +1,7 @@
 package um.business;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import um.business.entities.Preferencia;
@@ -59,5 +61,35 @@ public class PreferenciasMgr {
 
         preferenciaEspecificaRepository.save(nueva);
 
+    }
+
+    public ObservableList<PreferenciaGeneral> getPreferenciasGenerales(){
+
+        ObservableList<PreferenciaGeneral> preferencias = FXCollections.observableArrayList();
+        Iterable<PreferenciaGeneral> temp = preferenciaGeneralRepository.findAll();
+
+        for(PreferenciaGeneral pg : temp){
+            preferencias.add(pg);
+        }
+
+        return preferencias;
+    }
+
+    public ObservableList<PreferenciaEspecifica> getPreferenciasEspecificas(){
+
+        ObservableList<PreferenciaEspecifica> preferencias = FXCollections.observableArrayList();
+        Iterable<PreferenciaEspecifica> temp = preferenciaEspecificaRepository.findAll();
+
+        for(PreferenciaEspecifica pe : temp){
+            preferencias.add(pe);
+        }
+
+
+        return preferencias;
+    }
+
+    public PreferenciaGeneral getPreferenciaGeneralByNombre(String nombre){
+
+        return preferenciaGeneralRepository.getPreferenciaGeneralByNombre(nombre);
     }
 }

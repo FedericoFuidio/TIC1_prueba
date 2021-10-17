@@ -51,4 +51,8 @@ public class Preferencia {
         this.descripcion = descripcion;
     }
 
+    @Override
+    public String toString() {
+        return nombre;
+    }
 }

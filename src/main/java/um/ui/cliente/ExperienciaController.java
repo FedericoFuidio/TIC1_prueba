@@ -9,7 +9,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,15 +63,23 @@ public class ExperienciaController implements Initializable {
             String ubicacion = txtUbicacion.getText();
             String descripcion = txtDescripcion.getText();
             byte[] foto = imagen;
-            System.out.println(imagen);
             String mail = txtMailoperador.getText();
 
+            if (imagen == null) {
 
-            experienciaMgr.addExperiencia(nombre, ubicacion, descripcion, foto, mail);
+                showAlert("Todos los datos son obligatorios",
+                        "Debes ingresar una imagen de la experiencia");
+            }
 
-            showAlert("Experiencia registrada", "Se agrego exitosamente la experiencia!");
+            else {
 
-            close(actionEvent);
+
+                experienciaMgr.addExperiencia(nombre, ubicacion, descripcion, foto, mail);
+
+                showAlert("Experiencia registrada", "Se agrego exitosamente la experiencia!");
+
+                close(actionEvent);
+            }
 
         } catch(InvalidInformation e){
             showAlert(
@@ -122,19 +129,22 @@ public class ExperienciaController implements Initializable {
         Scene sceneActual =((Node)actionEvent.getSource()).getScene();
         Stage stage=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         File selectedFile = fileChooser.showOpenDialog(stage);
-        VBox vBox= new VBox(btnImg);
+        /*
+        VBox vBox= new VBox();
         Scene scene = new Scene(vBox,960,600);
         stage.setScene(scene);
         stage.show();
         while(selectedFile==null);
         stage.setScene(sceneActual);
         stage.show();
+
+         */
         Path url = selectedFile.toPath();
         nombreImagen.setText(url.getFileName().toString());
         try {
             imagen = Files.readAllBytes(url);
         }catch (IOException e){
-            e.printStackTrace();
+
         }
     }
 
