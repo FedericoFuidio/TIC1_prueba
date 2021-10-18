@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.VistaExperienciaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.VistaExperienciaController">
    <children>
       <HBox layoutX="48.0" layoutY="108.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -20,14 +19,17 @@
             </ImageView>
             <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label fx:id="nombre" prefHeight="28.0" prefWidth="386.0" text="Nombre de la Experiencia" textAlignment="CENTER" underline="true">
+                  <Label fx:id="nombre" prefHeight="28.0" prefWidth="637.0" text="Nombre de la Experiencia" textAlignment="CENTER" underline="true" VBox.vgrow="ALWAYS">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
                   </Label>
-                  <Label fx:id="descripcion" prefHeight="99.0" prefWidth="390.0" text="Descripción de la Experiencia" />
-                  <Label fx:id="ubicacion" prefHeight="41.0" prefWidth="390.0" text="Ubicación: Canelones 231" />
-                  <Label fx:id="contacto" prefHeight="18.0" prefWidth="498.0" text="Contacto: exp@gmail.com" />
+                  <Label fx:id="descripcion" prefHeight="72.0" prefWidth="589.0" text="Descripción de la Experiencia" />
+                  <Label fx:id="ubicacion" prefHeight="42.0" prefWidth="583.0" text="Ubicación: Canelones 231" />
+                  <Label fx:id="contacto" prefHeight="18.0" prefWidth="580.0" text="Contacto: exp@gmail.com" />
                </children>
                <HBox.margin>
                   <Insets left="5.0" />

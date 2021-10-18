@@ -7,6 +7,8 @@ import javafx.scene.image.ImageView;
 import org.springframework.stereotype.Component;
 import um.business.entities.Experiencia;
 
+import java.io.ByteArrayInputStream;
+
 @Component
 public class VistaExperienciaController {
 
@@ -27,9 +29,9 @@ public class VistaExperienciaController {
 
 
     public void setData(Experiencia experiencia){
-        /*if(experiencia.getFoto() != null){
-            Image image =   new Image(experiencia.getFoto());
-            foto.setImage(image);}*/
+        if(experiencia.getFoto() != null){
+            Image image =   new Image(new ByteArrayInputStream(experiencia.getFoto()));
+            foto.setImage(image);}
         nombre.setText(experiencia.getNombre());
         descripcion.setText(experiencia.getDescripcion());
         ubicacion.setText(experiencia.getUbicacion());
