@@ -17,7 +17,7 @@
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #bea5d9;" BorderPane.alignment="CENTER">
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
                      <children>
@@ -31,7 +31,7 @@
                         </ImageView>
                         <Button fx:id="btnPerfil" alignment="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="60.0" text="Perfil" textAlignment="CENTER">
                            <HBox.margin>
-                              <Insets bottom="15.0" left="5.0" top="15.0" />
+                              <Insets bottom="15.0" top="60.0" />
                            </HBox.margin>
                         </Button>
                      </children>
@@ -51,7 +51,7 @@
                         </ImageView>
                         <Button fx:id="btnAjustes" alignment="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="60.0" text="Ajustes" textAlignment="CENTER">
                            <HBox.margin>
-                              <Insets bottom="15.0" left="5.0" top="15.0" />
+                              <Insets bottom="15.0" top="15.0" />
                            </HBox.margin>
                         </Button>
                      </children>
@@ -71,7 +71,7 @@
                         </ImageView>
                         <Button fx:id="btnHistorial" alignment="CENTER" mnemonicParsing="false" prefHeight="20.0" prefWidth="60.0" text="Historial" textAlignment="CENTER">
                            <HBox.margin>
-                              <Insets bottom="15.0" left="5.0" top="15.0" />
+                              <Insets bottom="15.0" top="15.0" />
                            </HBox.margin>
                         </Button>
                      </children>
@@ -80,8 +80,13 @@
             </VBox>
          </left>
          <top>
-            <HBox prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <HBox prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #6a24b5;" BorderPane.alignment="CENTER">
                <children>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Pref2">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="60.0" top="5.0" />
+                     </HBox.margin>
+                  </Button>
                   <ImageView fx:id="imgBusqueda" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <HBox.margin>
                         <Insets bottom="10.0" left="600.0" top="10.0" />
@@ -101,31 +106,26 @@
          <center>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox prefHeight="50.0" prefWidth="200.0">
+                  <HBox prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #bea5d9;">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Pref1">
+                        <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="125.0" text="Pref1">
                            <HBox.margin>
-                              <Insets bottom="5.0" left="60.0" top="5.0" />
+                              <Insets bottom="5.0" left="30.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Pref2">
+                        <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="125.0" text="Pref3">
                            <HBox.margin>
-                              <Insets bottom="5.0" left="60.0" top="5.0" />
+                              <Insets bottom="5.0" left="30.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Pref3">
+                        <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="125.0" text="Pref4">
                            <HBox.margin>
-                              <Insets bottom="5.0" left="60.0" top="5.0" />
+                              <Insets bottom="5.0" left="30.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Pref4">
+                        <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="125.0" text="Pref5">
                            <HBox.margin>
-                              <Insets bottom="5.0" left="60.0" top="5.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Pref5">
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="60.0" top="5.0" />
+                              <Insets bottom="5.0" left="30.0" top="5.0" />
                            </HBox.margin>
                         </Button>
                      </children>
