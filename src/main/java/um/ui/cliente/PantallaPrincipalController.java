@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -82,7 +83,11 @@ public class PantallaPrincipalController implements Initializable {
         imgAjustes.setImage(imgajustes);
         Image imghistorial = new Image(getClass().getResourceAsStream("imgs/historial.png"));
         imgHistorial.setImage(imghistorial);*/
-
+        /*scrollPane.setFitToHeight(true);
+        scrollPane.setFitToWidth(true);
+        GridPane.setVgrow(scrollPane, Priority.ALWAYS);
+        GridPane.setHgrow(scrollPane, Priority.ALWAYS);*/
+        updateScreen();
         experiencias.addAll(getData());
         int column = 0;
         int row = 0;
@@ -101,5 +106,9 @@ public class PantallaPrincipalController implements Initializable {
         }catch (Exception exception){
             exception.printStackTrace();
             }
+    }
+
+    public void updateScreen(){
+        experiencias.clear();
     }
 }

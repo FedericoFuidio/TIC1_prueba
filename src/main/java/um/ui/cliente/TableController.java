@@ -114,7 +114,7 @@ public class TableController implements Initializable {
     }
 
     @FXML
-    void updateTable(){
+    public void updateTable(){
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
@@ -187,6 +187,12 @@ public class TableController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         updateTable();
         searchOperator();
+        /*id.setResizable(true);
+        name.setResizable(true);
+        phone.setResizable(true);
+        descripcion.setResizable(true);
+        mail.setResizable(true);
+        validado.setResizable(true);*/
     }
 
     @FXML
