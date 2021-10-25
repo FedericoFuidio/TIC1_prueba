@@ -4,19 +4,24 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import org.controlsfx.control.CheckListView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import um.Main;
 import um.business.PreferenciaTuristaMgr;
 import um.business.PreferenciasMgr;
 import um.business.entities.PreferenciaGeneral;
 import um.business.entities.Turista;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -58,7 +63,7 @@ public class CheckListPreferenciaGen implements Initializable {
     }
 
     @FXML
-    void addPreferencias(ActionEvent event){
+    void addPreferencias(ActionEvent event) throws IOException {
 
         Turista turista = TuristaController.turistaIngresado;
 
@@ -71,7 +76,13 @@ public class CheckListPreferenciaGen implements Initializable {
 
         }
 
-        showAlert("Turista agregado!", "Se agregó con exito al sistama");
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+        Parent root = fxmlLoader.load(CheckListPreferenciaEspecifica.class.getResourceAsStream("ElegirPreferenciasEspecificas.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
 
         close(event);
 
