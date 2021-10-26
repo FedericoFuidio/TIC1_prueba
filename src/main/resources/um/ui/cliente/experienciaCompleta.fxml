@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import org.controlsfx.control.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.ExperienciaCompletaContoller">
+   <children>
+      <BorderPane prefHeight="650.0" prefWidth="950.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox prefHeight="246.0" prefWidth="950.0">
+                     <children>
+                        <ImageView fx:id="imgExperiencia" fitHeight="250.0" fitWidth="325.0" pickOnBounds="true" preserveRatio="true" />
+                        <Pane prefHeight="200.0" prefWidth="165.0" />
+                        <ImageView fx:id="mapaExperiencia" fitHeight="250.0" fitWidth="325.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="70.0" right="70.0" top="70.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="246.0" prefWidth="950.0">
+                     <children>
+                        <VBox prefHeight="246.0" prefWidth="341.0">
+                           <children>
+                              <HBox prefHeight="32.0" prefWidth="375.0">
+                                 <children>
+                                    <Label fx:id="nombreActividad" prefHeight="27.0" prefWidth="192.0" text="Nombre Actividad " underline="true">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin></Label>
+                                    <Rating fx:id="ratingActividad" mouseTransparent="true" nodeOrientation="LEFT_TO_RIGHT" partialRating="true" prefHeight="32.0" prefWidth="122.0" scaleX="0.5" scaleY="0.5" scaleZ="0.5">
+                                       <effect>
+                                          <Blend mode="OVERLAY" opacity="0.37" />
+                                       </effect>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor>
+                                    </Rating>
+                                 </children>
+                              </HBox>
+                              <Label fx:id="descActividad" prefHeight="116.0" prefWidth="342.0" text="Descripción" />
+                              <Label fx:id="precioActividad" prefHeight="38.0" prefWidth="342.0" text="Precio" />
+                              <Label fx:id="contacto" prefHeight="54.0" prefWidth="342.0" text="Contacto" />
+                           </children>
+                        </VBox>
+                        <Pane prefHeight="246.0" prefWidth="165.0" />
+                        <VBox prefHeight="246.0" prefWidth="341.0">
+                           <children>
+                              <HBox prefHeight="5.0" prefWidth="500.0">
+                                 <children>
+                                    <Label prefHeight="42.0" prefWidth="180.0" text="Seleccione Hora:" />
+                                    <Pane prefHeight="32.0" prefWidth="30.0" />
+                                    <ComboBox fx:id="seleccionadorHora" prefHeight="26.0" prefWidth="97.0" />
+                                 </children>
+                              </HBox>
+                              <Pane prefHeight="41.0" prefWidth="329.0" />
+                              <HBox prefHeight="5.0" prefWidth="500.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="180.0" text="Seleccione Cantidad de Personas:" />
+                                    <Pane prefHeight="32.0" prefWidth="30.0" />
+                                    <ComboBox fx:id="seleccionadorPersonas" prefHeight="26.0" prefWidth="97.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="70.0" right="70.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

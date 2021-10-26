@@ -1,5 +1,6 @@
 package um.ui.cliente;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -110,5 +111,13 @@ public class PantallaPrincipalController implements Initializable {
 
     public void updateScreen(){
         experiencias.clear();
+    }
+
+    public void openPerfil(ActionEvent actionEvent) {
+        //Falta crear fxml de perfil
+    }
+
+    public void openAjustes(ActionEvent actionEvent) {
+        //Falta crear fxml de ajustes
     }
 }

@@ -19,7 +19,7 @@ public class ExperienciaMgr {
     @Autowired
     OperadorMgr operadorMgr;
 
-    public void addExperiencia(String nombre, String ubicacion, String descripcion, byte[] foto, String mailOperador)
+    public void addExperiencia(String nombre, String ubicacion, String descripcion, byte[] foto, byte[] mapa,String mailOperador)
             throws InvalidInformation, UserNotFound {
 
         if(nombre == null || nombre.equals("") || ubicacion == null || ubicacion.equals("")){
@@ -32,7 +32,7 @@ public class ExperienciaMgr {
             throw new UserNotFound();
         }
 
-        Experiencia nueva = new Experiencia(nombre, ubicacion, descripcion, foto, operador);
+        Experiencia nueva = new Experiencia(nombre, ubicacion, descripcion, foto, mapa, operador);
         experienciaGeneralRepository.save(nueva);
 
     }

@@ -1,14 +1,21 @@
 package um.ui.cliente;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
+import um.Main;
 import um.business.entities.Experiencia;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 
 @Component
 public class VistaExperienciaController {
@@ -45,6 +52,26 @@ public class VistaExperienciaController {
 
     @FXML
     public void openExperience(MouseEvent mouseEvent) {
-        System.out.println("entro a: " + xp.getNombre());
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("experienciaCompleta.fxml"));
+            AnchorPane anchorPane = fxmlLoader.load();
+
+
+            ExperienciaCompletaContoller expController = fxmlLoader.getController();
+            expController.setData(xp);
+
+
+            /*FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(Main.getContext()::getBean);*/
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(fxmlLoader.getRoot()));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }

@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 @Entity
 public class Cupo {
@@ -16,7 +17,8 @@ public class Cupo {
     @GenericGenerator(name="cupos_ids", strategy = "increment")
     private long id;
     private int cupos;
-    private Date fecha;
+    private LocalDateTime inicio;
+    private LocalDateTime fin;
     private int cuposLibres;
 
     @ManyToOne
@@ -26,10 +28,11 @@ public class Cupo {
 
     }
 
-    public Cupo(int cupos, Date fecha, Experiencia experiencia){
+    public Cupo(int cupos, LocalDateTime inicio, LocalDateTime fin, Experiencia experiencia){
 
         this.cupos = cupos;
-        this.fecha = fecha;
+        this.inicio = inicio;
+        this.fin = fin;
         this.experiencia = experiencia;
 
     }
@@ -48,14 +51,6 @@ public class Cupo {
 
     public void setCupos(int cupos) {
         this.cupos = cupos;
-    }
-
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
     }
 
     public int getCuposLibres() {

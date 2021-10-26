@@ -52,6 +52,12 @@ public class ExperienciaController implements Initializable {
     @FXML
     public Label nombreImagen;
 
+    @FXML
+    private Button btnImgn2;
+
+    @FXML
+    private Label nombreImagen2;
+
     private FileChooser fileChooser;
 
     @FXML
@@ -63,18 +69,20 @@ public class ExperienciaController implements Initializable {
             String ubicacion = txtUbicacion.getText();
             String descripcion = txtDescripcion.getText();
             byte[] foto = imagen;
+            byte[] map = mapa;
             String mail = txtMailoperador.getText();
 
             if (imagen == null) {
 
                 showAlert("Todos los datos son obligatorios",
                         "Debes ingresar una imagen de la experiencia");
+            }else if (mapa == null){
+                showAlert("Todos los datos son obligatorios",
+                        "Debes ingresar una imagen del mapa con la ubicación de la experiencia");
             }
 
             else {
-
-
-                experienciaMgr.addExperiencia(nombre, ubicacion, descripcion, foto, mail);
+                experienciaMgr.addExperiencia(nombre, ubicacion, descripcion, foto, map, mail);
 
                 showAlert("Experiencia registrada", "Se agrego exitosamente la experiencia!");
 
@@ -111,7 +119,6 @@ public class ExperienciaController implements Initializable {
     private void clean() {
         txtNombre.setText(null);
         txtDescripcion.setText(null);
-//        txtFoto.setText(null);
         txtUbicacion.setText(null);
         txtMailoperador.setText(null);
     }
@@ -141,6 +148,7 @@ public class ExperienciaController implements Initializable {
          */
         Path url = selectedFile.toPath();
         nombreImagen.setText(url.getFileName().toString());
+        btnImg.setVisible(false);
         try {
             imagen = Files.readAllBytes(url);
         }catch (IOException e){
@@ -149,6 +157,22 @@ public class ExperienciaController implements Initializable {
     }
 
     private byte[] imagen;
+
+    @FXML
+    public void addMapa(ActionEvent actionEvent) {
+        Stage stage=(Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        File selectedFile = fileChooser.showOpenDialog(stage);
+
+        Path url = selectedFile.toPath();
+        nombreImagen2.setText(url.getFileName().toString());
+        btnImgn2.setVisible(false);
+        try {
+            mapa = Files.readAllBytes(url);
+        }catch (IOException e){
+
+        }
+    }
+    private byte[] mapa;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

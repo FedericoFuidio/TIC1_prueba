@@ -21,6 +21,9 @@ public class Experiencia {
     private boolean validado;
     @Column(columnDefinition = "MEDIUMBLOB")
     private byte[] foto;
+    @Column(columnDefinition = "MEDIUMBLOB")
+    private byte[] mapa;
+
 
     @ManyToOne
     private Operador operador;
@@ -29,7 +32,7 @@ public class Experiencia {
 
     }
 
-    public Experiencia(String nombre, String ubicacion, String descripcion, byte[] foto, Operador operador){
+    public Experiencia(String nombre, String ubicacion, String descripcion, byte[] foto, byte[] mapa,Operador operador){
 
         this.nombre = nombre;
         this.ubicacion = ubicacion;
@@ -37,6 +40,7 @@ public class Experiencia {
         this.validado = false;
         this.descripcion = descripcion;
         this.foto = foto;
+        this.mapa = mapa;
 
     }
 
@@ -98,4 +102,11 @@ public class Experiencia {
         this.foto = foto;
     }
 
+    public byte[] getMapa() {
+        return mapa;
+    }
+
+    public void setMapa(byte[] mapa) {
+        this.mapa = mapa;
+    }
 }
