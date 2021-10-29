@@ -92,4 +92,8 @@ public class PreferenciasMgr {
 
         return preferenciaGeneralRepository.getPreferenciaGeneralByNombre(nombre);
     }
+
+    public PreferenciaEspecifica getPreferenciaEspecificaByNombre(String nombre){
+        return preferenciaEspecificaRepository.getPreferenciaEspecificaByNombre(nombre);
+    }
 }

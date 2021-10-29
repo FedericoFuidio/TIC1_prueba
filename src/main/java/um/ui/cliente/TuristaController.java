@@ -100,7 +100,7 @@ public class TuristaController implements Initializable {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setControllerFactory(Main.getContext()::getBean);
 
-            Parent root = fxmlLoader.load(CheckListPreferenciaGen.class.getResourceAsStream("ElegirPreferenciasGen.fxml"));
+            Parent root = fxmlLoader.load(CheckListPreferenciaGen.class.getResourceAsStream("elegirPreferenciasGen.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();

@@ -9,7 +9,7 @@ public class PreferenciaExperiencia {
     private PreferenciaExperienciaKey id;
 
     @ManyToOne
-    @MapsId("preferenicaId")
+    @MapsId("preferenciaId")
     @JoinColumn(name = "preferencia_id")
     private Preferencia preferencia;
 
@@ -22,8 +22,9 @@ public class PreferenciaExperiencia {
 
     }
 
-    public PreferenciaExperiencia(Preferencia preferencia, Experiencia experiencia){
+    public PreferenciaExperiencia(PreferenciaExperienciaKey id, Preferencia preferencia, Experiencia experiencia){
 
+        this.id = id;
         this.preferencia = preferencia;
         this.experiencia = experiencia;
     }

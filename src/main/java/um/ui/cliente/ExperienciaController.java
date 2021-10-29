@@ -2,8 +2,10 @@ package um.ui.cliente;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -13,8 +15,10 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import um.Main;
 import um.business.ExperienciaMgr;
 import um.business.OperadorMgr;
+import um.business.entities.Experiencia;
 import um.business.exception.InvalidInformation;
 import um.business.exception.UserNotFound;
 
@@ -33,6 +37,8 @@ public class ExperienciaController implements Initializable {
 
     @Autowired
     OperadorMgr operadorMgr;
+
+    static Experiencia experienciaIngresada;
 
     @FXML
     private Button btnImg;
@@ -83,10 +89,22 @@ public class ExperienciaController implements Initializable {
 
             else {
                 experienciaMgr.addExperiencia(nombre, ubicacion, descripcion, foto, map, mail);
+                experienciaIngresada = experienciaMgr.getExperienciaByNombre(nombre);
 
-                showAlert("Experiencia registrada", "Se agrego exitosamente la experiencia!");
+                //showAlert("Experiencia registrada", "Se agrego exitosamente la experiencia!");
+
 
                 close(actionEvent);
+
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+                Parent root = fxmlLoader.load(PreferenciaExperienciaGenerales.class.getResourceAsStream("preferenciaExperienciaGenerales.fxml"));
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.show();
+
+
             }
 
         } catch(InvalidInformation e){
@@ -94,6 +112,7 @@ public class ExperienciaController implements Initializable {
                     "Información invalida!",
                     "Todos los datos son oblgatorios");
         } catch (UserNotFound e){
+            e.printStackTrace();
             showAlert(
                     "Operador inexistente!",
                     "No pudimos encontrar al operador en la base de datos"

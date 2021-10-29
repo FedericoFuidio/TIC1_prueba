@@ -12,27 +12,23 @@ import javafx.stage.Stage;
 import org.controlsfx.control.CheckListView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import um.business.PrefGeneralPrefEspecificaMgr;
-import um.business.PreferenciaTuristaMgr;
+import um.business.PreferenciaExperienciaMgr;
 import um.business.PreferenciasMgr;
+import um.business.entities.Experiencia;
 import um.business.entities.PreferenciaEspecifica;
-import um.business.entities.Turista;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 @Component
-public class CheckListPreferenciaEspecifica implements Initializable {
+public class PreferenciaExperienciaEspecifica implements Initializable {
 
     @Autowired
     private PreferenciasMgr preferenciasMgr;
 
     @Autowired
-    private PreferenciaTuristaMgr preferenciaTuristaMgr;
-
-    @Autowired
-    private PrefGeneralPrefEspecificaMgr prefGeneralPrefEspecificaMgr;
+    private PreferenciaExperienciaMgr preferenciaExperienciaMgr;
 
     @FXML
     private Button btnSiguiente;
@@ -63,26 +59,25 @@ public class CheckListPreferenciaEspecifica implements Initializable {
 
         preferenciaEspecificaCheckListView.setItems(nombre);
 
-
-
-
     }
+
 
     @FXML
     void addPreferencias(ActionEvent event) throws IOException {
 
-        Turista turista = TuristaController.turistaIngresado;
+        Experiencia experiencia = ExperienciaController.experienciaIngresada;
+
 
         elegidos = preferenciaEspecificaCheckListView.getCheckModel().getCheckedItems();
         for(String peNombre : elegidos){
 
             PreferenciaEspecifica pe = preferenciasMgr.getPreferenciaEspecificaByNombre(peNombre);
             prefElegidas.add(pe);
-            preferenciaTuristaMgr.addPreferenciaTurista(turista, peNombre);
+            preferenciaExperienciaMgr.addPreferenciaExperiencia(experiencia, peNombre);
 
         }
 
-        showAlert("Turista agregado!", "Su cuenta fue creada con exito");
+        showAlert("Experiencia registrada", "Se agrego exitosamente la experiencia!");
 
         close(event);
 

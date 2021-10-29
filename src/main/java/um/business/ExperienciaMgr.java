@@ -8,8 +8,6 @@ import um.business.exception.InvalidInformation;
 import um.business.exception.UserNotFound;
 import um.persistance.ExperienciaGeneralRepository;
 
-import java.util.List;
-
 @Service
 public class ExperienciaMgr {
 
@@ -40,5 +38,10 @@ public class ExperienciaMgr {
     public Iterable<Experiencia> getExperiencias(){
 
         return experienciaGeneralRepository.findAll();
+    }
+
+    public Experiencia getExperienciaByNombre(String nombre){
+
+        return experienciaGeneralRepository.getExperienciaByNombre(nombre);
     }
 }

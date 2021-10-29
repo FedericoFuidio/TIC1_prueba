@@ -5,5 +5,6 @@ import um.business.entities.Experiencia;
 
 public interface ExperienciaGeneralRepository extends CrudRepository<Experiencia, Long> {
 
+    Experiencia getExperienciaByNombre(String nombre);
 
 }

@@ -16,23 +16,23 @@ import org.controlsfx.control.CheckListView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import um.Main;
-import um.business.PreferenciaTuristaMgr;
+import um.business.PreferenciaExperienciaMgr;
 import um.business.PreferenciasMgr;
+import um.business.entities.Experiencia;
 import um.business.entities.PreferenciaGeneral;
-import um.business.entities.Turista;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 @Component
-public class CheckListPreferenciaGen implements Initializable {
+public class PreferenciaExperienciaGenerales implements Initializable {
 
     @Autowired
     PreferenciasMgr preferenciasMgr;
 
     @Autowired
-    PreferenciaTuristaMgr preferenciaTuristaMgr;
+    PreferenciaExperienciaMgr preferenciaExperienciaMgr;
 
     @FXML
     private Button btnSiguiente;
@@ -65,21 +65,22 @@ public class CheckListPreferenciaGen implements Initializable {
     @FXML
     void addPreferencias(ActionEvent event) throws IOException {
 
-        Turista turista = TuristaController.turistaIngresado;
+        Experiencia experiencia = ExperienciaController.experienciaIngresada;
 
         elegidos = preferenciaGeneralCheckListView.getCheckModel().getCheckedItems();
         for(String pgNombre : elegidos){
 
             PreferenciaGeneral pg = preferenciasMgr.getPreferenciaGeneralByNombre(pgNombre);
             prefElegidas.add(pg);
-            preferenciaTuristaMgr.addPreferenciaTurista(turista, pgNombre);
+            preferenciaExperienciaMgr.addPreferenciaExperiencia(experiencia, pgNombre);
 
         }
 
+        System.out.println("Hola");
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
 
-        Parent root = fxmlLoader.load(CheckListPreferenciaEspecifica.class.getResourceAsStream("elegirPreferenciasEspecificas.fxml"));
+        Parent root = fxmlLoader.load(PreferenciaExperienciaEspecifica.class.getResourceAsStream("preferenciaExperienciaEspecifica.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();

@@ -1,7 +1,10 @@
 package um.business;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import um.business.entities.Experiencia;
 import um.business.entities.Pais;
 import um.business.entities.Turista;
 import um.business.exception.InvalidInformation;
@@ -56,6 +59,15 @@ public class TuristaMgr {
 
     public Turista getTuritstaByUserName(String userName){
         return turistaRepository.findTuristaByUserName(userName);
+    }
+
+    public ObservableList<Experiencia> recomendaciones(){
+
+        ObservableList<Experiencia> recomendados = FXCollections.observableArrayList();
+
+
+
+        return recomendados;
     }
 
 }
