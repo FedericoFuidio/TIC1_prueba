@@ -127,12 +127,16 @@ public class TuristaMgr {
 
         comparacion.sorted();
 
-        for(ExperienciaComparable ec : comparacion){
+        int numero_experiencias = comparacion.size() - 1;
+        if(numero_experiencias > 15){
+            numero_experiencias = 15;
+        }
+
+        for(int temp = 0; temp <= numero_experiencias; temp ++){
+
 
             //Queremos que aparezca como recomen
-            if(ec.getPuntaje() > 1.2) {
-                recomendados.add(ec.getExperiencia());
-            }
+            recomendados.add(comparacion.get(temp).getExperiencia());
         }
 
         return recomendados;
