@@ -35,7 +35,7 @@ public class TuristaController implements Initializable {
 
     static Turista turistaIngresado;
 
-    private ObservableList<String> temp = FXCollections.observableArrayList();;
+    private ObservableList<String> temp = FXCollections.observableArrayList();
 
     @FXML
     private Button btnClose;
@@ -66,7 +66,6 @@ public class TuristaController implements Initializable {
 
     @FXML
     private ComboBox<String> cmbPais;
-
 
     @FXML
     private TextField txtPassport;

@@ -13,17 +13,23 @@ public class AdminOperadorMgr {
     @Autowired
     private AdminOperadorRepository adminOperadorRepository;
 
-    public void addAdminOperador(String nombre, String apellido, String password, Operador operador)
+    public void addAdminOperador(String nombre, String apellido, String password, Operador operador, String username)
         throws InvalidInformation{
 
         if(nombre == null || nombre.equals("") || apellido == null || apellido.equals("")
-            || password == null || password.equals("")){
+            || password == null || password.equals("") || username == null || username.equals("")){
             throw new InvalidInformation();
         }
 
-        AdminOperador oNuevo = new AdminOperador(nombre, apellido, password, operador);
+        AdminOperador oNuevo = new AdminOperador(nombre, apellido, password, operador, username);
 
         adminOperadorRepository.save(oNuevo);
 
+    }
+
+    public AdminOperador ingresarAdmin(String userName, String password){
+        System.out.println(userName);
+        System.out.println(password);
+        return adminOperadorRepository.findAdminOperadorByUsernameAndPassword(userName, password);
     }
 }

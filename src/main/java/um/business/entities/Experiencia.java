@@ -1,11 +1,8 @@
 package um.business.entities;
 
-import com.mysql.cj.protocol.ColumnDefinition;
-import javafx.scene.Node;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.List;
 
 
 @Entity(name = "Experiencias")
@@ -23,6 +20,11 @@ public class Experiencia {
     private byte[] foto;
     @Column(columnDefinition = "MEDIUMBLOB")
     private byte[] mapa;
+    private double puntaje;
+    private int calificaciones; //Representa la cantidad de calificaciones
+
+    //calificaciones y puntajes son atributos calculados,
+    //los guardamos en la clase para ahorrar tiempo en el algoritmo de recomendacion.
 
 
     @ManyToOne
@@ -41,6 +43,8 @@ public class Experiencia {
         this.descripcion = descripcion;
         this.foto = foto;
         this.mapa = mapa;
+        this.calificaciones = 0;
+        this.puntaje = 0;
 
     }
 
@@ -108,5 +112,21 @@ public class Experiencia {
 
     public void setMapa(byte[] mapa) {
         this.mapa = mapa;
+    }
+
+    public double getPuntaje() {
+        return puntaje;
+    }
+
+    public void setPuntaje(double puntaje) {
+        this.puntaje = puntaje;
+    }
+
+    public int getCalificaciones() {
+        return calificaciones;
+    }
+
+    public void setCalificaciones(int calificaciones) {
+        this.calificaciones = calificaciones;
     }
 }

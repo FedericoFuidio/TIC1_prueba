@@ -50,6 +50,7 @@ public class UserMgr{
     //Ingresar a la app con un usuario ya existente:
     public User IngresarUser(String userName, String password) throws Exception {
 
+        /*
         User oUser;
 
         //Si el usuario no existe lanzo una excepcion
@@ -66,6 +67,10 @@ public class UserMgr{
             return null;
         }
 
+         */
+
+        return UserRepositoryimp.findOneByUserNameAndPassword(userName, password);
+
     }
 
     public Turista obtenerTurista(User user){
@@ -81,6 +86,7 @@ public class UserMgr{
             }
         }
     }
+
 
 
 

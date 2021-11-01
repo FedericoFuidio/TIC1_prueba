@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="355.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.CupoController">
+    <center>
+        <AnchorPane prefHeight="317.0" prefWidth="459.0" BorderPane.alignment="CENTER">
+         <children>
+            <DatePicker layoutX="83.0" layoutY="84.0" />
+         </children></AnchorPane>
+    </center>
+    <top>
+        <Text strokeType="OUTSIDE" strokeWidth="1.0" text="Registrar experiencia" BorderPane.alignment="TOP_LEFT">
+            <font>
+                <Font size="28.0" />
+            </font>
+        </Text>
+    </top>
+    <bottom>
+        <HBox alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+               
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>

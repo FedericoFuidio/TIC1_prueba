@@ -11,9 +11,7 @@ import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import um.business.AdminOperadorMgr;
-import um.business.entities.Operador;
 import um.business.exception.InvalidInformation;
-import um.business.exception.RepitedMail;
 
 
 @Component
@@ -27,6 +25,9 @@ public class AdminOperadorController {
 
     @FXML
     private TextField txtApellido;
+
+    @FXML
+    private TextField txtUserName;
 
     @FXML
     private PasswordField txtPassword;
@@ -43,11 +44,12 @@ public class AdminOperadorController {
             String nombre = txtNombre.getText();
             String apellido = txtApellido.getText();
             String password = txtPassword.getText();
+            String userName = txtUserName.getText();
 
             if (TableController.seleccionado == null  || TableController.seleccionado.getMail() == null){
                 showAlert("ERROR", "Seleccione un operador");
             }else{
-                adminOperadorMgr.addAdminOperador(nombre, apellido, password, TableController.seleccionado);
+                adminOperadorMgr.addAdminOperador(nombre, apellido, password, TableController.seleccionado, userName);
                 showAlert("Administrador registrado", "Se agrego existosamente el Administrador!");
                 close(event);
             }

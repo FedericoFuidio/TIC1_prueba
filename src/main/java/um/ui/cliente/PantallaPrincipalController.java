@@ -5,21 +5,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
-import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import um.Main;
 import um.business.ExperienciaMgr;
+import um.business.TuristaMgr;
 import um.business.entities.Experiencia;
 
 import java.net.URL;
@@ -32,6 +27,9 @@ public class PantallaPrincipalController implements Initializable {
 
     @Autowired
     private ExperienciaMgr experienciaMgr;
+
+    @Autowired
+    private TuristaMgr turistaMgr;
 
     @FXML
     private ImageView imgPerfil;
@@ -67,7 +65,8 @@ public class PantallaPrincipalController implements Initializable {
 
     private List<Experiencia> getData(){
         List<Experiencia> experiencias = new ArrayList<>();
-        Iterable<Experiencia> expBD = experienciaMgr.getExperiencias();
+        //Iterable<Experiencia> expBD = experienciaMgr.getExperiencias();
+        Iterable<Experiencia> expBD = turistaMgr.recomendaciones(UserController.turistaIngresado);
         for(Experiencia e : expBD){
             experiencias.add(e);
         }

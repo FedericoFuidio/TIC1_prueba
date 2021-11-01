@@ -10,4 +10,5 @@ public interface PreferenciaTuristaRepository extends CrudRepository<Preferencia
 
     PreferenciaTurista findPreferenciaTuristaByTurista(Turista turista);
     PreferenciaTurista findPreferenciaTuristaByPreferencia(Preferencia preferencia);
+    Iterable<PreferenciaTurista> getAllByTurista(Turista turista);
 }

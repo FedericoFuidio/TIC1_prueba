@@ -7,4 +7,5 @@ public interface AdminOperadorRepository extends CrudRepository<AdminOperador, L
 
     AdminOperador findAdminOperadorByApellido(String apellido);
     AdminOperador findAdminOperadorByNombre(String nombre);
+    AdminOperador findAdminOperadorByUsernameAndPassword(String username, String password);
 }

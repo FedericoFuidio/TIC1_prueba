@@ -6,4 +6,5 @@ import um.business.entities.Preferencia;
 public interface PreferenciaRepository extends CrudRepository<Preferencia, Long> {
 
     Preferencia getPreferenciaByNombre(String nombre);
+    Preferencia getPreferenciaById(Long id);
 }

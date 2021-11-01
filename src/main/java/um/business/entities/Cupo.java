@@ -6,8 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import java.sql.Date;
-import java.time.LocalDateTime;
 
 @Entity
 public class Cupo {
@@ -17,8 +15,9 @@ public class Cupo {
     @GenericGenerator(name="cupos_ids", strategy = "increment")
     private long id;
     private int cupos;
-    private LocalDateTime inicio;
-    private LocalDateTime fin;
+    private String dia;
+    private String horaInicio;
+    private String horaFin;
     private int cuposLibres;
 
     @ManyToOne
@@ -28,11 +27,12 @@ public class Cupo {
 
     }
 
-    public Cupo(int cupos, LocalDateTime inicio, LocalDateTime fin, Experiencia experiencia){
+    public Cupo(int cupos, String dia, String horaInicio, String horaFin, Experiencia experiencia){
 
         this.cupos = cupos;
-        this.inicio = inicio;
-        this.fin = fin;
+        this.dia = dia;
+        this.horaInicio = horaInicio;
+        this.horaFin = horaFin;
         this.experiencia = experiencia;
 
     }
@@ -67,5 +67,29 @@ public class Cupo {
 
     public void setExperiencia(Experiencia experiencia) {
         this.experiencia = experiencia;
+    }
+
+    public String getDia() {
+        return dia;
+    }
+
+    public void setDia(String dia) {
+        this.dia = dia;
+    }
+
+    public String getHoraInicio() {
+        return horaInicio;
+    }
+
+    public void setHoraInicio(String horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+
+    public String getHoraFin() {
+        return horaFin;
+    }
+
+    public void setHoraFin(String horaFin) {
+        this.horaFin = horaFin;
     }
 }

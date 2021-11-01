@@ -32,12 +32,15 @@ public class PaisMgr {
 
     public ObservableList<String> getPaises() {
 
+
+
         ObservableList<String> paises = FXCollections.observableArrayList();
         Iterable<Pais> temp = paisRepository.findAll();
 
         for(Pais p : temp){
             paises.add(p.getNombre());
         }
+
 
         return paises;
     }

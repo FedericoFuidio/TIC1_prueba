@@ -9,4 +9,6 @@ public interface PreferenciaExperienciaRepository extends CrudRepository<Prefere
 
     PreferenciaExperiencia findPreferenciaExperienciaByExperiencia(Experiencia experiencia);
 
+    Iterable<PreferenciaExperiencia> getAllByExperiencia(Experiencia experiencia);
+
 }

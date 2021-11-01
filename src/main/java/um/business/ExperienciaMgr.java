@@ -44,4 +44,10 @@ public class ExperienciaMgr {
 
         return experienciaGeneralRepository.getExperienciaByNombre(nombre);
     }
+
+    public Iterable<Experiencia> getExperienciaByOperador(Operador operador){
+
+        return  experienciaGeneralRepository.getExperienciasByOperador(operador);
+
+    }
 }

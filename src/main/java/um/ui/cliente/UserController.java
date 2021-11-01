@@ -11,7 +11,10 @@ import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import um.Main;
+import um.business.AdminOperadorMgr;
 import um.business.UserMgr;
+import um.business.entities.AdminOperador;
+import um.business.entities.Operador;
 import um.business.entities.Turista;
 import um.business.entities.User;
 
@@ -27,6 +30,9 @@ public class UserController {
 
     @Autowired
     private UserMgr userMgr;
+
+    @Autowired
+    private AdminOperadorMgr adminOperadorMgr;
 
     @FXML
     private DatePicker pickerFecha;
@@ -64,6 +70,8 @@ public class UserController {
 
     static User usuarioIngresado;
     static Turista turistaIngresado;
+    static AdminOperador adminOperadorIngresado;
+    static Operador operadorAsociado;
 
     @FXML
     void addClient(ActionEvent event) {
@@ -136,6 +144,8 @@ public class UserController {
     @FXML
     void IngresarUser(ActionEvent event) {
 
+
+
         //Verifico que los datos ingrasados son no nulos:
         if (txtUsername.getText() == null || txtUsername.getText().equals("") ||
                 txtPassword.getText() == null || txtPassword.getText().equals("")) {
@@ -152,10 +162,33 @@ public class UserController {
 
             //Ingreso el usuario, si el resultado de la operacion es true, la contraseña es correcta,
             //Si se lanza una excepcion, el usuario ingresado no existe:
+
+
+
+            adminOperadorIngresado = adminOperadorMgr.ingresarAdmin(userName, password);
+            System.out.println(password);
             usuarioIngresado = userMgr.IngresarUser(userName, password);
             turistaIngresado = userMgr.obtenerTurista(usuarioIngresado);
 
-            if(usuarioIngresado != null && turistaIngresado != null) {
+            if(usuarioIngresado == null && adminOperadorIngresado != null){
+
+                System.out.println(adminOperadorIngresado);
+
+                //Como es nulo, sabemos que se ingeso un adminOperador (que no desciende de usario)
+                operadorAsociado = adminOperadorIngresado.getOperador();
+                close(event);
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+                Parent root = fxmlLoader.load(PantallaAminOperadorController.class.getResourceAsStream("pantallaPrincipalAdminOp.fxml"));
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.show();
+
+            }
+
+            else if(turistaIngresado != null) {
+                close(event);
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setControllerFactory(Main.getContext()::getBean);
 
@@ -167,7 +200,7 @@ public class UserController {
                 showAlert("Contraseña incorrecta", "Intente nuevamente");
             }
         } catch (Exception e){
-            e.printStackTrace();
+
             showAlert("Usuario no encontrado", "Intente nuevamente");
         }
 

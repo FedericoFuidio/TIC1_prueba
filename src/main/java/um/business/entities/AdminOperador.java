@@ -18,6 +18,7 @@ public class AdminOperador {
     private String apellido;
     private String password;
     private boolean validado;
+    private String username;
 
     @ManyToOne
     private Operador operador;
@@ -26,12 +27,13 @@ public class AdminOperador {
 
     }
 
-    public AdminOperador(String nombre, String apellido, String password, Operador operador){
+    public AdminOperador(String nombre, String apellido, String password, Operador operador, String username){
         this.nombre = nombre;
         this.apellido = apellido;
         this.password = password;
         this.operador = operador;
         this.validado = false;
+        this.username = username;
 
     }
 
@@ -81,5 +83,13 @@ public class AdminOperador {
 
     public void setOperador(Operador operador) {
         this.operador = operador;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
