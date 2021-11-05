@@ -50,4 +50,16 @@ public class ExperienciaMgr {
         return  experienciaGeneralRepository.getExperienciasByOperador(operador);
 
     }
+
+    public void addCupoGeneral(Experiencia experiencia, Integer hora_inicial, Integer hora_final) throws InvalidInformation{
+
+        if(hora_inicial >= hora_final){
+            throw new InvalidInformation();
+        }
+
+        experiencia.setHoraInicio(hora_inicial);
+        experiencia.setHoraFin(hora_final);
+        experienciaGeneralRepository.save(experiencia);
+
+    }
 }

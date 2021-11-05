@@ -17,16 +17,15 @@
                 <Label layoutX="23.0" layoutY="35.0" text="Nombre:" />
                 <Label layoutX="23.0" layoutY="70.0" text="Ubicacion:" />
                 <Label layoutX="23.0" layoutY="105.0" text="Descripcion:" />
-                <Label layoutX="23.0" layoutY="140.0" text="Mail del operador:" />
-                <Label layoutX="23.0" layoutY="175.0" text="Foto:" />
+
+                <Label layoutX="23.0" layoutY="140.0" text="Foto:" />
                 <TextField fx:id="txtNombre" layoutX="158.0" layoutY="32.0" />
                 <TextField fx:id="txtUbicacion" layoutX="158.0" layoutY="67.0" />
                 <TextField fx:id="txtDescripcion" layoutX="158.0" layoutY="102.0" />
-                <TextField fx:id="txtMailoperador" layoutX="158.0" layoutY="137.0" prefHeight="27.0" prefWidth="253.0" />
-            <Button fx:id="btnImg" layoutX="158.0" layoutY="171.0" mnemonicParsing="false" onAction="#addImagen" text="Insertar Imagen" />
+            <Button fx:id="btnImg" layoutX="158.0" layoutY="140.0" mnemonicParsing="false" onAction="#addImagen" text="Insertar Imagen" />
             <Label fx:id="nombreImagen" layoutX="158.0" layoutY="174.0" mouseTransparent="true" prefHeight="18.0" prefWidth="212.0" />
-            <Label layoutX="22.0" layoutY="212.0" prefHeight="18.0" prefWidth="102.0" text="Mapa:" />
-            <Button fx:id="btnImgn2" layoutX="158.0" layoutY="208.0" mnemonicParsing="false" onAction="#addMapa" text="Insertar Imagen" />
+            <Label layoutX="22.0" layoutY="180.0" prefHeight="18.0" prefWidth="102.0" text="Mapa:" />
+            <Button fx:id="btnImgn2" layoutX="158.0" layoutY="180.0" mnemonicParsing="false" onAction="#addMapa" text="Insertar Imagen" />
             <Label fx:id="nombreImagen2" layoutX="158.0" layoutY="208.0" mouseTransparent="true" prefHeight="18.0" prefWidth="212.0" />
             </children>
         </AnchorPane>

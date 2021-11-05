@@ -166,13 +166,12 @@ public class UserController {
 
 
             adminOperadorIngresado = adminOperadorMgr.ingresarAdmin(userName, password);
-            System.out.println(password);
             usuarioIngresado = userMgr.IngresarUser(userName, password);
             turistaIngresado = userMgr.obtenerTurista(usuarioIngresado);
 
             if(usuarioIngresado == null && adminOperadorIngresado != null){
 
-                System.out.println(adminOperadorIngresado);
+
 
                 //Como es nulo, sabemos que se ingeso un adminOperador (que no desciende de usario)
                 operadorAsociado = adminOperadorIngresado.getOperador();

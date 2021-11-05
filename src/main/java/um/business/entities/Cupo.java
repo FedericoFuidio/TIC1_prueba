@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import java.sql.Time;
 
 @Entity
 public class Cupo {
@@ -16,8 +17,8 @@ public class Cupo {
     private long id;
     private int cupos;
     private String dia;
-    private String horaInicio;
-    private String horaFin;
+    private Time horaInicio;
+    private Time horaFin;
     private int cuposLibres;
 
     @ManyToOne
@@ -27,7 +28,7 @@ public class Cupo {
 
     }
 
-    public Cupo(int cupos, String dia, String horaInicio, String horaFin, Experiencia experiencia){
+    public Cupo(int cupos, String dia, Time horaInicio, Time horaFin, Experiencia experiencia){
 
         this.cupos = cupos;
         this.dia = dia;
@@ -77,19 +78,19 @@ public class Cupo {
         this.dia = dia;
     }
 
-    public String getHoraInicio() {
+    public Time getHoraInicio() {
         return horaInicio;
     }
 
-    public void setHoraInicio(String horaInicio) {
+    public void setHoraInicio(Time horaInicio) {
         this.horaInicio = horaInicio;
     }
 
-    public String getHoraFin() {
+    public Time getHoraFin() {
         return horaFin;
     }
 
-    public void setHoraFin(String horaFin) {
+    public void setHoraFin(Time horaFin) {
         this.horaFin = horaFin;
     }
 }

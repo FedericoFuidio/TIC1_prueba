@@ -10,7 +10,8 @@
     <children>
         <AnchorPane prefHeight="400.0" prefWidth="180.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Button fx:id="BtnAddExperiencia" layoutX="16.0" layoutY="186.0" mnemonicParsing="false" onAction="#agregarExperienciaAction" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: green;" text="Validar" />
+                <Button fx:id="BtnAddExperiencia" layoutX="16.0" layoutY="186.0" mnemonicParsing="false" onAction="#agregarExperienciaAction" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: green;" text="agregar experiencia" />
+                <Button fx:id="BtnAddCupo" layoutX="16.0" layoutY="230.0" mnemonicParsing="false" onAction="#agregarCupoAction" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: green;" text="agregar cupo" />
 
             </children>
         </AnchorPane>

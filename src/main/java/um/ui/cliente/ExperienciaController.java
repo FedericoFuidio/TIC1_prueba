@@ -52,8 +52,6 @@ public class ExperienciaController implements Initializable {
     @FXML
     private TextField txtDescripcion;
 
-    @FXML
-    private TextField txtMailoperador;
 
     @FXML
     public Label nombreImagen;
@@ -76,7 +74,7 @@ public class ExperienciaController implements Initializable {
             String descripcion = txtDescripcion.getText();
             byte[] foto = imagen;
             byte[] map = mapa;
-            String mail = txtMailoperador.getText();
+
 
             if (imagen == null) {
 
@@ -88,7 +86,7 @@ public class ExperienciaController implements Initializable {
             }
 
             else {
-                experienciaMgr.addExperiencia(nombre, ubicacion, descripcion, foto, map, mail);
+                experienciaMgr.addExperiencia(nombre, ubicacion, descripcion, foto, map, UserController.operadorAsociado.getMail());
                 experienciaIngresada = experienciaMgr.getExperienciaByNombre(nombre);
 
                 //showAlert("Experiencia registrada", "Se agrego exitosamente la experiencia!");
@@ -139,7 +137,7 @@ public class ExperienciaController implements Initializable {
         txtNombre.setText(null);
         txtDescripcion.setText(null);
         txtUbicacion.setText(null);
-        txtMailoperador.setText(null);
+
     }
 
 

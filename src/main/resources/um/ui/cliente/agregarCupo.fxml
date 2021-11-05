@@ -12,7 +12,7 @@
          </children></AnchorPane>
     </center>
     <top>
-        <Text strokeType="OUTSIDE" strokeWidth="1.0" text="Registrar experiencia" BorderPane.alignment="TOP_LEFT">
+        <Text strokeType="OUTSIDE" strokeWidth="1.0" text="Registrar cupo para la experiencia" BorderPane.alignment="TOP_LEFT">
             <font>
                 <Font size="28.0" />
             </font>

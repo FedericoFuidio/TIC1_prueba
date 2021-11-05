@@ -56,6 +56,9 @@ public class TableViewExperiencias implements Initializable {
     private Button BtnAddExperiencia;
 
     @FXML
+    private Button BtnAddCupo;
+
+    @FXML
     private TextField filterField;
 
     private ObservableList<Experiencia> experiencias = FXCollections.observableArrayList();
@@ -71,28 +74,26 @@ public class TableViewExperiencias implements Initializable {
 
     @FXML
     void agregarExperienciaAction(ActionEvent actionEvent) throws IOException {
-        if(seleccionada.getNombre() == null){
-            showAlert("ERROR", "Seleccione un operador");
-        } else{
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setControllerFactory(Main.getContext()::getBean);
 
-            Parent root = fxmlLoader.load(ExperienciaController.class.getResourceAsStream("agregarExperiencia.fxml"));
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
-        }
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+        Parent root = fxmlLoader.load(ExperienciaController.class.getResourceAsStream("agregarExperiencia.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+
     }
 
     @FXML
     void agregarCupoAction(ActionEvent actionEvent) throws IOException {
-        if (seleccionada.getNombre() == null) {
-            showAlert("ERROR", "Seleccione un operador");
+        if (seleccionada == null) {
+            showAlert("ERROR", "Seleccione una experiencia");
         } else {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setControllerFactory(Main.getContext()::getBean);
 
-            Parent root = fxmlLoader.load(ExperienciaController.class.getResourceAsStream("agregarExperiencia.fxml"));
+            Parent root = fxmlLoader.load(ElegirCupoGeneral.class.getResourceAsStream("agregarCupoGeneral.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();

@@ -21,6 +21,9 @@ public class Experiencia {
     @Column(columnDefinition = "MEDIUMBLOB")
     private byte[] mapa;
     private double puntaje;
+
+    private int horaInicio;
+    private int horaFin;
     private int calificaciones; //Representa la cantidad de calificaciones
 
     //calificaciones y puntajes son atributos calculados,
@@ -128,5 +131,23 @@ public class Experiencia {
 
     public void setCalificaciones(int calificaciones) {
         this.calificaciones = calificaciones;
+    }
+
+
+
+    public Integer getHoraInicio() {
+        return horaInicio;
+    }
+
+    public void setHoraInicio(Integer horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+
+    public Integer getHoraFin() {
+        return horaFin;
+    }
+
+    public void setHoraFin(Integer horaFin) {
+        this.horaFin = horaFin;
     }
 }

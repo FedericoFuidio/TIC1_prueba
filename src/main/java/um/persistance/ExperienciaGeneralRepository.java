@@ -9,4 +9,5 @@ public interface ExperienciaGeneralRepository extends CrudRepository<Experiencia
     Experiencia getExperienciaByNombre(String nombre);
     Iterable<Experiencia> getExperienciasByOperador(Operador operador);
 
+
 }
