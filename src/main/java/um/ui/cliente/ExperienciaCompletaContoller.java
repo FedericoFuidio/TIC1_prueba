@@ -1,6 +1,9 @@
 package um.ui.cliente;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -34,10 +37,16 @@ public class ExperienciaCompletaContoller {
     private Label contacto;
 
     @FXML
-    private ComboBox<?> seleccionadorHora;
+    private DatePicker datePicker;
 
     @FXML
-    private ComboBox<?> seleccionadorPersonas;
+    private ComboBox<?> hourPicker;
+
+    @FXML
+    private ComboBox<?> peoplePicker;
+
+    @FXML
+    private Button btnReservar;
 
 
     public void setData(Experiencia experiencia){
@@ -53,6 +62,11 @@ public class ExperienciaCompletaContoller {
             mapaExperiencia.setImage(image);}
         //ratingActividad.setRating(experiencia.getRating());
         //seleccionadorHora.setItems(experiencia.);
+    }
+
+    @FXML
+    void realizarReserva(ActionEvent event) {
+
     }
 
 }

@@ -6,7 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import java.sql.Time;
+import java.time.DayOfWeek;
+import java.time.LocalTime;
 
 @Entity
 public class Cupo {
@@ -16,9 +17,9 @@ public class Cupo {
     @GenericGenerator(name="cupos_ids", strategy = "increment")
     private long id;
     private int cupos;
-    private String dia;
-    private Time horaInicio;
-    private Time horaFin;
+    private DayOfWeek dia;
+    private LocalTime horaApertura;
+    private LocalTime horaCierre;
     private int cuposLibres;
 
     @ManyToOne
@@ -28,12 +29,12 @@ public class Cupo {
 
     }
 
-    public Cupo(int cupos, String dia, Time horaInicio, Time horaFin, Experiencia experiencia){
+    public Cupo(int cupos, DayOfWeek dia, LocalTime horaApertura, LocalTime horaCierre, Experiencia experiencia){
 
         this.cupos = cupos;
         this.dia = dia;
-        this.horaInicio = horaInicio;
-        this.horaFin = horaFin;
+        this.horaApertura = horaApertura;
+        this.horaCierre = horaCierre;
         this.experiencia = experiencia;
 
     }
@@ -70,27 +71,27 @@ public class Cupo {
         this.experiencia = experiencia;
     }
 
-    public String getDia() {
+    public DayOfWeek getDia() {
         return dia;
     }
 
-    public void setDia(String dia) {
+    public void setDia(DayOfWeek dia) {
         this.dia = dia;
     }
 
-    public Time getHoraInicio() {
-        return horaInicio;
+    public LocalTime getHoraApertura() {
+        return horaApertura;
     }
 
-    public void setHoraInicio(Time horaInicio) {
-        this.horaInicio = horaInicio;
+    public void setHoraApertura(LocalTime horaApertura) {
+        this.horaApertura = horaApertura;
     }
 
-    public Time getHoraFin() {
-        return horaFin;
+    public LocalTime getHoraCierre() {
+        return horaCierre;
     }
 
-    public void setHoraFin(Time horaFin) {
-        this.horaFin = horaFin;
+    public void setHoraCierre(LocalTime horaCierre) {
+        this.horaCierre = horaCierre;
     }
 }

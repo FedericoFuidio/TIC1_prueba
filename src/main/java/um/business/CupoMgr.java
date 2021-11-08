@@ -8,7 +8,8 @@ import um.business.exception.ClassAlreadyExists;
 import um.business.exception.InvalidInformation;
 import um.persistance.CupoRepository;
 
-import java.sql.Time;
+import java.time.DayOfWeek;
+import java.time.LocalTime;
 
 @Service
 public class CupoMgr {
@@ -16,7 +17,7 @@ public class CupoMgr {
     @Autowired
     private CupoRepository cupoRepository;
 
-    public void addCupo(int cupos, String dia, Time horaInicio, Time horaFin, Experiencia experiencia)
+    public void addCupo(int cupos, DayOfWeek dia, LocalTime horaInicio, LocalTime horaFin, Experiencia experiencia)
             throws InvalidInformation, ClassAlreadyExists {
 
         if(dia == null || horaInicio == null || horaFin == null){
