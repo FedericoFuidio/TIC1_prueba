@@ -2,8 +2,10 @@ package um.business;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import um.business.entities.Administrador;
 import um.business.entities.Turista;
 import um.business.entities.User;
+import um.persistance.AdministradorRepository;
 import um.persistance.TuristaRepository;
 import um.persistance.UserRepository;
 
@@ -18,6 +20,9 @@ public class UserMgr{
 
     @Autowired
     TuristaRepository turistaRepository;
+
+    @Autowired
+    AdministradorRepository administradorRepository;
 
     //Agregar un usuario al sistema:
     public void addUser(String nombre, String apellido, String userName, String mail, LocalDate birthDate,
@@ -82,6 +87,20 @@ public class UserMgr{
             if (turistaRepository.findTuristaById(id) != null) {
                 return turistaRepository.findTuristaById(id);
             } else {
+                return null;
+            }
+        }
+    }
+
+    public Administrador obtenerAdministrador(User user){
+
+        if(user == null){
+            return null;
+        }else{
+            long id = user.getId();
+            if(administradorRepository.findAdministradorById(id) != null){
+                return administradorRepository.findAdministradorById(id);
+            }else{
                 return null;
             }
         }

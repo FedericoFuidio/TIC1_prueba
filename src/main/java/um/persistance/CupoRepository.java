@@ -9,5 +9,5 @@ import java.time.LocalTime;
 
 public interface CupoRepository extends CrudRepository<Cupo, Long> {
 
-    Cupo getCupoByDiaAndHoraInicioAndExperiencia(DayOfWeek dia, LocalTime horaInicio, Experiencia experiencia);
+    Cupo getCupoByDiaAndHoraAperturaAndExperiencia(DayOfWeek dia, LocalTime horaInicio, Experiencia experiencia);
 }

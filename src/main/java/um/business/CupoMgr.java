@@ -26,7 +26,7 @@ public class CupoMgr {
 
         Cupo nuevo = new Cupo(cupos, dia, horaInicio, horaFin, experiencia);
 
-        if(cupoRepository.getCupoByDiaAndHoraInicioAndExperiencia(dia, horaInicio, experiencia) != null){
+        if(cupoRepository.getCupoByDiaAndHoraAperturaAndExperiencia(dia, horaInicio, experiencia) != null){
 
             throw new ClassAlreadyExists();
         }

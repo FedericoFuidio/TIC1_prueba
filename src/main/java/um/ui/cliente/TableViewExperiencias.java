@@ -59,6 +59,12 @@ public class TableViewExperiencias implements Initializable {
     private Button BtnAddCupo;
 
     @FXML
+    private Button BtnValidar;
+
+    @FXML
+    private Button BtnBloquear;
+
+    @FXML
     private TextField filterField;
 
     private ObservableList<Experiencia> experiencias = FXCollections.observableArrayList();
@@ -66,6 +72,29 @@ public class TableViewExperiencias implements Initializable {
 
 
     static Experiencia seleccionada = new Experiencia();
+
+    @FXML
+    void validar(ActionEvent actionEvent){
+        if (seleccionada == null) {
+            showAlert("ERROR", "Seleccione una experiencia");
+        }else {
+            experienciaMgr.validar(seleccionada);
+        }
+        updateTable();
+        searchExperiencia();
+
+    }
+
+    @FXML
+    void bloquear(ActionEvent actionEvent){
+        if (seleccionada == null) {
+            showAlert("ERROR", "Seleccione una experiencia");
+        }else {
+            experienciaMgr.bloquear(seleccionada);
+        }
+        updateTable();
+        searchExperiencia();
+    }
 
     @FXML
     void getSelected(MouseEvent mouseEvent){
@@ -114,6 +143,7 @@ public class TableViewExperiencias implements Initializable {
 
         experiencias.clear();
         Iterable<Experiencia> iterableExperiencias = experienciaMgr.getExperienciaByOperador(UserController.operadorAsociado);
+        System.out.println(UserController.operadorAsociado);
         for (Experiencia s : iterableExperiencias) {
             experiencias.add(s);
         }

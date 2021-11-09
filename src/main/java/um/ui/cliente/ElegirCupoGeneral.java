@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 import um.business.ExperienciaMgr;
 
 import java.net.URL;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 
 @Component
@@ -24,10 +25,10 @@ public class ElegirCupoGeneral implements Initializable {
     ExperienciaMgr experienciaMgr;
 
     @FXML
-    private ComboBox<Integer> hora_inicial_txt;
+    private ComboBox<LocalTime> cmbHoraApertura;
 
     @FXML
-    private ComboBox<Integer> hora_final_txt;
+    private ComboBox<LocalTime> cmbHoraCierre;
 
     @FXML
     private Button agregar;
@@ -35,15 +36,18 @@ public class ElegirCupoGeneral implements Initializable {
     @FXML
     private Button cancelar;
 
+    private ObservableList<String> horas = FXCollections.observableArrayList();
+    private ObservableList<LocalTime> horas_time = FXCollections.observableArrayList();
+
     @FXML
     void addCupoGeneral(ActionEvent actionEvent){
 
         try{
 
-            Integer hora_inicial = hora_inicial_txt.getValue();
-            Integer hora_final = hora_final_txt.getValue();
+            LocalTime horaApertura = cmbHoraApertura.getValue();
+            LocalTime horaCierre = cmbHoraCierre.getValue();
 
-            experienciaMgr.addCupoGeneral(TableViewExperiencias.seleccionada, hora_inicial, hora_final);
+            experienciaMgr.addCupoGeneral(TableViewExperiencias.seleccionada, horaApertura, horaCierre);
             close(actionEvent);
 
             showAlert("Cupo ingresado correctamente", "Se ingreso correctamente el cupo");
@@ -61,13 +65,10 @@ public class ElegirCupoGeneral implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        ObservableList<Integer> temp = FXCollections.observableArrayList();
-        for(int i = 0; i < 25; i++){
-            temp.add(i);
+        for(int i = 0; i < 100; i++){
+
         }
 
-        hora_inicial_txt.setItems(temp);
-        hora_final_txt.setItems(temp);
     }
 
     private void showAlert(String title, String contextText) {
@@ -79,8 +80,8 @@ public class ElegirCupoGeneral implements Initializable {
     }
 
     private void clean() {
-        hora_inicial_txt.setValue(null);
-        hora_final_txt.setValue(null);
+        cmbHoraApertura.setValue(null);
+        cmbHoraCierre.setValue(null);
     }
 
     @FXML

@@ -79,6 +79,8 @@ public class TuristaMgr {
         ObservableList<Long> preferencias = FXCollections.observableArrayList();
         ObservableList<ExperienciaComparable> comparacion = FXCollections.observableArrayList();
 
+        ObservableList<Experiencia> experiencias_validadas = FXCollections.observableArrayList();
+
         for(PreferenciaTurista pt : prefs){
 
             //Obtenemos una lista con todas las preferencias del turista
@@ -86,10 +88,19 @@ public class TuristaMgr {
 
         }
 
+        for(Experiencia e : todas){
+
+            //Solo usamos experiancias que estan validadas, y puestas por operadores validados:
+            if(e.isValidado() && e.getOperador().isValidado()){
+
+                experiencias_validadas.add(e);
+            }
+        }
+
         //preferencias = preferencias del turista.
         double n = preferencias.size();
 
-        for(Experiencia e : todas){
+        for(Experiencia e : experiencias_validadas){
 
             //Definimos una experienciaComparable, el puntaje inicial es 0
             ExperienciaComparable experienciaComparable = new ExperienciaComparable(e);
@@ -135,7 +146,7 @@ public class TuristaMgr {
         for(int temp = 0; temp <= numero_experiencias; temp ++){
 
 
-            //Queremos que aparezca como recomen
+            //Queremos que aparezca como recomendados las 15 mejores rankeadas
             recomendados.add(comparacion.get(temp).getExperiencia());
         }
 

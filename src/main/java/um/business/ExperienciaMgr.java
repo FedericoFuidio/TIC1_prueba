@@ -8,6 +8,8 @@ import um.business.exception.InvalidInformation;
 import um.business.exception.UserNotFound;
 import um.persistance.ExperienciaGeneralRepository;
 
+import java.time.LocalTime;
+
 @Service
 public class ExperienciaMgr {
 
@@ -47,19 +49,33 @@ public class ExperienciaMgr {
 
     public Iterable<Experiencia> getExperienciaByOperador(Operador operador){
 
-        return  experienciaGeneralRepository.getExperienciasByOperador(operador);
+        if(operador != null) {
+            System.out.println(operador.getDescripcion());
+            return experienciaGeneralRepository.getAllByOperador(operador);
+        }else{
+            return getExperiencias();
+        }
 
     }
 
-    public void addCupoGeneral(Experiencia experiencia, Integer hora_inicial, Integer hora_final) throws InvalidInformation{
+    public void addCupoGeneral(Experiencia experiencia, LocalTime horaApertura, LocalTime horaCierre) throws InvalidInformation{
 
-        if(hora_inicial >= hora_final){
+        if(horaApertura.compareTo(horaCierre) <= 0){
             throw new InvalidInformation();
         }
 
-        experiencia.setHoraInicio(hora_inicial);
-        experiencia.setHoraFin(hora_final);
         experienciaGeneralRepository.save(experiencia);
 
+    }
+
+    public void validar(Experiencia experiencia){
+
+        experiencia.setValidado(true);
+        experienciaGeneralRepository.save(experiencia);
+    }
+
+    public void bloquear(Experiencia experiencia){
+        experiencia.setValidado(false);
+        experienciaGeneralRepository.save(experiencia);
     }
 }

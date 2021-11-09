@@ -13,10 +13,7 @@ import org.springframework.stereotype.Component;
 import um.Main;
 import um.business.AdminOperadorMgr;
 import um.business.UserMgr;
-import um.business.entities.AdminOperador;
-import um.business.entities.Operador;
-import um.business.entities.Turista;
-import um.business.entities.User;
+import um.business.entities.*;
 
 import java.time.LocalDate;
 
@@ -72,6 +69,7 @@ public class UserController {
     static Turista turistaIngresado;
     static AdminOperador adminOperadorIngresado;
     static Operador operadorAsociado;
+    static Administrador adminIngresado;
 
     @FXML
     void addClient(ActionEvent event) {
@@ -168,11 +166,12 @@ public class UserController {
             adminOperadorIngresado = adminOperadorMgr.ingresarAdmin(userName, password);
             usuarioIngresado = userMgr.IngresarUser(userName, password);
             turistaIngresado = userMgr.obtenerTurista(usuarioIngresado);
+            adminIngresado = userMgr.obtenerAdministrador(usuarioIngresado);
 
             if(usuarioIngresado == null && adminOperadorIngresado != null){
 
-
-
+                turistaIngresado = null;
+                adminIngresado = null;
                 //Como es nulo, sabemos que se ingeso un adminOperador (que no desciende de usario)
                 operadorAsociado = adminOperadorIngresado.getOperador();
                 close(event);
@@ -187,6 +186,9 @@ public class UserController {
             }
 
             else if(turistaIngresado != null) {
+                adminIngresado = null;
+                operadorAsociado = null;
+                adminOperadorIngresado = null;
                 close(event);
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setControllerFactory(Main.getContext()::getBean);
@@ -195,6 +197,21 @@ public class UserController {
                 Stage stage = new Stage();
                 stage.setScene(new Scene(root));
                 stage.show();
+            }
+
+            else if(adminIngresado != null) {
+                adminOperadorIngresado = null;
+                turistaIngresado = null;
+                operadorAsociado = null;
+                close(event);
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+                Parent root = fxmlLoader.load(PantallaAdminController.class.getResourceAsStream("pantallaPrincipalAdministrador.fxml"));
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.show();
+
             } else{
                 showAlert("Contraseña incorrecta", "Intente nuevamente");
             }
