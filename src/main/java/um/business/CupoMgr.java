@@ -34,4 +34,8 @@ public class CupoMgr {
         cupoRepository.save(nuevo);
 
     }
+
+    public Cupo getCupo(Experiencia exp, DayOfWeek dia){
+        return cupoRepository.getCupoByExperienciaAndDia(exp, dia);
+    }
 }

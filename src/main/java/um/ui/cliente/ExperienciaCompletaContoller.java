@@ -1,19 +1,27 @@
 package um.ui.cliente;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.control.ComboBox;
 import org.controlsfx.control.Rating;
+import org.springframework.beans.factory.annotation.Autowired;
+import um.business.CupoMgr;
+import um.business.entities.Cupo;
 import um.business.entities.Experiencia;
 
 import java.io.ByteArrayInputStream;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class ExperienciaCompletaContoller {
+
+    @Autowired
+    private CupoMgr cupoMgr;
 
     @FXML
     private ImageView imgExperiencia;
@@ -40,14 +48,16 @@ public class ExperienciaCompletaContoller {
     private DatePicker datePicker;
 
     @FXML
-    private ComboBox<?> hourPicker;
+    private Label horaAp;
 
     @FXML
-    private ComboBox<?> peoplePicker;
+    private Label horaCi;
+
+    @FXML
+    private TextField people;
 
     @FXML
     private Button btnReservar;
-
 
     public void setData(Experiencia experiencia){
         if(experiencia.getFoto() != null){
@@ -60,13 +70,17 @@ public class ExperienciaCompletaContoller {
         if(experiencia.getMapa() != null){
             Image image =   new Image(new ByteArrayInputStream(experiencia.getMapa()));
             mapaExperiencia.setImage(image);}
-        //ratingActividad.setRating(experiencia.getRating());
-        //seleccionadorHora.setItems(experiencia.);
+        //horaAp.setText(cupoMgr.getCupo(experiencia, DayOfWeek.from(LocalDate.now())).getHoraApertura().toString());
+        //horaCi.setText(cupoMgr.getCupo(experiencia, DayOfWeek.from(LocalDate.now())).getHoraCierre().toString());
+        ratingActividad.setRating(experiencia.getPuntaje());
     }
 
     @FXML
     void realizarReserva(ActionEvent event) {
+        if(datePicker.getConverter() != null && people.getText() != null && people.getText().isEmpty() == false){
+            DayOfWeek dia = datePicker.getValue().getDayOfWeek();//Tengo que ver como accedere a la exp desde acá
 
+        }
     }
 
 }
