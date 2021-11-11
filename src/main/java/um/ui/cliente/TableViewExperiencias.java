@@ -116,7 +116,7 @@ public class TableViewExperiencias implements Initializable {
 
     @FXML
     void agregarCupoAction(ActionEvent actionEvent) throws IOException {
-        if (seleccionada == null) {
+        if (seleccionada == null || seleccionada.getNombre() == null) {
             showAlert("ERROR", "Seleccione una experiencia");
         } else {
             FXMLLoader fxmlLoader = new FXMLLoader();

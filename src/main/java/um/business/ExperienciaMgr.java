@@ -2,12 +2,15 @@ package um.business;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import um.business.entities.Cupo;
 import um.business.entities.Experiencia;
 import um.business.entities.Operador;
 import um.business.exception.InvalidInformation;
 import um.business.exception.UserNotFound;
+import um.persistance.CupoRepository;
 import um.persistance.ExperienciaGeneralRepository;
 
+import java.time.DayOfWeek;
 import java.time.LocalTime;
 
 @Service
@@ -15,6 +18,9 @@ public class ExperienciaMgr {
 
     @Autowired
     ExperienciaGeneralRepository experienciaGeneralRepository;
+
+    @Autowired
+    CupoRepository cupoRepository;
 
     @Autowired
     OperadorMgr operadorMgr;
@@ -58,13 +64,25 @@ public class ExperienciaMgr {
 
     }
 
-    public void addCupoGeneral(Experiencia experiencia, LocalTime horaApertura, LocalTime horaCierre) throws InvalidInformation{
+    public void addCupoGeneral(Experiencia experiencia, LocalTime horaApertura, LocalTime horaCierre, DayOfWeek dia, Integer personas) throws InvalidInformation{
 
-        if(horaApertura.compareTo(horaCierre) <= 0){
+        if(horaApertura.compareTo(horaCierre) >= 0){
             throw new InvalidInformation();
         }
 
-        experienciaGeneralRepository.save(experiencia);
+        Cupo cupo = cupoRepository.getCupoByDiaAndHoraAperturaAndExperiencia(dia, horaApertura, experiencia);
+
+        if(cupo != null){
+
+            cupo.setHoraApertura(horaApertura);
+            cupo.setHoraCierre(horaCierre);
+            cupoRepository.save(cupo);
+
+        }
+
+        Cupo nuevo = new Cupo(personas, dia, horaApertura, horaCierre, experiencia);
+        cupoRepository.save(nuevo);
+
 
     }
 

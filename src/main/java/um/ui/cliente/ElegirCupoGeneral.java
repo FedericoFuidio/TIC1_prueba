@@ -9,12 +9,15 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import um.business.ExperienciaMgr;
+import um.business.exception.InvalidInformation;
 
 import java.net.URL;
+import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
 
@@ -24,11 +27,18 @@ public class ElegirCupoGeneral implements Initializable {
     @Autowired
     ExperienciaMgr experienciaMgr;
 
-    @FXML
-    private ComboBox<LocalTime> cmbHoraApertura;
 
     @FXML
-    private ComboBox<LocalTime> cmbHoraCierre;
+    private ComboBox<String> horaAperturaString;
+
+    @FXML
+    private ComboBox<String> horaCierreString;
+
+    @FXML
+    private ComboBox<String> cmbDia;
+
+    @FXML
+    private TextField txt_personas;
 
     @FXML
     private Button agregar;
@@ -36,18 +46,41 @@ public class ElegirCupoGeneral implements Initializable {
     @FXML
     private Button cancelar;
 
-    private ObservableList<String> horas = FXCollections.observableArrayList();
-    private ObservableList<LocalTime> horas_time = FXCollections.observableArrayList();
+
 
     @FXML
     void addCupoGeneral(ActionEvent actionEvent){
 
         try{
 
-            LocalTime horaApertura = cmbHoraApertura.getValue();
-            LocalTime horaCierre = cmbHoraCierre.getValue();
+            Integer personas = Integer.parseInt(txt_personas.getText());
+            LocalTime horaApertura = LocalTime.parse(horaAperturaString.getValue());
+            LocalTime horaCierre = LocalTime.parse(horaCierreString.getValue());
+            String dia_elegido = cmbDia.getValue();
 
-            experienciaMgr.addCupoGeneral(TableViewExperiencias.seleccionada, horaApertura, horaCierre);
+            //Vemos que numero de dia elegio:
+            int numero = 1;
+            ObservableList<String> dias = FXCollections.observableArrayList();
+            dias.add("Lunes");
+            dias.add("Martes");
+            dias.add("Miercoles");
+            dias.add("Jueves");
+            dias.add("Viernes");
+            dias.add("Sabado");
+            dias.add("Domingo");
+
+            for(int i = 0; i < 6; i++){
+
+                if(dia_elegido.equals(dias.get(i))){
+
+                    numero = i+1;
+                }
+            }
+
+            DayOfWeek dia = DayOfWeek.of(numero);
+
+
+            experienciaMgr.addCupoGeneral(TableViewExperiencias.seleccionada, horaApertura, horaCierre, dia, personas);
             close(actionEvent);
 
             showAlert("Cupo ingresado correctamente", "Se ingreso correctamente el cupo");
@@ -55,20 +88,47 @@ public class ElegirCupoGeneral implements Initializable {
 
 
 
+        }catch (InvalidInformation e){
+
+            showAlert("Ocurrio un error", "La hora inicial debe ser menor a la hora final");
+
         }catch (Exception e){
 
-            showAlert("Ocurrio un error", "Revise los datos, recuerde que la hora inicial debe ser menor que la hora final");
-
+            showAlert("ERROR", "En el campo cupo debe ingresar un numero entero");
         }
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        for(int i = 0; i < 100; i++){
+        ObservableList<String> lista_horas = FXCollections.observableArrayList();
+        for(int i = 0; i < 24; i++){
+
+            if(i < 10){
+
+                String hora = "0" + i + ":00";
+                lista_horas.add(hora);
+
+            }else{
+                String hora = i + ":00";
+                lista_horas.add(hora);
+            }
 
         }
 
+        horaAperturaString.setItems(lista_horas);
+        horaCierreString.setItems(lista_horas);
+
+        ObservableList<String> dias = FXCollections.observableArrayList();
+        dias.add("Lunes");
+        dias.add("Martes");
+        dias.add("Miercoles");
+        dias.add("Jueves");
+        dias.add("Viernes");
+        dias.add("Sabado");
+        dias.add("Domingo");
+
+        cmbDia.setItems(dias);
     }
 
     private void showAlert(String title, String contextText) {
@@ -80,8 +140,7 @@ public class ElegirCupoGeneral implements Initializable {
     }
 
     private void clean() {
-        cmbHoraApertura.setValue(null);
-        cmbHoraCierre.setValue(null);
+
     }
 
     @FXML
@@ -90,4 +149,5 @@ public class ElegirCupoGeneral implements Initializable {
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
     }
+
 }

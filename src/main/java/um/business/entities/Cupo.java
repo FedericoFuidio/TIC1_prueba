@@ -36,6 +36,7 @@ public class Cupo {
         this.horaApertura = horaApertura;
         this.horaCierre = horaCierre;
         this.experiencia = experiencia;
+        this.cuposLibres = cupos;
 
     }
 
