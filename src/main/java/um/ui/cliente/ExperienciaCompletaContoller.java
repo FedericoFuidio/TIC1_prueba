@@ -108,6 +108,14 @@ public class ExperienciaCompletaContoller {
             }
             hourPicker.setItems(o);
             ratingActividad.setRating(experiencia.getPuntaje());
+            datePicker.setDayCellFactory(picker -> new DateCell() {
+                public void updateItem(LocalDate date, boolean empty) {
+                    super.updateItem(date, empty);
+                    LocalDate today = LocalDate.now();
+
+                    setDisable(empty || date.compareTo(today) < 0 );
+                }
+            });
         }catch(Exception e){
             e.printStackTrace();
             showAlert(
@@ -163,6 +171,28 @@ public class ExperienciaCompletaContoller {
         alert.setHeaderText(null);
         alert.setContentText(contextText);
         alert.showAndWait();
+    }
+
+    @FXML
+    private void updatePicker(){
+        String hora_inicial;
+        int horaAp = cupoMgr.getCupo(exp, DayOfWeek.from(datePicker.getValue())).getHoraApertura().getHour();
+        int horaCi = cupoMgr.getCupo(exp, DayOfWeek.from(datePicker.getValue())).getHoraCierre().getHour();
+        if(horaAp < 10){
+            hora_inicial = "0"+horaAp+":00";
+        }else{
+            hora_inicial = horaCi+":00";
+        }
+
+        ObservableList<String> o = FXCollections.observableArrayList();
+        for (int i = horaAp; i< horaCi; i++){
+            if(i < 10) {
+                o.add("0"+i+":00:00");
+            }else{
+                o.add(i+":00:00");
+            }
+        }
+        hourPicker.setItems(o);
     }
 
 }
