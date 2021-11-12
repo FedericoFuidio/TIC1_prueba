@@ -1,10 +1,13 @@
 package um.ui.cliente;
 
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.controlsfx.control.Rating;
@@ -15,15 +18,15 @@ import um.business.ReservaMgr;
 import um.business.entities.Cupo;
 import um.business.entities.Experiencia;
 
+
 import java.io.ByteArrayInputStream;
-import java.net.URL;
 import java.sql.Date;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.util.ResourceBundle;
+
 
 @Component
-public class ExperienciaCompletaContoller implements Initializable {
+public class ExperienciaCompletaContoller {
 
     @Autowired
     CupoMgr cupoMgr;
@@ -56,10 +59,7 @@ public class ExperienciaCompletaContoller implements Initializable {
     private DatePicker datePicker;
 
     @FXML
-    private Label horaAp;
-
-    @FXML
-    private Label horaCi;
+    private ComboBox<Integer> hourPicker;
 
     @FXML
     private TextField people;
@@ -69,6 +69,7 @@ public class ExperienciaCompletaContoller implements Initializable {
 
     private Experiencia exp;
 
+    @FXML
     public void setData(Experiencia experiencia) {
         exp = experiencia;
         if (experiencia.getFoto() != null) {
@@ -84,8 +85,13 @@ public class ExperienciaCompletaContoller implements Initializable {
             mapaExperiencia.setImage(image);
         }
         try {
-            horaAp.setText(cupoMgr.getCupo(experiencia, DayOfWeek.from(LocalDate.now())).getHoraApertura().toString());
-            horaCi.setText(cupoMgr.getCupo(experiencia, DayOfWeek.from(LocalDate.now())).getHoraCierre().toString());
+            int horaAp = cupoMgr.getCupo(experiencia, DayOfWeek.from(LocalDate.now())).getHoraApertura().getHour();
+            int horaCi = cupoMgr.getCupo(experiencia, DayOfWeek.from(LocalDate.now())).getHoraCierre().getHour();
+            ObservableList<Integer> o = FXCollections.observableArrayList();
+            for (int i=horaAp; i< horaCi; i++){
+                o.add(i);
+            }
+            hourPicker.setItems(o);
             ratingActividad.setRating(experiencia.getPuntaje());
         }catch(Exception e){
             e.printStackTrace();
@@ -115,6 +121,7 @@ public class ExperienciaCompletaContoller implements Initializable {
                     reservaMgr.addReserva(UserController.turistaIngresado, c, Integer.parseInt(people.getText()), d);
                 }
             } catch (Exception e) {
+                e.printStackTrace();
                 showAlert(
                         "ERROR!",
                         "En cantidad de personas debe poner un número entero");
@@ -129,8 +136,4 @@ public class ExperienciaCompletaContoller implements Initializable {
         alert.showAndWait();
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        cupoMgr.getCupo(exp,DayOfWeek.of(2));
-    }
 }

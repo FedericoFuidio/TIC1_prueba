@@ -6,6 +6,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -87,7 +88,7 @@
                                  <children>
                                     <Label prefHeight="42.0" prefWidth="180.0" text="Seleccione Cantidad de Personas:" />
                                     <Pane prefHeight="32.0" prefWidth="30.0" />
-                                    <ComboBox fx:id="peoplePicker" prefHeight="26.0" prefWidth="97.0" />
+                                    <TextField fx:id="people" promptText="cantidad" />
                                  </children>
                               </HBox>
                               <Pane prefHeight="30.0" prefWidth="329.0" />

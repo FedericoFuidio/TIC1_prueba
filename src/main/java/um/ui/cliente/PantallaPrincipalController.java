@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import um.Main;
 import um.business.ExperienciaMgr;
 import um.business.TuristaMgr;
 import um.business.entities.Experiencia;
@@ -75,18 +76,7 @@ public class PantallaPrincipalController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        /*Image imgbusqueda = new Image(getClass().getResourceAsStream("imgs/busqueda.jpg"));
-        imgBusqueda.setImage(imgbusqueda);
-        Image imgperfil = new Image(getClass().getResourceAsStream("imgs/perfil.png"));
-        imgPerfil.setImage(imgperfil);
-        Image imgajustes = new Image(getClass().getResourceAsStream("imgs/ajustes.png"));
-        imgAjustes.setImage(imgajustes);
-        Image imghistorial = new Image(getClass().getResourceAsStream("imgs/historial.png"));
-        imgHistorial.setImage(imghistorial);*/
-        /*scrollPane.setFitToHeight(true);
-        scrollPane.setFitToWidth(true);
-        GridPane.setVgrow(scrollPane, Priority.ALWAYS);
-        GridPane.setHgrow(scrollPane, Priority.ALWAYS);*/
+
         updateScreen();
         experiencias.addAll(getData());
         int column = 0;
@@ -94,6 +84,7 @@ public class PantallaPrincipalController implements Initializable {
         try {
             for (Experiencia ex : experiencias) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
+                //fxmlLoader.setControllerFactory(Main.getContext()::getBean);
                 fxmlLoader.setLocation(getClass().getResource("VistaExperiencia.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
 

@@ -38,6 +38,7 @@ public class VistaExperienciaController {
     private Experiencia xp;
 
 
+    @FXML
     public void setData(Experiencia experiencia){
         xp=experiencia;
         if(experiencia.getFoto() != null){
@@ -55,6 +56,7 @@ public class VistaExperienciaController {
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(Main.getContext()::getBean);
             fxmlLoader.setLocation(getClass().getResource("experienciaCompleta.fxml"));
             AnchorPane anchorPane = fxmlLoader.load();
 
@@ -62,9 +64,6 @@ public class VistaExperienciaController {
             ExperienciaCompletaContoller expController = fxmlLoader.getController();
             expController.setData(xp);
 
-
-            /*FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setControllerFactory(Main.getContext()::getBean);*/
 
             Stage stage = new Stage();
             stage.setScene(new Scene(fxmlLoader.getRoot()));
