@@ -13,7 +13,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import um.Main;
 import um.business.ExperienciaMgr;
 import um.business.TuristaMgr;
 import um.business.entities.Experiencia;
@@ -74,6 +73,8 @@ public class PantallaPrincipalController implements Initializable {
         return experiencias;
     }
 
+    static Experiencia experiencia_vista;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -83,6 +84,9 @@ public class PantallaPrincipalController implements Initializable {
         int row = 0;
         try {
             for (Experiencia ex : experiencias) {
+                experiencia_vista = ex;
+
+
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 //fxmlLoader.setControllerFactory(Main.getContext()::getBean);
                 fxmlLoader.setLocation(getClass().getResource("VistaExperiencia.fxml"));
@@ -90,6 +94,8 @@ public class PantallaPrincipalController implements Initializable {
 
                 VistaExperienciaController expController = fxmlLoader.getController();
                 expController.setData(ex);
+
+
 
                 experienciasGrid.add(anchorPane, column, row++);
                 GridPane.setMargin(anchorPane, new Insets(10));

@@ -17,6 +17,8 @@ import um.business.CupoMgr;
 import um.business.ReservaMgr;
 import um.business.entities.Cupo;
 import um.business.entities.Experiencia;
+import um.business.exception.ClassAlreadyExists;
+import um.business.exception.InvalidInformation;
 
 
 import java.io.ByteArrayInputStream;
@@ -59,7 +61,7 @@ public class ExperienciaCompletaContoller {
     private DatePicker datePicker;
 
     @FXML
-    private ComboBox<Integer> hourPicker;
+    private ComboBox<String> hourPicker;
 
     @FXML
     private TextField people;
@@ -85,11 +87,23 @@ public class ExperienciaCompletaContoller {
             mapaExperiencia.setImage(image);
         }
         try {
+            String hora_inicial;
+
             int horaAp = cupoMgr.getCupo(experiencia, DayOfWeek.from(LocalDate.now())).getHoraApertura().getHour();
             int horaCi = cupoMgr.getCupo(experiencia, DayOfWeek.from(LocalDate.now())).getHoraCierre().getHour();
-            ObservableList<Integer> o = FXCollections.observableArrayList();
-            for (int i=horaAp; i< horaCi; i++){
-                o.add(i);
+            if(horaAp < 10){
+                hora_inicial = "0"+horaAp+":00";
+            }else{
+                hora_inicial = horaCi+":00";
+            }
+
+            ObservableList<String> o = FXCollections.observableArrayList();
+            for (int i = horaAp; i< horaCi; i++){
+                if(i < 10) {
+                    o.add("0"+i+":00");
+                }else{
+                    o.add(i+":00");
+                }
             }
             hourPicker.setItems(o);
             ratingActividad.setRating(experiencia.getPuntaje());
@@ -105,6 +119,7 @@ public class ExperienciaCompletaContoller {
     void realizarReserva(ActionEvent event) {
         Cupo c = null;
         Date d = null;
+
         try{
             if (datePicker.getConverter() != null && people.getText() != null && !people.getText().isEmpty()) {
                 DayOfWeek dia = datePicker.getValue().getDayOfWeek();
@@ -117,10 +132,22 @@ public class ExperienciaCompletaContoller {
                         "LLene todos los campos");
             }
             try {
-                if (Integer.parseInt(people.getText()) <= c.getCuposLibres()) {
-                    reservaMgr.addReserva(UserController.turistaIngresado, c, Integer.parseInt(people.getText()), d);
-                }
-            } catch (Exception e) {
+
+                reservaMgr.addReserva(UserController.turistaIngresado, c, Integer.parseInt(people.getText()), d);
+                showAlert("Reserva realizada!",
+                        "Se realizó con exito la reserva");
+
+            } catch (ClassAlreadyExists e){
+                showAlert(
+                        "ERROR!",
+                        "Ya tienes una reserva para el dia seleccionado");
+            } catch (InvalidInformation e){
+                showAlert(
+                        "ERROR!",
+                        "La cantidad ingresada es mayor a los cupos disponibles para el dia");
+            }
+
+            catch (Exception e) {
                 e.printStackTrace();
                 showAlert(
                         "ERROR!",

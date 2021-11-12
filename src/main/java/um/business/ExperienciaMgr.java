@@ -96,4 +96,5 @@ public class ExperienciaMgr {
         experiencia.setValidado(false);
         experienciaGeneralRepository.save(experiencia);
     }
+
 }

@@ -28,8 +28,9 @@ public class Reserva {
 
     }
 
-    public Reserva(Turista turista, Cupo cupo, int cantidad, Date feha){
+    public Reserva(ReservaKey id, Turista turista, Cupo cupo, int cantidad, Date feha){
 
+        this.id = id;
         this.turista = turista;
         this.cupo = cupo;
         this.cantidad = cantidad;

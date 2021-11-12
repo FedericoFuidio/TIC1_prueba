@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import um.business.entities.Cupo;
 import um.business.entities.Reserva;
+import um.business.entities.ReservaKey;
 import um.business.entities.Turista;
 import um.business.exception.ClassAlreadyExists;
 import um.business.exception.InvalidInformation;
@@ -25,7 +26,13 @@ public class ReservaMgr {
             throw new ClassAlreadyExists();
         }
 
-        Reserva r = new Reserva(turista, cupo, cantidad, feha);
+        if(cupo.getCuposLibres() < cantidad){
+            throw new InvalidInformation();
+        }
+
+        ReservaKey id = new ReservaKey(turista.getId(), cupo.getId());
+
+        Reserva r = new Reserva(id, turista, cupo, cantidad, feha);
         reservaRepository.save(r);
     }
 }
