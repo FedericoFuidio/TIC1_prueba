@@ -1,13 +1,13 @@
 package um.business;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import um.business.entities.Cupo;
-import um.business.entities.Reserva;
-import um.business.entities.ReservaKey;
-import um.business.entities.Turista;
+import um.business.entities.*;
 import um.business.exception.ClassAlreadyExists;
 import um.business.exception.InvalidInformation;
+import um.persistance.CupoRepository;
 import um.persistance.ReservaRepository;
 
 import java.sql.Date;
@@ -18,6 +18,9 @@ public class ReservaMgr {
 
     @Autowired
     private ReservaRepository reservaRepository;
+
+    @Autowired
+    private CupoRepository cupoRepository;
 
     public void addReserva(Turista turista, Cupo cupo, Integer cantidad, Date fecha, Time hora) throws InvalidInformation, ClassAlreadyExists {
         if(turista == null || cupo == null || cantidad == null || fecha == null || hora == null){
@@ -45,4 +48,36 @@ public class ReservaMgr {
     public Iterable<Reserva> GetReservasTurista(Turista t){
         return reservaRepository.findAllByTurista(t);
     }
+
+    public ObservableList<Reserva> getReservasByExperiencia(Experiencia experiencia){
+
+        ObservableList<Reserva> reservas = FXCollections.observableArrayList();
+        Iterable<Cupo> cupos = cupoRepository.findAllByExperiencia(experiencia);
+        for(Cupo c : cupos){
+            Iterable<Reserva> reserva_cupo = reservaRepository.findAllByCupo(c);
+            for(Reserva r : reserva_cupo){
+
+                reservas.add(r);
+            }
+
+        }
+
+        return reservas;
+    }
+
+    public Iterable<Reserva> getReservas(){
+
+        return reservaRepository.findAll();
+    }
+
+    public void validar(Reserva reserva){
+        reserva.setAceptada(true);
+        reservaRepository.save(reserva);
+    }
+
+    public void bloquear(Reserva reserva){
+        reserva.setAceptada(false);
+        reservaRepository.save(reserva);
+    }
+
 }

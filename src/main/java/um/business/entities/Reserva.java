@@ -48,8 +48,8 @@ public class Reserva {
         this.id = id;
     }
 
-    public Turista getTurista() {
-        return turista;
+    public String getTurista() {
+        return turista.getUserName();
     }
 
     public void setTurista(Turista turista) {
@@ -95,4 +95,6 @@ public class Reserva {
     public void setAceptada(boolean aceptada) {
         this.aceptada = aceptada;
     }
+
+
 }

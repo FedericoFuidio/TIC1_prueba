@@ -65,6 +65,9 @@ public class TableViewExperiencias implements Initializable {
     private Button BtnBloquear;
 
     @FXML
+    private Button BtnReservas;
+
+    @FXML
     private TextField filterField;
 
     private ObservableList<Experiencia> experiencias = FXCollections.observableArrayList();
@@ -83,6 +86,27 @@ public class TableViewExperiencias implements Initializable {
         updateTable();
         searchExperiencia();
 
+    }
+
+    @FXML
+    void verReservas(ActionEvent actionEvent){
+
+        if(seleccionada == null){
+            showAlert("ERROR", "Seleccione una experiencia para ver sus reservas");
+        } else{
+            try {
+
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+                Parent root = fxmlLoader.load(TableViewReservas.class.getResourceAsStream("tableViewReservas.fxml"));
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.show();
+            }catch (Exception e){
+                showAlert("ERROR", "Lo sentimos, ocurrio un error inesperado");
+            }
+        }
     }
 
     @FXML
@@ -149,6 +173,7 @@ public class TableViewExperiencias implements Initializable {
         }
 
         experienciaTableView.setItems(experiencias);
+
     }
 
     @FXML

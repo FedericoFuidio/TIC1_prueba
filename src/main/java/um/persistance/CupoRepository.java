@@ -14,4 +14,6 @@ public interface CupoRepository extends CrudRepository<Cupo, Long> {
     Cupo getCupoByExperienciaAndDia(Experiencia exp, DayOfWeek dia);
 
     Cupo getCupoByDia(DayOfWeek dia);
+
+    Iterable<Cupo> findAllByExperiencia(Experiencia experiencia);
 }
