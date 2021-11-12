@@ -12,4 +12,6 @@ import java.sql.Date;
 public interface ReservaRepository  extends CrudRepository<Reserva, Long> {
     Reserva findAllByFechaAndTuristaAndCupo(Date fecha, Turista turista, Cupo cupo);
     Iterable<Reserva> findAllByFecha(Date fecha);
+    Iterable<Reserva> findAllByTurista(Turista turista);
+
 }

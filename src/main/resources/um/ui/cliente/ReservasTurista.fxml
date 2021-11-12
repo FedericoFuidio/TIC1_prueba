@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.reservasTuristaController">
+   <children>
+      <HBox layoutX="48.0" layoutY="108.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label fx:id="nombreExp" prefHeight="28.0" prefWidth="637.0" text="Nombre de la Experiencia" textAlignment="CENTER" underline="true" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="34.0" prefWidth="630.0">
+                     <children>
+                        <Label prefHeight="35.0" prefWidth="84.0" text="Fecha Reserva:" underline="true" />
+                        <Label fx:id="fechaReserva" prefHeight="34.0" prefWidth="234.0" text="Lunes 15 de Noviembre de 2021" />
+                        <Label prefHeight="34.0" prefWidth="78.0" text="Hora Reserva:" underline="true" />
+                        <Label fx:id="horaReserva" prefHeight="34.0" prefWidth="95.0" text="17:00" />
+                        <Label prefHeight="34.0" prefWidth="121.0" text="Cantidad de Personas:" underline="true" />
+                        <Label fx:id="personasReserva" prefHeight="34.0" prefWidth="82.0" text="150" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="32.0" prefWidth="630.0">
+                     <children>
+                        <Label prefHeight="32.0" prefWidth="61.0" text="Ubicación:" underline="true" />
+                        <Label fx:id="ubicacion" prefHeight="32.0" prefWidth="298.0" text="Av Maldonado 2312 esquina Romance" />
+                        <Label prefHeight="32.0" prefWidth="54.0" text="Contacto:" underline="true" />
+                        <Label fx:id="contacto" prefHeight="32.0" prefWidth="292.0" text="plazaMaldonado@gmail.com" />
+                     </children>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="148.0">
+               <children>
+                  <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#cancelarReserva" prefHeight="38.0" prefWidth="134.0" style="-fx-background-color: red;" text="Cancelar Reserva" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="8.0" top="140.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

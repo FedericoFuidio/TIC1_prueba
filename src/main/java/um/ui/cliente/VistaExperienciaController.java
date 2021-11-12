@@ -103,25 +103,6 @@ public class VistaExperienciaController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        /*
-        Experiencia experiencia=PantallaPrincipalController.experiencia_vista;
-        if(experiencia.getFoto() != null){
-            Image image =   new Image(new ByteArrayInputStream(experiencia.getFoto()));
-            foto.setImage(image);}
-        nombre.setText(experiencia.getNombre());
-        descripcion.setWrapText(true);
-        descripcion.setText(experiencia.getDescripcion());
-        ubicacion.setText(experiencia.getUbicacion());
-        contacto.setText(experiencia.getOperador().getMail());
-
-
-
-         */
-
-        //experienciaMgr.getExperiencias();
-    }
-
-    public void hola(){
 
     }
 }

@@ -14,8 +14,10 @@ import javafx.scene.layout.GridPane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import um.business.ExperienciaMgr;
+import um.business.ReservaMgr;
 import um.business.TuristaMgr;
 import um.business.entities.Experiencia;
+import um.business.entities.Reserva;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -31,6 +33,9 @@ public class PantallaPrincipalController implements Initializable {
     @Autowired
     private TuristaMgr turistaMgr;
 
+    @Autowired
+    private ReservaMgr reservaMgr;
+
     @FXML
     private ImageView imgPerfil;
 
@@ -38,16 +43,10 @@ public class PantallaPrincipalController implements Initializable {
     private Button btnPerfil;
 
     @FXML
-    private ImageView imgAjustes;
+    private Button btnReservas;
 
     @FXML
-    private Button btnAjustes;
-
-    @FXML
-    private ImageView imgHistorial;
-
-    @FXML
-    private Button btnHistorial;
+    private Button btnCalificar;
 
     @FXML
     private ImageView imgBusqueda;
@@ -62,22 +61,12 @@ public class PantallaPrincipalController implements Initializable {
     private GridPane experienciasGrid;
 
     private List<Experiencia> experiencias = new ArrayList<>();
-
-    private List<Experiencia> getData(){
-        List<Experiencia> experiencias = new ArrayList<>();
-        //Iterable<Experiencia> expBD = experienciaMgr.getExperiencias();
-        Iterable<Experiencia> expBD = turistaMgr.recomendaciones(UserController.turistaIngresado);
-        for(Experiencia e : expBD){
-            experiencias.add(e);
-        }
-        return experiencias;
-    }
+    private List<Reserva> reservas = new ArrayList<>();
 
     static Experiencia experiencia_vista;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         updateScreen();
         experiencias.addAll(getData());
         int column = 0;
@@ -107,13 +96,59 @@ public class PantallaPrincipalController implements Initializable {
 
     public void updateScreen(){
         experiencias.clear();
+        reservas.clear();
     }
 
     public void openPerfil(ActionEvent actionEvent) {
         //Falta crear fxml de perfil
     }
 
-    public void openAjustes(ActionEvent actionEvent) {
-        //Falta crear fxml de ajustes
+    public void openReservas(ActionEvent actionEvent) {
+        updateScreen();
+        reservas.addAll(getReservas());
+        int column = 0;
+        int row = 0;
+        try {
+            for (Reserva re : reservas) {
+
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                //fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+                fxmlLoader.setLocation(getClass().getResource("ReservasTurista.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+                reservasTuristaController resController = fxmlLoader.getController();
+                resController.setData(re);
+
+
+
+                experienciasGrid.add(anchorPane, column, row++);
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+        }catch (Exception exception){
+            exception.printStackTrace();
+        }
     }
+
+    public void openCalificaciones(ActionEvent actionEvent) {
+
+    }
+
+    private List<Experiencia> getData(){
+        List<Experiencia> experiencias = new ArrayList<>();
+        Iterable<Experiencia> expBD = turistaMgr.recomendaciones(UserController.turistaIngresado);
+        for(Experiencia e : expBD){
+            experiencias.add(e);
+        }
+        return experiencias;
+    }
+
+    private List<Reserva> getReservas(){
+        List<Reserva> lReservas = new ArrayList<>();
+        Iterable<Reserva> resBD = reservaMgr.GetReservasTurista(UserController.turistaIngresado);
+        for(Reserva r : resBD){
+            reservas.add(r);
+        }
+        return reservas;
+    }
+
 }

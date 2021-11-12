@@ -41,4 +41,8 @@ public class ReservaMgr {
         Reserva r = new Reserva(id, turista, cupo, cantidad, fecha, hora);
         reservaRepository.save(r);
     }
+
+    public Iterable<Reserva> GetReservasTurista(Turista t){
+        return reservaRepository.findAllByTurista(t);
+    }
 }
