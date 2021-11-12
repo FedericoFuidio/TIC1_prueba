@@ -1,5 +1,7 @@
 package um.ui.cliente;
 
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +19,7 @@ import um.business.ExperienciaMgr;
 import um.business.ReservaMgr;
 import um.business.TuristaMgr;
 import um.business.entities.Experiencia;
+import um.business.entities.Operador;
 import um.business.entities.Reserva;
 
 import java.net.URL;
@@ -68,6 +71,7 @@ public class PantallaPrincipalController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         updateScreen();
+        //searchExp();
         experiencias.addAll(getData());
         int column = 0;
         int row = 0;
@@ -95,9 +99,31 @@ public class PantallaPrincipalController implements Initializable {
     }
 
     public void updateScreen(){
+        experienciasGrid.getChildren().clear();
         experiencias.clear();
         reservas.clear();
     }
+
+   /* public void searchExp(){
+        FilteredList<Experiencia> filteredData = new FilteredList<>(experiencias, b -> true);
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(person -> {
+                if (newValue == null || newValue.isEmpty()){
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+                if (String.valueOf(person.getId()).toLowerCase().indexOf(lowerCaseFilter) != -1){
+                    return true;
+                }else if (person.getName().toLowerCase().indexOf(lowerCaseFilter) != -1){
+                    return true;
+                }
+            });
+        });
+
+        SortedList<Experiencia> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(experienciasGrid.comparatorProperty());
+        experienciasGrid.(sortedData);
+    }*/
 
     public void openPerfil(ActionEvent actionEvent) {
         //Falta crear fxml de perfil
@@ -105,7 +131,7 @@ public class PantallaPrincipalController implements Initializable {
 
     public void openReservas(ActionEvent actionEvent) {
         updateScreen();
-        reservas.addAll(getReservas());
+        getReservas();
         int column = 0;
         int row = 0;
         try {

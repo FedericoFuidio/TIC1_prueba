@@ -26,7 +26,7 @@
                         <Label prefHeight="34.0" prefWidth="78.0" text="Hora Reserva:" underline="true" />
                         <Label fx:id="horaReserva" prefHeight="34.0" prefWidth="95.0" text="17:00" />
                         <Label prefHeight="34.0" prefWidth="121.0" text="Cantidad de Personas:" underline="true" />
-                        <Label fx:id="personasReserva" prefHeight="34.0" prefWidth="82.0" text="150" />
+                        <Label fx:id="personasReserva" prefHeight="34.0" prefWidth="44.0" text="150" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="10.0" top="20.0" />
@@ -34,10 +34,10 @@
                   </HBox>
                   <HBox prefHeight="32.0" prefWidth="630.0">
                      <children>
-                        <Label prefHeight="32.0" prefWidth="61.0" text="Ubicación:" underline="true" />
+                        <Label prefHeight="32.0" prefWidth="75.0" text="Ubicación:" underline="true" />
                         <Label fx:id="ubicacion" prefHeight="32.0" prefWidth="298.0" text="Av Maldonado 2312 esquina Romance" />
-                        <Label prefHeight="32.0" prefWidth="54.0" text="Contacto:" underline="true" />
-                        <Label fx:id="contacto" prefHeight="32.0" prefWidth="292.0" text="plazaMaldonado@gmail.com" />
+                        <Label prefHeight="32.0" prefWidth="75.0" text="Contacto:" underline="true" />
+                        <Label fx:id="contacto" prefHeight="32.0" prefWidth="247.0" text="plazaMaldonado@gmail.com" />
                      </children>
                   </HBox>
                </children>
