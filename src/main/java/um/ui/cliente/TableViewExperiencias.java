@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -51,6 +52,9 @@ public class TableViewExperiencias implements Initializable {
 
     @FXML
     private TableColumn<Experiencia, Integer> calificaciones;
+
+    @FXML
+    private Button btnVerExperiencia;
 
     @FXML
     private Button BtnAddExperiencia;
@@ -215,6 +219,33 @@ public class TableViewExperiencias implements Initializable {
         sortedData.comparatorProperty().bind(experienciaTableView.comparatorProperty());
         experienciaTableView.setItems(sortedData);
 
+    }
+
+    @FXML
+    void verExperiencia(){
+
+        if(seleccionada == null){
+            showAlert("ERROR", "Seleccione una experiencia");
+        }else {
+            try {
+
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+                fxmlLoader.setLocation(getClass().getResource("experienciaCompleta.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+
+                ExperienciaCompletaContoller expController = fxmlLoader.getController();
+                expController.setData(seleccionada);
+
+
+                Stage stage = new Stage();
+                stage.setScene(new Scene(fxmlLoader.getRoot()));
+                stage.show();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
     }
 
 
