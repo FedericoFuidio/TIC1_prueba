@@ -23,6 +23,7 @@ import um.business.exception.InvalidInformation;
 
 import java.io.ByteArrayInputStream;
 import java.sql.Date;
+import java.sql.Time;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 
@@ -100,9 +101,9 @@ public class ExperienciaCompletaContoller {
             ObservableList<String> o = FXCollections.observableArrayList();
             for (int i = horaAp; i< horaCi; i++){
                 if(i < 10) {
-                    o.add("0"+i+":00");
+                    o.add("0"+i+":00:00");
                 }else{
-                    o.add(i+":00");
+                    o.add(i+":00:00");
                 }
             }
             hourPicker.setItems(o);
@@ -132,8 +133,9 @@ public class ExperienciaCompletaContoller {
                         "LLene todos los campos");
             }
             try {
-
-                reservaMgr.addReserva(UserController.turistaIngresado, c, Integer.parseInt(people.getText()), d);
+                Time t = Time.valueOf(hourPicker.getValue());
+                reservaMgr.addReserva(UserController.turistaIngresado, c, Integer.parseInt(people.getText()), d, t);
+                c.setCuposLibres(c.getCuposLibres()-Integer.parseInt(people.getText()));
                 showAlert("Reserva realizada!",
                         "Se realizó con exito la reserva");
 

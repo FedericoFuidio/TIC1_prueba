@@ -2,6 +2,7 @@ package um.business.entities;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.sql.Time;
 
 @Entity
 public class Reserva {
@@ -22,19 +23,21 @@ public class Reserva {
 
     private int cantidad;
     private Date fecha;
+    private Time hora;
     private boolean aceptada;
 
     public Reserva(){
 
     }
 
-    public Reserva(ReservaKey id, Turista turista, Cupo cupo, int cantidad, Date feha){
+    public Reserva(ReservaKey id, Turista turista, Cupo cupo, int cantidad, Date feha, Time hora){
 
         this.id = id;
         this.turista = turista;
         this.cupo = cupo;
         this.cantidad = cantidad;
         this.fecha = feha;
+        this.hora = hora;
     }
 
     public ReservaKey getId() {
@@ -75,6 +78,14 @@ public class Reserva {
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    public Time getHora() {
+        return hora;
+    }
+
+    public void setHora(Time hora) {
+        this.hora = hora;
     }
 
     public boolean isAceptada() {
