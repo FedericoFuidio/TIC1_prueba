@@ -1,16 +1,18 @@
 package um.business;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import um.business.entities.Cupo;
-import um.business.entities.Experiencia;
-import um.business.entities.Operador;
+import um.business.entities.*;
 import um.business.exception.InvalidInformation;
 import um.business.exception.UserNotFound;
 import um.persistance.CupoRepository;
 import um.persistance.ExperienciaGeneralRepository;
+import um.persistance.ReservaRepository;
 
 import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Service
@@ -24,6 +26,9 @@ public class ExperienciaMgr {
 
     @Autowired
     OperadorMgr operadorMgr;
+
+    @Autowired
+    ReservaRepository reservaRepository;
 
     public void addExperiencia(String nombre, String ubicacion, String descripcion, byte[] foto, byte[] mapa,String mailOperador)
             throws InvalidInformation, UserNotFound {
@@ -95,6 +100,24 @@ public class ExperienciaMgr {
     public void bloquear(Experiencia experiencia){
         experiencia.setValidado(false);
         experienciaGeneralRepository.save(experiencia);
+    }
+
+    public Iterable<Reserva> getReservasPorCalificar(Turista turista){
+
+        Iterable<Reserva> reservas = reservaRepository.findAllByTurista(turista);
+        ObservableList<Reserva> reservas_a_calificar = FXCollections.observableArrayList();
+
+        for(Reserva r : reservas){
+//Hay que cambiar after por before
+            if(!r.getFecha().before(java.sql.Date.valueOf(LocalDate.now()))){
+
+                reservas_a_calificar.add(r);
+
+            }
+        }
+
+        return reservas_a_calificar;
+
     }
 
 }

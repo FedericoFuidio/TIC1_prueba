@@ -21,6 +21,7 @@ public class Experiencia {
     @Column(columnDefinition = "MEDIUMBLOB")
     private byte[] mapa;
     private double puntaje;
+    private int puntajeTotal;
 
     private int horaInicio;
     private int horaFin;
@@ -48,6 +49,7 @@ public class Experiencia {
         this.mapa = mapa;
         this.calificaciones = 0;
         this.puntaje = 0;
+        this.puntajeTotal = 0;
 
     }
 
@@ -148,6 +150,22 @@ public class Experiencia {
     }
 
     public void setHoraFin(Integer horaFin) {
+        this.horaFin = horaFin;
+    }
+
+    public int getPuntajeTotal() {
+        return puntajeTotal;
+    }
+
+    public void setPuntajeTotal(int puntajeTotal) {
+        this.puntajeTotal = puntajeTotal;
+    }
+
+    public void setHoraInicio(int horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+
+    public void setHoraFin(int horaFin) {
         this.horaFin = horaFin;
     }
 }

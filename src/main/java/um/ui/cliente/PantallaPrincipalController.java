@@ -1,7 +1,5 @@
 package um.ui.cliente;
 
-import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +17,6 @@ import um.business.ExperienciaMgr;
 import um.business.ReservaMgr;
 import um.business.TuristaMgr;
 import um.business.entities.Experiencia;
-import um.business.entities.Operador;
 import um.business.entities.Reserva;
 
 import java.net.URL;
@@ -65,6 +62,7 @@ public class PantallaPrincipalController implements Initializable {
 
     private List<Experiencia> experiencias = new ArrayList<>();
     private List<Reserva> reservas = new ArrayList<>();
+    private List<Reserva> reservas_a_calificar = new ArrayList<>();
 
     static Experiencia experiencia_vista;
 
@@ -102,6 +100,7 @@ public class PantallaPrincipalController implements Initializable {
         experienciasGrid.getChildren().clear();
         experiencias.clear();
         reservas.clear();
+        reservas_a_calificar.clear();
     }
 
    /* public void searchExp(){
@@ -156,7 +155,29 @@ public class PantallaPrincipalController implements Initializable {
     }
 
     public void openCalificaciones(ActionEvent actionEvent) {
+        updateScreen();
+        getReservasPorCalficar();
+        int column = 0;
+        int row = 0;
+        try {
+            for (Reserva re : reservas_a_calificar) {
 
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                //fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+                fxmlLoader.setLocation(getClass().getResource("ReservasParaCalificar.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+                reservasTuristaController resController = fxmlLoader.getController();
+                resController.setData(re);
+
+
+
+                experienciasGrid.add(anchorPane, column, row++);
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+        }catch (Exception exception){
+            exception.printStackTrace();
+        }
     }
 
     private List<Experiencia> getData(){
@@ -175,6 +196,16 @@ public class PantallaPrincipalController implements Initializable {
             reservas.add(r);
         }
         return reservas;
+    }
+
+    private void getReservasPorCalficar(){
+
+
+        Iterable<Reserva> temp = experienciaMgr.getReservasPorCalificar(UserController.turistaIngresado);
+        for(Reserva r : temp){
+            reservas_a_calificar.add(r);
+        }
+
     }
 
 }

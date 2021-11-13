@@ -90,7 +90,6 @@ public class VistaExperienciaController implements Initializable {
             ExperienciaCompletaContoller expController = fxmlLoader.getController();
             expController.setData(exp);
 
-
             Stage stage = new Stage();
             stage.setScene(new Scene(fxmlLoader.getRoot()));
             stage.show();

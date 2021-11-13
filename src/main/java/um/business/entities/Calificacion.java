@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.sql.Date;
 
 @Entity
@@ -19,12 +20,20 @@ public class Calificacion {
     private String cometario;
     private boolean esPublica;
 
+    @ManyToOne
+    Reserva reserva;
+
+    @ManyToOne
+    Turista turista;
+
     public Calificacion(){
 
     }
 
-    public Calificacion(Date fecha, int puntaje, String comentario, boolean esPublica){
+    public Calificacion(Reserva reserva, Turista turista, Date fecha, int puntaje, String comentario, boolean esPublica){
 
+        this.reserva = reserva;
+        this.turista = turista;
         this.fecha = fecha;
         this.puntaje = puntaje;
         this.cometario = comentario;
@@ -76,5 +85,21 @@ public class Calificacion {
 
     public void setEsPublica(boolean esPublica) {
         this.esPublica = esPublica;
+    }
+
+    public Reserva getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
+    }
+
+    public Turista getTurista() {
+        return turista;
+    }
+
+    public void setTurista(Turista turista) {
+        this.turista = turista;
     }
 }
