@@ -50,7 +50,7 @@ public class ReservaMgr {
 
         ReservaKey id = new ReservaKey(turista.getId(), cupo.getId());
 
-        Reserva r = new Reserva(id, turista, cupo, cantidad, fecha, hora);
+        Reserva r = new Reserva(turista, cupo, cantidad, fecha, hora);
         reservaRepository.save(r);
     }
 

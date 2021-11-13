@@ -1,5 +1,7 @@
 package um.business.entities;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Time;
@@ -7,22 +9,28 @@ import java.sql.Time;
 @Entity
 public class Reserva {
 
-    @EmbeddedId
-    private ReservaKey id;
+
+    @Id
+    @GeneratedValue(generator="reserva_id")
+    @GenericGenerator(name="reserva_id", strategy = "increment")
+    @Column(name = "reservas_id")
+    private long id;
 
     @ManyToOne
-    @MapsId("turistaId")
     @JoinColumn(name = "turista_id")
     private Turista turista;
 
     @ManyToOne
-    @MapsId("cupoId")
     @JoinColumn(name = "cupo_id")
     private Cupo cupo;
 
 
     private int cantidad;
+
+
     private Date fecha;
+
+
     private Time hora;
     private boolean aceptada;
     private boolean cancelada;
@@ -31,22 +39,22 @@ public class Reserva {
 
     }
 
-    public Reserva(ReservaKey id, Turista turista, Cupo cupo, int cantidad, Date feha, Time hora){
+    public Reserva(Turista turista, Cupo cupo, int cantidad, Date fecha, Time hora){
 
-        this.id = id;
+
         this.turista = turista;
         this.cupo = cupo;
         this.cantidad = cantidad;
-        this.fecha = feha;
+        this.fecha = fecha;
         this.hora = hora;
         this.cancelada = false;
     }
 
-    public ReservaKey getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(ReservaKey id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -81,6 +89,8 @@ public class Reserva {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
+
+
 
     public Time getHora() {
         return hora;

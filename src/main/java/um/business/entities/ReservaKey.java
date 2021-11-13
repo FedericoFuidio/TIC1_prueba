@@ -14,6 +14,10 @@ public class ReservaKey implements Serializable {
     @Column(name = "cupo_id")
     private long cupoId;
 
+
+
+
+
     public ReservaKey(){
 
     }
@@ -22,6 +26,7 @@ public class ReservaKey implements Serializable {
 
         this.cupoId = cupoId;
         this.turistaId = turistaId;
+
     }
 
     public long getTuristaId() {
@@ -31,6 +36,16 @@ public class ReservaKey implements Serializable {
     public void setTuristaId(long turistaId) {
         this.turistaId = turistaId;
     }
+
+    public long getCupoId() {
+        return cupoId;
+    }
+
+    public void setCupoId(long cupoId) {
+        this.cupoId = cupoId;
+    }
+
+
 
     @Override
     public boolean equals(Object o) {
