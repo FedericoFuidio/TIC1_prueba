@@ -55,7 +55,14 @@ public class ReservaMgr {
     }
 
     public Iterable<Reserva> GetReservasTurista(Turista t){
-        return reservaRepository.findAllByTurista(t);
+        ObservableList<Reserva> rvs = FXCollections.observableArrayList();
+        Iterable<Reserva> rs = reservaRepository.findAllByTurista(t);
+        for(Reserva r : rs){
+            if(!r.isCancelada()){
+                rvs.add(r);
+            }
+        }
+        return rvs;
     }
 
     public ObservableList<Reserva> getReservasByExperiencia(Experiencia experiencia){
@@ -65,8 +72,7 @@ public class ReservaMgr {
         for(Cupo c : cupos){
             Iterable<Reserva> reserva_cupo = reservaRepository.findAllByCupo(c);
             for(Reserva r : reserva_cupo){
-
-                reservas.add(r);
+                if(!r.isCancelada()){reservas.add(r);}
             }
 
         }
@@ -75,8 +81,15 @@ public class ReservaMgr {
     }
 
     public Iterable<Reserva> getReservas(){
+        Iterable<Reserva> reservas = reservaRepository.findAll();
+        ObservableList<Reserva> reservas_futuras = FXCollections.observableArrayList();
 
-        return reservaRepository.findAll();
+        for(Reserva r : reservas){
+            if(!r.getFecha().before(java.sql.Date.valueOf(LocalDate.now()))){
+                reservas_futuras.add(r);
+            }
+        }
+        return reservas_futuras;
     }
 
     public void validar(Reserva reserva){

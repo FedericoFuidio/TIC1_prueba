@@ -71,7 +71,6 @@ public class TableViewReservas implements Initializable {
 
 
         reservas.clear();
-
         /*
         Iterable<Reserva> iterableReservas = reservaMgr.getReservas();
 

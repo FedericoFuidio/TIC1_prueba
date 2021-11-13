@@ -25,6 +25,7 @@ public class Reserva {
     private Date fecha;
     private Time hora;
     private boolean aceptada;
+    private boolean cancelada;
 
     public Reserva(){
 
@@ -38,6 +39,7 @@ public class Reserva {
         this.cantidad = cantidad;
         this.fecha = feha;
         this.hora = hora;
+        this.cancelada = false;
     }
 
     public ReservaKey getId() {
@@ -94,6 +96,14 @@ public class Reserva {
 
     public void setAceptada(boolean aceptada) {
         this.aceptada = aceptada;
+    }
+
+    public boolean isCancelada() {
+        return cancelada;
+    }
+
+    public void setCancelada(boolean cancelada) {
+        this.cancelada = cancelada;
     }
 
 

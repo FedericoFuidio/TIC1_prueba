@@ -48,7 +48,7 @@ public class reservasTuristaController implements Initializable {
 
     @FXML
     void cancelarReserva(ActionEvent event) {
-
+        re.setCancelada(false);
     }
 
     private Reserva re;
@@ -67,6 +67,7 @@ public class reservasTuristaController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
 
     @FXML
     void calificarReserva(ActionEvent event){

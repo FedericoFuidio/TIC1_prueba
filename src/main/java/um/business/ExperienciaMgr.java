@@ -108,11 +108,8 @@ public class ExperienciaMgr {
         ObservableList<Reserva> reservas_a_calificar = FXCollections.observableArrayList();
 
         for(Reserva r : reservas){
-//Hay que cambiar after por before
-            if(!r.getFecha().before(java.sql.Date.valueOf(LocalDate.now()))){
-
+            if(r.getFecha().before(java.sql.Date.valueOf(LocalDate.now()))){
                 reservas_a_calificar.add(r);
-
             }
         }
 
