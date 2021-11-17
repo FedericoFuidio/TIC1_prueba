@@ -20,6 +20,9 @@ public class PantallaAminOperadorController {
     private Button btnVerExperiencias;
 
     @FXML
+    private Button btnAgregarAdministrador;
+
+    @FXML
     public void verExperiencias(ActionEvent actionEvent) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -30,6 +33,17 @@ public class PantallaAminOperadorController {
         stage.setScene(new Scene(root));
         stage.show();
 
+    }
+
+    @FXML
+    public void addAdinistrador(ActionEvent actionEvent) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+        Parent root = fxmlLoader.load(TableController.class.getResourceAsStream("agregarAdminoperador.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
 

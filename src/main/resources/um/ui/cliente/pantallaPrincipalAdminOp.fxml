@@ -16,6 +16,7 @@
         <AnchorPane prefHeight="317.0" prefWidth="459.0" BorderPane.alignment="CENTER">
             <children>
                 <Button fx:id="btnVerExperiencias" layoutX="20.0" layoutY="50.0" mnemonicParsing="false" onAction="#verExperiencias" text="Ver experiencias" />
+                <Button fx:id="btnAgregarAdministrador" layoutX="20.0" layoutY="90.0" mnemonicParsing="false" onAction="#addAdinistrador" text="Agregar administrador" />
 
             </children>
         </AnchorPane>

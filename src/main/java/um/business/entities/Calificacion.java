@@ -26,11 +26,14 @@ public class Calificacion {
     @ManyToOne
     Turista turista;
 
+    @ManyToOne
+    Experiencia experiencia;
+
     public Calificacion(){
 
     }
 
-    public Calificacion(Reserva reserva, Turista turista, Date fecha, int puntaje, String comentario, boolean esPublica){
+    public Calificacion(Reserva reserva, Turista turista, Date fecha, int puntaje, String comentario, boolean esPublica, Experiencia experiencia){
 
         this.reserva = reserva;
         this.turista = turista;
@@ -38,6 +41,7 @@ public class Calificacion {
         this.puntaje = puntaje;
         this.cometario = comentario;
         this.esPublica = esPublica;
+        this.experiencia = experiencia;
 
     }
 
@@ -101,5 +105,13 @@ public class Calificacion {
 
     public void setTurista(Turista turista) {
         this.turista = turista;
+    }
+
+    public Experiencia getExperiencia() {
+        return experiencia;
+    }
+
+    public void setExperiencia(Experiencia experiencia) {
+        this.experiencia = experiencia;
     }
 }

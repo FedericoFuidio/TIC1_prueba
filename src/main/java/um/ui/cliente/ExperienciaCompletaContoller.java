@@ -5,21 +5,24 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import org.controlsfx.control.Rating;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import um.Main;
 import um.business.CupoMgr;
 import um.business.ReservaMgr;
+import um.business.entities.Calificacion;
 import um.business.entities.Cupo;
 import um.business.entities.Experiencia;
 import um.business.exception.ClassAlreadyExists;
 import um.business.exception.InvalidInformation;
-
 
 import java.io.ByteArrayInputStream;
 import java.sql.Date;
@@ -70,7 +73,9 @@ public class ExperienciaCompletaContoller {
     @FXML
     private Button btnReservar;
 
-    private Experiencia exp;
+    static Experiencia exp;
+
+    private Iterable<Calificacion> calificaciones;
 
     @FXML
     public void setData(Experiencia experiencia) {
@@ -193,6 +198,25 @@ public class ExperienciaCompletaContoller {
             }
         }
         hourPicker.setItems(o);
+    }
+
+    public void comentarios(ActionEvent actionEvent){
+
+        try {
+
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+            Parent root = fxmlLoader.load(ListaCalificacionesController.class.getResourceAsStream("vistaCalificaciones.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        }catch (Exception e){
+            e.printStackTrace();
+            showAlert("ERROR", "Algo salio mal");
+        }
+
     }
 
 }

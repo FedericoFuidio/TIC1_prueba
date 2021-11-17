@@ -106,7 +106,7 @@ public class TableController implements Initializable {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setControllerFactory(Main.getContext()::getBean);
 
-            Parent root = fxmlLoader.load(TableController.class.getResourceAsStream("agregarAdminoperador.fxml"));
+            Parent root = fxmlLoader.load(AdminOperadorController.class.getResourceAsStream("agregarAdminoperador.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();

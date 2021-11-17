@@ -14,4 +14,5 @@ public interface ReservaRepository  extends CrudRepository<Reserva, Long> {
     Iterable<Reserva> findAllByTurista(Turista turista);
     Iterable<Reserva> findAllByCupo(Cupo cupo);
 
+
 }

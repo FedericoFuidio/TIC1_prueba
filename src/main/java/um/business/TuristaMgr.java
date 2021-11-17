@@ -17,6 +17,12 @@ public class TuristaMgr {
     private TuristaRepository turistaRepository;
 
     @Autowired
+    private AdministradorRepository administradorRepository;
+
+    @Autowired
+    private AdminOperadorRepository adminOperadorRepository;
+
+    @Autowired
     private PaisRepository paisRepository;
 
     @Autowired
@@ -45,7 +51,10 @@ public class TuristaMgr {
             throw new InvalidInformation();
         }
 
-        if(turistaRepository.findTuristaByUserName(userName) != null){
+
+        if(turistaRepository.findTuristaByUserName(userName) != null
+        || administradorRepository.findAdministradorByUserName(userName) != null
+        || adminOperadorRepository.findAdminOperadorByUsername(userName) != null){
             throw new RepitedUserName();
         }
 

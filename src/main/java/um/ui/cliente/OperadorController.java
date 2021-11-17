@@ -3,21 +3,30 @@ package um.ui.cliente;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import um.Main;
+import um.business.AdminOperadorMgr;
 import um.business.OperadorMgr;
 import um.business.exception.InvalidInformation;
 import um.business.exception.RepitedMail;
 
 @Component
 public class OperadorController {
+
     @Autowired
     OperadorMgr operadorMgr;
+
+    @Autowired
+    AdminOperadorMgr adminOperadorMgr;
 
     @FXML
     private TextField txtPassword;
@@ -72,6 +81,14 @@ public class OperadorController {
 
             operadorMgr.addOperador(mail, foto, name, phone, descripcion, sitioWeb, ubicacion);
 
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+            Parent root = fxmlLoader.load(AdminOperadorController.class.getResourceAsStream("agregarAdminoperador.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+
             showAlert("Usuario registrado", "Se agrego existosamente el usuario!");
 
             close(event);
@@ -85,6 +102,8 @@ public class OperadorController {
             showAlert(
                     "Información invalida!",
                     "Todos los datos son oblgatorios");
+        } catch(Exception e){
+            showAlert("Ocurrio un error", "Estamos trabajando para solucionar el problema");
         }
 
     }

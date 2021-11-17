@@ -217,6 +217,7 @@ public class UserController {
             }
         } catch (Exception e){
 
+            e.printStackTrace();
             showAlert("Usuario no encontrado", "Intente nuevamente");
         }
 

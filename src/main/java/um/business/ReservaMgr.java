@@ -117,7 +117,7 @@ public class ReservaMgr {
             throw new ClassAlreadyExists();
         }
 
-        Calificacion calificacion = new Calificacion(reserva, turista, java.sql.Date.valueOf(LocalDate.now()), puntaje, comentario, esPublica);
+        Calificacion calificacion = new Calificacion(reserva, turista, java.sql.Date.valueOf(LocalDate.now()), puntaje, comentario, esPublica, reserva.getCupo().getExperiencia());
         experiencia.setCalificaciones(experiencia.getCalificaciones() + 1);
         experiencia.setPuntajeTotal(experiencia.getPuntajeTotal() + puntaje);
         experiencia.setPuntaje((float) (experiencia.getPuntajeTotal())/(experiencia.getCalificaciones()));

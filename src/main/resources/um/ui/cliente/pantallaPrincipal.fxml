@@ -56,21 +56,27 @@
             </VBox>
          </left>
          <top>
-            <HBox prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #6a24b5;" BorderPane.alignment="CENTER">
+            <HBox prefHeight="50.0" prefWidth="290.0" style="-fx-background-color: #6a24b5;" BorderPane.alignment="CENTER">
+
                <children>
-                  <ImageView fx:id="imgBusqueda" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+
+                  <ImageView fx:id="imgBusqueda" fitHeight="20.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                      <HBox.margin>
-                        <Insets bottom="10.0" left="600.0" top="10.0" />
+
+                        <Insets bottom="10.0" left="400.0" top="10.0" />
                      </HBox.margin>
                      <image>
                         <Image url="@imgs/busqueda.jpg" />
                      </image>
                   </ImageView>
-                  <TextField fx:id="searchField" prefHeight="20.0" prefWidth="300.0" promptText="Busqueda">
+                  <TextField fx:id="searchField" prefHeight="25.0" prefWidth="363.0" promptText="Busqueda">
+
                      <HBox.margin>
                         <Insets bottom="10.0" left="5.0" top="10.0" />
+
                      </HBox.margin>
                   </TextField>
+                  <Button fx:id="btnBuscar" mnemonicParsing="false" onAction="#buscar" prefHeight="50.0" prefWidth="142.0" text="Buscar" />
                </children>
             </HBox>
          </top>
@@ -79,27 +85,27 @@
                <children>
                   <HBox prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #bea5d9;">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="125.0" text="Pref1">
+                        <Button mnemonicParsing="false" onAction="#openRecomendados" prefHeight="39.0" prefWidth="125.0" text="Recomendados">
                            <HBox.margin>
                               <Insets bottom="5.0" left="40.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="125.0" text="Pref2">
+                        <Button fx:id="btnDeporte" mnemonicParsing="false" prefHeight="39.0" prefWidth="125.0" text="Deporte" onAction="#deporte">
                            <HBox.margin>
                               <Insets bottom="5.0" left="40.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="125.0" text="Pref3">
+                        <Button fx:id="btnCultura" mnemonicParsing="false" prefHeight="39.0" prefWidth="125.0" text="Cultura" onAction="#cultura">
                            <HBox.margin>
                               <Insets bottom="5.0" left="40.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="125.0" text="Pref4">
+                        <Button fx:id="btnGastronomia" mnemonicParsing="false" prefHeight="39.0" prefWidth="125.0" text="Gastronomía" onAction="#gastronomia">
                            <HBox.margin>
                               <Insets bottom="5.0" left="40.0" top="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="125.0" text="Pref5">
+                        <Button fx:id="btnAventura" mnemonicParsing="false" prefHeight="39.0" prefWidth="125.0" text="Aventura" onAction="#aventura">
                            <HBox.margin>
                               <Insets bottom="5.0" left="40.0" top="5.0" />
                            </HBox.margin>

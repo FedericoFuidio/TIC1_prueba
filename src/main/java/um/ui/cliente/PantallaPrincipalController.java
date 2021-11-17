@@ -37,6 +37,9 @@ public class PantallaPrincipalController implements Initializable {
     private ReservaMgr reservaMgr;
 
     @FXML
+    private Button btnBuscar;
+
+    @FXML
     private ImageView imgPerfil;
 
     @FXML
@@ -52,6 +55,18 @@ public class PantallaPrincipalController implements Initializable {
     private ImageView imgBusqueda;
 
     @FXML
+    private Button btnDeporte;
+
+    @FXML
+    private Button btnCultura;
+
+    @FXML
+    private Button btnGastronomia;
+
+    @FXML
+    private Button btnAventura;
+
+    @FXML
     private TextField searchField;
 
     @FXML
@@ -65,6 +80,8 @@ public class PantallaPrincipalController implements Initializable {
     private List<Reserva> reservas_a_calificar = new ArrayList<>();
 
     static Experiencia experiencia_vista;
+
+    private String seleccion;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -124,6 +141,74 @@ public class PantallaPrincipalController implements Initializable {
         experienciasGrid.(sortedData);
     }*/
 
+    public void buscar(ActionEvent actionEvent){
+        updateScreen();
+        try {
+            String nombre = searchField.getText().toLowerCase();
+            filtrar(nombre);
+
+            int column = 0;
+            int row = 0;
+
+            for (Experiencia ex : experiencias) {
+                experiencia_vista = ex;
+
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                //fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+                fxmlLoader.setLocation(getClass().getResource("VistaExperiencia.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+                VistaExperienciaController expController = fxmlLoader.getController();
+                expController.setData(ex);
+
+
+
+                experienciasGrid.add(anchorPane, column, row++);
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+
+
+        }catch (Exception e){
+                e.printStackTrace();
+
+        }
+
+    }
+
+
+    public void filtrarPreferencias(ActionEvent actionEvent){
+        updateScreen();
+        try {
+            filtrarPorPreferencia(seleccion);
+
+            int column = 0;
+            int row = 0;
+
+            for (Experiencia ex : experiencias) {
+                experiencia_vista = ex;
+
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                //fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+                fxmlLoader.setLocation(getClass().getResource("VistaExperiencia.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+                VistaExperienciaController expController = fxmlLoader.getController();
+                expController.setData(ex);
+
+
+
+                experienciasGrid.add(anchorPane, column, row++);
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+
+        }
+
+    }
+
     public void openPerfil(ActionEvent actionEvent) {
         //Falta crear fxml de perfil
     }
@@ -180,6 +265,35 @@ public class PantallaPrincipalController implements Initializable {
         }
     }
 
+    public void openRecomendados(ActionEvent actionEvent){
+        updateScreen();
+        //searchExp();
+        experiencias.addAll(getData());
+        int column = 0;
+        int row = 0;
+        try {
+            for (Experiencia ex : experiencias) {
+                experiencia_vista = ex;
+
+
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                //fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+                fxmlLoader.setLocation(getClass().getResource("VistaExperiencia.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+                VistaExperienciaController expController = fxmlLoader.getController();
+                expController.setData(ex);
+
+
+
+                experienciasGrid.add(anchorPane, column, row++);
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+        }catch (Exception exception){
+            exception.printStackTrace();
+        }
+    }
+
     private List<Experiencia> getData(){
         List<Experiencia> experiencias = new ArrayList<>();
         Iterable<Experiencia> expBD = turistaMgr.recomendaciones(UserController.turistaIngresado);
@@ -208,5 +322,42 @@ public class PantallaPrincipalController implements Initializable {
         }
 
     }
+
+    private void filtrar(String nombre){
+
+        experiencias = experienciaMgr.filtrarExperiencias(nombre);
+
+    }
+
+    private void filtrarPorPreferencia(String preferencia){
+
+        experiencias = experienciaMgr.filtrarPorPreferencia(preferencia);
+    }
+
+    public void deporte(ActionEvent actionEvent){
+
+        seleccion = "Deporte";
+        filtrarPreferencias(actionEvent);
+    }
+
+    public void cultura(ActionEvent actionEvent){
+
+        seleccion = "Cultura";
+        filtrarPreferencias(actionEvent);
+    }
+
+    public void gastronomia(ActionEvent actionEvent){
+
+        seleccion = "Gastronoma";
+        filtrarPreferencias(actionEvent);
+    }
+
+    public void aventura(ActionEvent actionEvent){
+
+        seleccion = "Aventura";
+        filtrarPreferencias(actionEvent);
+    }
+
+
 
 }
