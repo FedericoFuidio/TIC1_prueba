@@ -172,6 +172,7 @@ public class TableViewExperiencias implements Initializable {
         experiencias.clear();
         Iterable<Experiencia> iterableExperiencias = experienciaMgr.getExperienciaByOperador(UserController.operadorAsociado);
         for (Experiencia s : iterableExperiencias) {
+
             experiencias.add(s);
         }
 

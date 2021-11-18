@@ -204,6 +204,9 @@ public class TableController implements Initializable {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
+
+        updateTable();
+        searchOperator();
     }
 
     @FXML

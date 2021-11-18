@@ -8,17 +8,23 @@
     <top>
         <Text strokeType="OUTSIDE" strokeWidth="20.0" text="Bienvenido!" BorderPane.alignment="CENTER">
             <font>
-                <Font size="28.0" />
+                <Font name="Arial" size="48.0" />
             </font>
         </Text>
     </top>
-    <center>
+   <left>
         <AnchorPane prefHeight="317.0" prefWidth="459.0" BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="verOperadores" layoutX="20.0" layoutY="50.0" mnemonicParsing="false" onAction="#verOperadores" text="Ver operadores" />
-                <Button fx:id="verExperiencias" layoutX="20.0" layoutY="90.0" mnemonicParsing="false" onAction="#verExperiencias" text="Ver experiencias" />
+                <Button fx:id="verOperadores" layoutX="21.0" layoutY="30.0" mnemonicParsing="false" onAction="#verOperadores" prefHeight="39.0" prefWidth="164.0" style="-fx-background-color: blue" text="Ver operadores" textFill="white">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+                <Button fx:id="verExperiencias" layoutX="21.0" layoutY="84.0" mnemonicParsing="false" onAction="#verExperiencias" prefHeight="41.0" prefWidth="165.0" style="-fx-background-color: blue" text="Ver experiencias" textFill="white">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
 
             </children>
         </AnchorPane>
-    </center>
+   </left>
 </BorderPane>

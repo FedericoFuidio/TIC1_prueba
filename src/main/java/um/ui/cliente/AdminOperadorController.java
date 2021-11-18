@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import um.business.AdminOperadorMgr;
+import um.business.exception.ClassAlreadyExists;
 import um.business.exception.InvalidInformation;
 
 
@@ -41,22 +42,33 @@ public class AdminOperadorController {
     @FXML
     public void addAdministrador(ActionEvent event){
         try{
+
+
             String nombre = txtNombre.getText();
             String apellido = txtApellido.getText();
             String password = txtPassword.getText();
             String userName = txtUserName.getText();
 
-            if (TableController.seleccionado == null  || TableController.seleccionado.getMail() == null){
-                showAlert("ERROR", "Seleccione un operador");
+
+
+            if(OperadorController.nuevo != null) {
+                adminOperadorMgr.addAdminOperador(nombre, apellido, password, OperadorController.nuevo, userName);
+                OperadorController.nuevo = null;
             }else{
-                adminOperadorMgr.addAdminOperador(nombre, apellido, password, TableController.seleccionado, userName);
-                showAlert("Administrador registrado", "Se agrego existosamente el Administrador!");
-                close(event);
+                adminOperadorMgr.addAdminOperador(nombre, apellido, password, UserController.operadorAsociado, userName);
             }
+
+            showAlert("Administrador registrado", "Se agrego existosamente el Administrador!");
+            close(event);
+
+
         } catch (InvalidInformation e){
             showAlert(
                     "Información invalida!",
                     "Todos los datos son oblgatorios");
+        } catch (ClassAlreadyExists e){
+            showAlert("Información invalida!",
+                    "Ya existe un usuario con el nombre de usuario ingresado");
         }
 
     }

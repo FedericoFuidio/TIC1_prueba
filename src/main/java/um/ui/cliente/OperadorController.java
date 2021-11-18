@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component;
 import um.Main;
 import um.business.AdminOperadorMgr;
 import um.business.OperadorMgr;
+import um.business.entities.Operador;
 import um.business.exception.InvalidInformation;
 import um.business.exception.RepitedMail;
 
@@ -59,6 +60,8 @@ public class OperadorController {
     @FXML
     private Button btnClose;
 
+    static Operador nuevo;
+
     @FXML
     void close(ActionEvent actionEvent) {
         Node source = (Node)  actionEvent.getSource();
@@ -80,6 +83,10 @@ public class OperadorController {
 
 
             operadorMgr.addOperador(mail, foto, name, phone, descripcion, sitioWeb, ubicacion);
+            nuevo = operadorMgr.getByMail(mail);
+
+
+            showAlert("Operador registrado", "Agrega un administrador de la cuenta del operador");
 
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setControllerFactory(Main.getContext()::getBean);
@@ -88,8 +95,6 @@ public class OperadorController {
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
-
-            showAlert("Usuario registrado", "Se agrego existosamente el usuario!");
 
             close(event);
 

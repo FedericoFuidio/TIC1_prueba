@@ -38,7 +38,7 @@ public class Operador {
         this.descripcion = descripcion;
         this.sitioWeb = sitioWeb;
         this.ubicacion = ubicacion;
-        this.validado = false;
+        this.validado = true;
 
     }
 
