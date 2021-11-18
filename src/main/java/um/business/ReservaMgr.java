@@ -39,7 +39,7 @@ public class ReservaMgr {
             throw new ClassAlreadyExists();
         }
 
-        Iterable<Reserva> reservas = reservaRepository.findAllByFecha(fecha);
+        Iterable<Reserva> reservas = reservaRepository.findAllByFechaAndHora(fecha,hora);
         int cLibres = cupo.getCupos();
         for (Reserva r : reservas){
             cLibres -= r.getCantidad();
@@ -125,6 +125,11 @@ public class ReservaMgr {
         calificacionRepository.save(calificacion);
         experienciaGeneralRepository.save(experiencia);
 
+    }
+
+    public void cancelarReserva(Reserva r){
+        r.setCancelada(true);
+        reservaRepository.save(r);
     }
 
 }

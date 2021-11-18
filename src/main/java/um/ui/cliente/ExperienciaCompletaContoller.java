@@ -121,6 +121,8 @@ public class ExperienciaCompletaContoller {
                     setDisable(empty || date.compareTo(today) < 0 );
                 }
             });
+        }catch(NullPointerException npe){
+            //esto ya lo tengo en cuenta en la otra, deberíamos hacer otro set data u otro fxml
         }catch(Exception e){
             e.printStackTrace();
             showAlert(
@@ -159,7 +161,7 @@ public class ExperienciaCompletaContoller {
             } catch (InvalidInformation e){
                 showAlert(
                         "ERROR!",
-                        "La cantidad ingresada es mayor a los cupos disponibles para el dia");
+                        "No hay suficiente cupo disponible para esta hora del día");
             }
 
             catch (Exception e) {

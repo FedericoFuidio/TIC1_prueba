@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import um.Main;
 import um.business.ExperienciaMgr;
 import um.business.ReservaMgr;
 import um.business.TuristaMgr;
@@ -86,7 +87,6 @@ public class PantallaPrincipalController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         updateScreen();
-        //searchExp();
         experiencias.addAll(getData());
         int column = 0;
         int row = 0;
@@ -96,7 +96,7 @@ public class PantallaPrincipalController implements Initializable {
 
 
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                //fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+                fxmlLoader.setControllerFactory(Main.getContext()::getBean);
                 fxmlLoader.setLocation(getClass().getResource("VistaExperiencia.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
 
@@ -120,27 +120,6 @@ public class PantallaPrincipalController implements Initializable {
         reservas_a_calificar.clear();
     }
 
-   /* public void searchExp(){
-        FilteredList<Experiencia> filteredData = new FilteredList<>(experiencias, b -> true);
-        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
-            filteredData.setPredicate(person -> {
-                if (newValue == null || newValue.isEmpty()){
-                    return true;
-                }
-                String lowerCaseFilter = newValue.toLowerCase();
-                if (String.valueOf(person.getId()).toLowerCase().indexOf(lowerCaseFilter) != -1){
-                    return true;
-                }else if (person.getName().toLowerCase().indexOf(lowerCaseFilter) != -1){
-                    return true;
-                }
-            });
-        });
-
-        SortedList<Experiencia> sortedData = new SortedList<>(filteredData);
-        sortedData.comparatorProperty().bind(experienciasGrid.comparatorProperty());
-        experienciasGrid.(sortedData);
-    }*/
-
     public void buscar(ActionEvent actionEvent){
         updateScreen();
         try {
@@ -154,7 +133,7 @@ public class PantallaPrincipalController implements Initializable {
                 experiencia_vista = ex;
 
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                //fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+                fxmlLoader.setControllerFactory(Main.getContext()::getBean);
                 fxmlLoader.setLocation(getClass().getResource("VistaExperiencia.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
 
@@ -188,7 +167,7 @@ public class PantallaPrincipalController implements Initializable {
                 experiencia_vista = ex;
 
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                //fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+                fxmlLoader.setControllerFactory(Main.getContext()::getBean);
                 fxmlLoader.setLocation(getClass().getResource("VistaExperiencia.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
 
@@ -222,11 +201,11 @@ public class PantallaPrincipalController implements Initializable {
             for (Reserva re : reservas) {
 
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                //fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+                fxmlLoader.setControllerFactory(Main.getContext()::getBean);
                 fxmlLoader.setLocation(getClass().getResource("ReservasTurista.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
 
-                reservasTuristaController resController = fxmlLoader.getController();
+                ReservasTuristaController resController = fxmlLoader.getController();
                 resController.setData(re);
 
 
@@ -252,7 +231,7 @@ public class PantallaPrincipalController implements Initializable {
                 fxmlLoader.setLocation(getClass().getResource("ReservasParaCalificar.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
 
-                reservasTuristaController resController = fxmlLoader.getController();
+                ReservasTuristaController resController = fxmlLoader.getController();
                 resController.setData(re);
 
 
@@ -277,7 +256,7 @@ public class PantallaPrincipalController implements Initializable {
 
 
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                //fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+                fxmlLoader.setControllerFactory(Main.getContext()::getBean);
                 fxmlLoader.setLocation(getClass().getResource("VistaExperiencia.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
 
@@ -314,7 +293,6 @@ public class PantallaPrincipalController implements Initializable {
     }
 
     private void getReservasPorCalficar(){
-
 
         Iterable<Reserva> temp = experienciaMgr.getReservasPorCalificar(UserController.turistaIngresado);
         for(Reserva r : temp){

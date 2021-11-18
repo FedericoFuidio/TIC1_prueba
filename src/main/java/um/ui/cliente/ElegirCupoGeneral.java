@@ -93,7 +93,7 @@ public class ElegirCupoGeneral implements Initializable {
             showAlert("Ocurrio un error", "La hora inicial debe ser menor a la hora final");
 
         }catch (Exception e){
-
+            e.printStackTrace();
             showAlert("ERROR", "En el campo cupo debe ingresar un numero entero");
         }
     }

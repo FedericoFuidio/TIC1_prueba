@@ -16,7 +16,7 @@ public class Cupo {
     @GeneratedValue(generator="cupos_ids")
     @GenericGenerator(name="cupos_ids", strategy = "increment")
     private long id;
-    private int cupos;
+    private int cupos_por_hora;
     private DayOfWeek dia;
     private LocalTime horaApertura;
     private LocalTime horaCierre;
@@ -29,14 +29,14 @@ public class Cupo {
 
     }
 
-    public Cupo(int cupos, DayOfWeek dia, LocalTime horaApertura, LocalTime horaCierre, Experiencia experiencia){
+    public Cupo(int cupos_por_hora, DayOfWeek dia, LocalTime horaApertura, LocalTime horaCierre, Experiencia experiencia){
 
-        this.cupos = cupos;
+        this.cupos_por_hora = cupos_por_hora;
         this.dia = dia;
         this.horaApertura = horaApertura;
         this.horaCierre = horaCierre;
         this.experiencia = experiencia;
-        this.cuposLibres = cupos;
+        this.cuposLibres = cupos_por_hora*(horaCierre.getHour()-horaApertura.getHour());
 
     }
 
@@ -49,11 +49,11 @@ public class Cupo {
     }
 
     public int getCupos() {
-        return cupos;
+        return cupos_por_hora;
     }
 
     public void setCupos(int cupos) {
-        this.cupos = cupos;
+        this.cupos_por_hora = cupos;
     }
 
     public int getCuposLibres() {

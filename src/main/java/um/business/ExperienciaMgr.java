@@ -115,7 +115,7 @@ public class ExperienciaMgr {
 
         for(Reserva r : reservas){
             if(r.getFecha().before(java.sql.Date.valueOf(LocalDate.now()))
-            && calificacionRepository.getCalificacionByTuristaAndReserva(turista, r) == null){
+            && calificacionRepository.getCalificacionByTuristaAndReserva(turista, r) == null && r.isAceptada() && !r.isCancelada()){
                 reservas_a_calificar.add(r);
             }
         }

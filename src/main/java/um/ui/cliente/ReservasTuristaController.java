@@ -6,21 +6,27 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 import um.Main;
+import um.business.ReservaMgr;
 import um.business.entities.Reserva;
 import um.persistance.ReservaRepository;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class reservasTuristaController implements Initializable {
+@Scope("prototype")
+@Component
+public class ReservasTuristaController implements Initializable {
 
     @Autowired
-    ReservaRepository reservaRepository;
+    ReservaMgr reservaMgr;
 
     @FXML
     private Label nombreExp;
@@ -48,7 +54,8 @@ public class reservasTuristaController implements Initializable {
 
     @FXML
     void cancelarReserva(ActionEvent event) {
-        re.setCancelada(false);
+        reservaMgr.cancelarReserva(re);
+        showAlert("Atención", "Su reserva fue cancelada con éxito");
     }
 
     private Reserva re;
@@ -86,11 +93,17 @@ public class reservasTuristaController implements Initializable {
             stage.show();
 
 
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+    }
+
+    private void showAlert(String title, String contextText) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(contextText);
+        alert.showAndWait();
     }
 }
