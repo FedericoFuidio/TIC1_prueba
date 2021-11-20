@@ -21,7 +21,9 @@ public class JavaFXApplication extends Application  {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(Main.getContext()::getBean);
         root = fxmlLoader.load(JavaFXApplication.class.getResourceAsStream("User.fxml"));
-        primaryStage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 

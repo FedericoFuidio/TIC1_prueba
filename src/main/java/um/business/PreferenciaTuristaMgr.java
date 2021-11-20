@@ -27,4 +27,12 @@ public class PreferenciaTuristaMgr {
         preferenciaTuristaRepository.save(nuevo);
 
     }
+
+    public void deletePreferenciaTurista(Turista turista, String preferencia){
+
+        Preferencia pref = preferenciaRepository.getPreferenciaByNombre(preferencia);
+        PreferenciaTurista eliminado = preferenciaTuristaRepository.findPreferenciaTuristaByPreferenciaAndTurista(pref, turista);
+        preferenciaTuristaRepository.delete(eliminado);
+
+    }
 }

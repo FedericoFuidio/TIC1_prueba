@@ -17,21 +17,25 @@
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #bea5d9;" BorderPane.alignment="CENTER">
+            <VBox prefHeight="200.0" prefWidth="130.0" style="-fx-background-color: #bea5d9;" BorderPane.alignment="CENTER">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
+                  <HBox  prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <ImageView fx:id="imgPerfil" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#addPreferencias" prefHeight="26.0" prefWidth="120.0" text="Agregar Intereses" textAlignment="CENTER">
                            <HBox.margin>
-                              <Insets left="10.0" top="42.0" />
+                              <Insets bottom="15.0" top="60.0" left="4.0" />
                            </HBox.margin>
-                           <image>
-                              <Image url="@imgs/perfil.png" />
-                           </image>
-                        </ImageView>
-                        <Button fx:id="btnPerfil" alignment="CENTER" mnemonicParsing="false" onAction="#openPerfil" prefHeight="26.0" prefWidth="63.0" text="Perfil" textAlignment="CENTER">
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox  prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#deletePreferencias" prefHeight="26.0" prefWidth="120.0" text="Eliminar Intereses" textAlignment="CENTER">
                            <HBox.margin>
-                              <Insets bottom="15.0" top="60.0" />
+                              <Insets bottom="15.0" top="15.0" left="4.0" />
                            </HBox.margin>
                         </Button>
                      </children>
@@ -41,7 +45,7 @@
                   </HBox>
                   <HBox prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="btnReservas" alignment="CENTER" mnemonicParsing="false" onAction="#openReservas" prefHeight="26.0" prefWidth="90.0" text="Mis Reservas">
+                        <Button fx:id="btnReservas" alignment="CENTER" mnemonicParsing="false" onAction="#openReservas" prefHeight="26.0" prefWidth="120.0" text="Mis Reservas">
                            <HBox.margin>
                               <Insets bottom="15.0" left="4.0" top="15.0" />
                            </HBox.margin>
@@ -53,7 +57,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="btnCalificar" alignment="CENTER" mnemonicParsing="false" onAction="#openCalificaciones" prefHeight="26.0" prefWidth="90.0" text="Calificar" textAlignment="CENTER">
+                        <Button fx:id="btnCalificar" alignment="CENTER" mnemonicParsing="false" onAction="#openCalificaciones" prefHeight="26.0" prefWidth="120.0" text="Calificar" textAlignment="CENTER">
                            <HBox.margin>
                               <Insets bottom="15.0" left="4.0" top="15.0" />
                            </HBox.margin>

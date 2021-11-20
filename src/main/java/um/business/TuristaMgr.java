@@ -134,7 +134,7 @@ public class TuristaMgr {
 
             }
 
-            experienciaComparable.setPuntaje(experienciaComparable.getPuntaje()*(5/n)*0.60 + experienciaComparable.getExperiencia().getPuntaje()*0.40);
+            experienciaComparable.setPuntaje((experienciaComparable.getPuntaje()*(5/n)*0.60 + experienciaComparable.getExperiencia().getPuntaje()*0.40));
 
             comparacion.add(experienciaComparable);
 
@@ -145,12 +145,44 @@ public class TuristaMgr {
         ahora solo hace falta ordenarlas
          */
 
-        comparacion.sorted();
+        /*
+
+        ExperienciaComparable ec1 = comparacion.get(0);
+        ExperienciaComparable ec2 = comparacion.get(1);
+        System.out.println(ec1.compareTo(ec2));
+        System.out.println("_________________________");
+        for(ExperienciaComparable ec : comparacion){
+
+
+            System.out.print(ec.getExperiencia().getNombre());
+            System.out.print("Puntaje: " + ec.getPuntaje());
+            System.out.println();
+
+        }
+
+        System.out.println("________________________");
+        ordenar(comparacion);
+
+        for(ExperienciaComparable ec : comparacion){
+
+            System.out.print(ec.getExperiencia().getNombre());
+            System.out.print("Puntaje: " + ec.getPuntaje());
+            System.out.println();
+
+        }
+
+         */
+
+        ordenar(comparacion);
+
+
 
         int numero_experiencias = comparacion.size() - 1;
         if(numero_experiencias > 15){
             numero_experiencias = 15;
         }
+
+
 
         for(int temp = 0; temp <= numero_experiencias; temp ++){
 
@@ -159,7 +191,30 @@ public class TuristaMgr {
             recomendados.add(comparacion.get(temp).getExperiencia());
         }
 
+
+
+
         return recomendados;
+    }
+
+    private void ordenar(ObservableList<ExperienciaComparable> lista){
+
+        int longitud = lista.size();
+
+        for(int i = 0; i < longitud - 1; i++){
+
+            for(int j = 0; j < longitud - i -1; j++){
+
+                if(lista.get(j).compareTo(lista.get(j+1)) > 0){
+
+                    //Cambio de lugar:
+                    ExperienciaComparable cambio = lista.get(j);
+                    lista.set(j, lista.get(j+1));
+                    lista.set(j+1, cambio);
+                }
+            }
+        }
+
     }
 
 }

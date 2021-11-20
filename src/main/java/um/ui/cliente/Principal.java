@@ -3,20 +3,28 @@ package um.ui.cliente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
 import um.Main;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 //import UI.cliente.ClientController;
 
 @Component
-public class Principal {
+public class Principal implements Initializable {
 
     @FXML
     private MenuItem mItemAgregarCliente;
+
+    @FXML
+    private AnchorPane anchorPane;
 
     @FXML
     private Button registrarse;
@@ -66,7 +74,8 @@ public class Principal {
 
         Parent root = fxmlLoader.load(UserController.class.getResourceAsStream("ingresarUsuario.fxml"));
         Stage stage = new Stage();
-        stage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
         stage.show();
 
     }
@@ -120,5 +129,38 @@ public class Principal {
     }
 
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        /*
+        URL ur = this.getClass().getResource("Estilo.css");
+        if (url == null) {
+            System.out.println("Resource not found. Aborting.");
+            System.exit(-1);
+        }
+        String css = ur.toExternalForm();
+        anchorPane.getStylesheets().add(css);
 
+         */
+
+        /*
+
+        String botones = "    -fx-background-color: \n" +
+                "        linear-gradient(#00008b, #4b0082);" +
+                "    -fx-background-radius: 30;\n" +
+                "    -fx-background-insets: 0,1,2,3,0;\n" +
+                "    -fx-text-fill: #f5fffa;\n" +
+                "    -fx-font-weight: bold;\n" +
+                "    -fx-font-size: 14px;\n" +
+                "    -fx-padding: 10 20 10 20;";
+
+        ingresar.setStyle(botones);
+        registrarse.setStyle(botones);
+        tablaOperadores.setStyle(botones);
+        agregarExperiencia.setStyle(botones);
+
+         */
+
+
+
+    }
 }

@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.TableController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1070.0" xmlns="http://javafx.com/javafx/11.0.1" styleClass="background" stylesheets="@/um/ui/user/estilo1.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.TableController">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="180.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -21,8 +21,8 @@
             <TableColumn fx:id="descripcion" prefWidth="236.79998779296875" text="Descripción" />
             <TableColumn minWidth="0.0" prefWidth="149.5999755859375" text="Contacto">
                <columns>
-                  <TableColumn fx:id="mail" prefWidth="87.5999755859375" text="Mail" />
-                  <TableColumn fx:id="phone" prefWidth="75.0" text="Teléfono" />
+                  <TableColumn fx:id="mail" prefWidth="170.5999755859375" text="Mail" />
+                  <TableColumn fx:id="phone" prefWidth="85.0" text="Teléfono" />
                </columns>
             </TableColumn>
             <TableColumn fx:id="ubicacion" prefWidth="109.60009765625" text="Ubicación" />

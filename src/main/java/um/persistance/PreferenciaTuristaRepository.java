@@ -8,7 +8,8 @@ import um.business.entities.Turista;
 
 public interface PreferenciaTuristaRepository extends CrudRepository<PreferenciaTurista, PreferenciaTuristaKey> {
 
-    PreferenciaTurista findPreferenciaTuristaByTurista(Turista turista);
+    Iterable<PreferenciaTurista> findPreferenciaTuristaByTurista(Turista turista);
     PreferenciaTurista findPreferenciaTuristaByPreferencia(Preferencia preferencia);
     Iterable<PreferenciaTurista> getAllByTurista(Turista turista);
+    PreferenciaTurista findPreferenciaTuristaByPreferenciaAndTurista(Preferencia preferencia, Turista turista);
 }

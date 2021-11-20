@@ -5,12 +5,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import um.Main;
@@ -68,6 +73,12 @@ public class PantallaPrincipalController implements Initializable {
     private Button btnAventura;
 
     @FXML
+    private Button btnMisPreferencias;
+
+    @FXML
+    private Button btnAddPreferenicas;
+
+    @FXML
     private TextField searchField;
 
     @FXML
@@ -75,6 +86,9 @@ public class PantallaPrincipalController implements Initializable {
 
     @FXML
     private GridPane experienciasGrid;
+
+    @FXML
+    private Button addPreferencias;
 
     private List<Experiencia> experiencias = new ArrayList<>();
     private List<Reserva> reservas = new ArrayList<>();
@@ -86,31 +100,7 @@ public class PantallaPrincipalController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        updateScreen();
-        experiencias.addAll(getData());
-        int column = 0;
-        int row = 0;
-        try {
-            for (Experiencia ex : experiencias) {
-                experiencia_vista = ex;
-
-
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-                fxmlLoader.setLocation(getClass().getResource("VistaExperiencia.fxml"));
-                AnchorPane anchorPane = fxmlLoader.load();
-
-                VistaExperienciaController expController = fxmlLoader.getController();
-                expController.setData(ex);
-
-
-
-                experienciasGrid.add(anchorPane, column, row++);
-                GridPane.setMargin(anchorPane, new Insets(10));
-            }
-        }catch (Exception exception){
-            exception.printStackTrace();
-            }
+        recomendadas();
     }
 
     public void updateScreen(){
@@ -152,6 +142,34 @@ public class PantallaPrincipalController implements Initializable {
 
         }
 
+    }
+
+    public void recomendadas(){
+        updateScreen();
+        experiencias.addAll(getData());
+        int column = 0;
+        int row = 0;
+        try {
+            for (Experiencia ex : experiencias) {
+                experiencia_vista = ex;
+
+
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+                fxmlLoader.setLocation(getClass().getResource("VistaExperiencia.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+                VistaExperienciaController expController = fxmlLoader.getController();
+                expController.setData(ex);
+
+
+
+                experienciasGrid.add(anchorPane, column, row++);
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+        }catch (Exception exception){
+            exception.printStackTrace();
+        }
     }
 
 
@@ -244,6 +262,42 @@ public class PantallaPrincipalController implements Initializable {
         }
     }
 
+    public void addPreferencias(ActionEvent actionEvent){
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+            Parent root = fxmlLoader.load(AgregarPreferenciaController.class.getResourceAsStream("agregarPreferencias.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+
+
+        }catch(Exception e){
+            showAlert("ERROR", "Lo sentimos, ocurrió un error inesperado");
+        }
+
+
+    }
+
+    public void deletePreferencias(ActionEvent actionEvent){
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+            Parent root = fxmlLoader.load(EliminarPreferenciaController.class.getResourceAsStream("eliminarPreferencias.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        }catch(Exception e){
+            showAlert("ERROR", "Lo sentimos, ocurrió un error inesperado");
+        }
+
+        recomendadas();
+    }
+
     public void openRecomendados(ActionEvent actionEvent){
         updateScreen();
         //searchExp();
@@ -334,6 +388,21 @@ public class PantallaPrincipalController implements Initializable {
 
         seleccion = "Aventura";
         filtrarPreferencias(actionEvent);
+    }
+
+    private void showAlert(String title, String contextText) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(contextText);
+        alert.showAndWait();
+    }
+
+    @FXML
+    void close(ActionEvent actionEvent) {
+        Node source = (Node)  actionEvent.getSource();
+        Stage stage  = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 
 

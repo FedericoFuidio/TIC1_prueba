@@ -13,24 +13,24 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="355.0" prefWidth="500.0" style="-fx-background-color: #bea5d9;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.TuristaController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" styleClass="background" stylesheets="@/um/ui/user/estilo1.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.TuristaController">
     <center>
         <AnchorPane prefHeight="317.0" prefWidth="459.0" BorderPane.alignment="CENTER">
             <children>
-                <Label layoutX="23.0" layoutY="35.0" text="Nombre" />
-                <Label layoutX="23.0" layoutY="70.0" text="Apellido" />
-                <Label layoutX="23.0" layoutY="105.0" text="Nombre de usuario" />
-                <Label layoutX="23.0" layoutY="140.0" text="Mail" />
-                <Label layoutX="23.0" layoutY="175.0" text="Pais" />
-                <Label layoutX="23.0" layoutY="210.0" text="Pasaporte" />
-                <Label layoutX="23.0" layoutY="245.0" text="Contraseña" />
-                <TextField fx:id="txtName" layoutX="158.0" layoutY="32.0" prefWidth="200.0" />
-                <TextField fx:id="txtApellido" layoutX="158.0" layoutY="67.0" prefWidth="200.0" />
-                <TextField fx:id="txtUserName" layoutX="158.0" layoutY="102.0" prefWidth="200.0" />
-                <TextField fx:id="txtMail" layoutX="158.0" layoutY="137.0" prefWidth="200.0" />
-                <TextField fx:id="txtPassport" layoutX="158.0" layoutY="207" prefWidth="200.0" />
-            <PasswordField fx:id="txtPassword" layoutX="158.0" layoutY="240.0" prefWidth="200.0" />
-            <ComboBox fx:id="cmbPais" centerShape="false" layoutX="158.0" layoutY="171.0" prefHeight="25.0" prefWidth="199.0">
+                <Label layoutX="23.0" layoutY="35.0" text="Nombre: " />
+                <Label layoutX="23.0" layoutY="70.0" text="Apellido: " />
+                <Label layoutX="23.0" layoutY="105.0" text="Nombre de usuario: " />
+                <Label layoutX="23.0" layoutY="140.0" text="Mail: " />
+                <Label layoutX="23.0" layoutY="175.0" text="Pais: " />
+                <Label layoutX="23.0" layoutY="210.0" text="Pasaporte: " />
+                <Label layoutX="23.0" layoutY="245.0" text="Contraseña: " />
+                <TextField fx:id="txtName" layoutX="158.0" layoutY="25.0" prefWidth="200.0" />
+                <TextField fx:id="txtApellido" layoutX="158.0" layoutY="60.0" prefWidth="200.0" />
+                <TextField fx:id="txtUserName" layoutX="158.0" layoutY="95.0" prefWidth="200.0" />
+                <TextField fx:id="txtMail" layoutX="158.0" layoutY="130.0" prefWidth="200.0" />
+                <TextField fx:id="txtPassport" layoutX="158.0" layoutY="200" prefWidth="200.0" />
+            <PasswordField fx:id="txtPassword" layoutX="158.0" layoutY="235.0" prefWidth="200.0" />
+            <ComboBox fx:id="cmbPais" centerShape="false" layoutX="158.0" layoutY="165.0" prefHeight="25.0" prefWidth="199.0">
                <effect>
                   <SepiaTone level="0.0" />
                </effect></ComboBox>
@@ -38,21 +38,21 @@
         </AnchorPane>
     </center>
     <top>
-        <Text strokeType="OUTSIDE" strokeWidth="1.0" text="Registrar nuevo turista" BorderPane.alignment="TOP_LEFT">
+        <Label styleClass="label-header" text="Registrar nuevo turista" BorderPane.alignment="TOP_LEFT">
             <font>
                 <Font size="28.0" />
             </font>
-        </Text>
+        </Label>
     </top>
     <bottom>
         <HBox alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="btnClose" mnemonicParsing="false" onAction="#close" text="Cancelar">
+                <Button fx:id="btnClose" layoutY="250" mnemonicParsing="false" onAction="#close" text="Cancelar" styleClass="custom-button">
                     <HBox.margin>
-                        <Insets left="10.0" right="5.0" />
+                        <Insets left="10.0" right="10.0" />
                     </HBox.margin>
                 </Button>
-                <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#addTurista" text="Agregar" />
+                <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#addTurista" text="Agregar" styleClass="custom-button" />
             </children>
         </HBox>
     </bottom>

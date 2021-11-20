@@ -4,20 +4,22 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import um.business.entities.Preferencia;
-import um.business.entities.PreferenciaEspecifica;
-import um.business.entities.PreferenciaGeneral;
+import um.business.entities.*;
 import um.business.exception.ClassAlreadyExists;
 import um.business.exception.InvalidInformation;
 import um.persistance.PreferenciaEspecificaRepository;
 import um.persistance.PreferenciaGeneralRepository;
 import um.persistance.PreferenciaRepository;
+import um.persistance.PreferenciaTuristaRepository;
 
 @Service
 public class PreferenciasMgr {
 
     @Autowired
     PreferenciaGeneralRepository preferenciaGeneralRepository;
+
+    @Autowired
+    PreferenciaTuristaRepository preferenciaTuristaRepository;
 
     @Autowired
     PreferenciaEspecificaRepository preferenciaEspecificaRepository;
@@ -96,4 +98,38 @@ public class PreferenciasMgr {
     public PreferenciaEspecifica getPreferenciaEspecificaByNombre(String nombre){
         return preferenciaEspecificaRepository.getPreferenciaEspecificaByNombre(nombre);
     }
+
+    public ObservableList<Preferencia> getPreferenciasAgregar(Turista turista){
+
+        ObservableList<Preferencia> resultado = FXCollections.observableArrayList();
+        Iterable<Preferencia> temp = preferenciaRepository.findAll();
+        for(Preferencia pref : temp){
+
+            if(preferenciaTuristaRepository.findPreferenciaTuristaByPreferenciaAndTurista(pref, turista) == null){
+
+                resultado.add(pref);
+            }
+        }
+
+        return resultado;
+    }
+
+    public ObservableList<Preferencia> getPreferenciasEliminar(Turista turista){
+        ObservableList<Preferencia> resultado = FXCollections.observableArrayList();
+        Iterable<PreferenciaTurista> temp = preferenciaTuristaRepository.findPreferenciaTuristaByTurista(turista);
+
+        for(PreferenciaTurista pt : temp){
+
+            resultado.add(pt.getPreferencia());
+        }
+
+        return resultado;
+    }
+
+    public Preferencia getPreferenciasByNombre(String nombre){
+
+        return preferenciaRepository.getPreferenciaByNombre(nombre);
+    }
+
+
 }
