@@ -82,13 +82,15 @@ public class TableViewExperiencias implements Initializable {
 
     @FXML
     void validar(ActionEvent actionEvent){
-        if (seleccionada == null) {
+        if (seleccionada == null || seleccionada.getNombre() == null) {
             showAlert("ERROR", "Seleccione una experiencia");
         }else {
             experienciaMgr.validar(seleccionada);
+            updateTable();
+            searchExperiencia();
+            seleccionada = null;
         }
-        updateTable();
-        searchExperiencia();
+
 
     }
 
@@ -115,13 +117,16 @@ public class TableViewExperiencias implements Initializable {
 
     @FXML
     void bloquear(ActionEvent actionEvent){
-        if (seleccionada == null) {
+        if (seleccionada == null || seleccionada.getNombre() == null) {
             showAlert("ERROR", "Seleccione una experiencia");
         }else {
+
             experienciaMgr.bloquear(seleccionada);
+            updateTable();
+            searchExperiencia();
+            seleccionada = null;
         }
-        updateTable();
-        searchExperiencia();
+
     }
 
     @FXML

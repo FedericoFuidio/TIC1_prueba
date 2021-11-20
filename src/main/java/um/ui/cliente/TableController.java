@@ -72,16 +72,28 @@ public class TableController implements Initializable {
 
     @FXML
     void blockUsers(ActionEvent event) {
-        operadorMgr.setValidado(seleccionado, false);
-        updateTable();
-        searchOperator();
+        if(seleccionado == null || seleccionado.getName() == null){
+            showAlert("Error", "Debe seleccionar a un operador");
+        }else {
+            operadorMgr.setValidado(seleccionado, false);
+            updateTable();
+            searchOperator();
+            seleccionado = null;
+        }
     }
 
     @FXML
     void validateUsers(ActionEvent event) {
-        operadorMgr.setValidado(seleccionado, true);
-        updateTable();
-        searchOperator();
+        if(seleccionado == null || seleccionado.getName() == null){
+            showAlert("Error", "Debe seleccionar a un operador");
+        }else {
+
+            operadorMgr.setValidado(seleccionado, true);
+            updateTable();
+            searchOperator();
+            seleccionado = null;
+        }
+
     }
 
     static Operador seleccionado = new Operador();
