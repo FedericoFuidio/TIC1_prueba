@@ -25,6 +25,7 @@ import um.business.exception.ClassAlreadyExists;
 import um.business.exception.InvalidInformation;
 
 import java.io.ByteArrayInputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.Date;
 import java.sql.Time;
 import java.time.DayOfWeek;
@@ -65,6 +66,9 @@ public class ExperienciaCompletaContoller {
     private DatePicker datePicker;
 
     @FXML
+    private Label cLibres;
+
+    @FXML
     private ComboBox<String> hourPicker;
 
     @FXML
@@ -94,7 +98,16 @@ public class ExperienciaCompletaContoller {
         }
         try {
             String hora_inicial;
+            ratingActividad.setRating(experiencia.getPuntaje());
+            datePicker.setDayCellFactory(picker -> new DateCell() {
+                public void updateItem(LocalDate date, boolean empty) {
+                    super.updateItem(date, empty);
+                    LocalDate today = LocalDate.now();
+                    Cupo c = cupoMgr.getCupoByExperienciaAndDia(exp, date.getDayOfWeek());
 
+                    setDisable(empty || date.compareTo(today) < 0 || c == null);
+                }
+            });
             int horaAp = cupoMgr.getCupo(experiencia, DayOfWeek.from(LocalDate.now())).getHoraApertura().getHour();
             int horaCi = cupoMgr.getCupo(experiencia, DayOfWeek.from(LocalDate.now())).getHoraCierre().getHour();
             if(horaAp < 10){
@@ -112,15 +125,6 @@ public class ExperienciaCompletaContoller {
                 }
             }
             hourPicker.setItems(o);
-            ratingActividad.setRating(experiencia.getPuntaje());
-            datePicker.setDayCellFactory(picker -> new DateCell() {
-                public void updateItem(LocalDate date, boolean empty) {
-                    super.updateItem(date, empty);
-                    LocalDate today = LocalDate.now();
-
-                    setDisable(empty || date.compareTo(today) < 0 );
-                }
-            });
         }catch(NullPointerException npe){
             //esto ya lo tengo en cuenta en la otra, deberíamos hacer otro set data u otro fxml
         }catch(Exception e){
@@ -143,34 +147,34 @@ public class ExperienciaCompletaContoller {
                 d = java.sql.Date.valueOf(datePicker.getValue());
             }
         }catch(Exception e){
-                showAlert(
-                        "ERROR!",
-                        "LLene todos los campos");
-            }
-            try {
-                Time t = Time.valueOf(hourPicker.getValue());
-                reservaMgr.addReserva(UserController.turistaIngresado, c, Integer.parseInt(people.getText()), d, t);
-                c.setCuposLibres(c.getCuposLibres()-Integer.parseInt(people.getText()));
-                showAlert("Reserva realizada!",
-                        "Se realizó con exito la reserva");
-
-            } catch (ClassAlreadyExists e){
-                showAlert(
-                        "ERROR!",
-                        "Ya tienes una reserva para el dia seleccionado");
-            } catch (InvalidInformation e){
-                showAlert(
-                        "ERROR!",
-                        "No hay suficiente cupo disponible para esta hora del día");
-            }
-
-            catch (Exception e) {
-                e.printStackTrace();
-                showAlert(
-                        "ERROR!",
-                        "En cantidad de personas debe poner un número entero");
-            }
+            showAlert(
+                    "ERROR!",
+                    "LLene todos los campos");
         }
+        try {
+            Time t = Time.valueOf(hourPicker.getValue());
+            reservaMgr.addReserva(UserController.turistaIngresado, c, Integer.parseInt(people.getText()), d, t);
+            c.setCuposLibres(c.getCuposLibres()-Integer.parseInt(people.getText()));
+            showAlert("Reserva realizada!",
+                    "Se realizó con exito la reserva");
+
+        } catch (ClassAlreadyExists e){
+            showAlert(
+                    "ERROR!",
+                    "Ya tienes una reserva para el dia seleccionado");
+        } catch (InvalidInformation e){
+            showAlert(
+                    "ERROR!",
+                    "No hay suficiente cupo disponible para esta hora del día");
+        }
+
+        catch (Exception e) {
+            e.printStackTrace();
+            showAlert(
+                    "ERROR!",
+                    "En cantidad de personas debe poner un número entero");
+        }
+    }
 
     private void showAlert(String title, String contextText) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -200,6 +204,22 @@ public class ExperienciaCompletaContoller {
             }
         }
         hourPicker.setItems(o);
+
+    }
+
+    @FXML
+    public void updateLibres(){
+        try{
+            Cupo cupo = cupoMgr.getCupo(exp, DayOfWeek.from(datePicker.getValue()));
+            Date dia = Date.valueOf(datePicker.getValue());
+            Time hora = Time.valueOf(hourPicker.getValue());
+            int cuposLibres = reservaMgr.cuposLibresFechaHora(cupo, dia, hora);
+            cLibres.setText(String.valueOf(cuposLibres));
+        }catch (IllegalArgumentException e){
+            //Cuando cambio de día
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void comentarios(ActionEvent actionEvent){

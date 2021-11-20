@@ -39,11 +39,7 @@ public class ReservaMgr {
             throw new ClassAlreadyExists();
         }
 
-        Iterable<Reserva> reservas = reservaRepository.findAllByFechaAndHora(fecha,hora);
-        int cLibres = cupo.getCupos();
-        for (Reserva r : reservas){
-            cLibres -= r.getCantidad();
-        }
+        int cLibres = cuposLibresFechaHora(cupo, fecha, hora);
         if(cLibres < cantidad){
             throw new InvalidInformation();
         }
@@ -132,4 +128,12 @@ public class ReservaMgr {
         reservaRepository.save(r);
     }
 
+    public int cuposLibresFechaHora(Cupo cupo, Date fecha, Time hora) {
+        Iterable<Reserva> reservas = reservaRepository.findAllByFechaAndHora(fecha, hora);
+        int cLibres = cupo.getCupos();
+        for (Reserva r : reservas) {
+            cLibres -= r.getCantidad();
+        }
+        return cLibres;
+    }
 }

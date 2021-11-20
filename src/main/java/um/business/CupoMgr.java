@@ -39,7 +39,7 @@ public class CupoMgr {
         return cupoRepository.getCupoByExperienciaAndDia(exp, dia);
     }
 
-    public Cupo getCupoByDia(DayOfWeek dia){
-        return cupoRepository.getCupoByDia(dia);
+    public Cupo getCupoByExperienciaAndDia(Experiencia exp, DayOfWeek dia){
+        return cupoRepository.getCupoByExperienciaAndDia(exp, dia);
     }
 }

@@ -116,9 +116,9 @@ public class VistaExperienciaController implements Initializable {
                 Stage stage = new Stage();
                 stage.setScene(new Scene(fxmlLoader.getRoot()));
                 stage.show();
-                showAlert(
+                /*showAlert(
                         "ATENCIÓN",
-                        "Esta experiencia no admite reservas");
+                        "Esta experiencia no admite reservas");*/
                 //ACÁ VA EL LOADER DEL NUEVO SI ES Q DIFERENCIAMOS ENTRE LOS Q SE PUEDEN
                 //RESERVAR Y LOS QUE NO.
             }
