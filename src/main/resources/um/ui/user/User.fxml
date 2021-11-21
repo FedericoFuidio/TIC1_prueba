@@ -5,7 +5,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@/um/ui/user/estilo1.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.Principal">
     <top>
-        <Label alignment="CENTER" text="Turisteando" />
+        <Label alignment="TOP_RIGHT" text="Turisteando" styleClass="label-header" />
     </top>
    <left>
         <AnchorPane fx:id="anchorPane" prefHeight="379.0" prefWidth="603.0" BorderPane.alignment="CENTER">

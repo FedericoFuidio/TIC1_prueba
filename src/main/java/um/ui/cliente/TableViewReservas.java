@@ -89,25 +89,26 @@ public class TableViewReservas implements Initializable {
     @FXML
     void bloquear(ActionEvent actionEvent){
 
-        if(seleccionada == null){
+        if(seleccionada == null || seleccionada.getTurista() == null){
             showAlert("ERROR", "seleccione una reserva");
         }else{
             reservaMgr.bloquear(seleccionada);
             updateTable();
             searchReserva();
+            seleccionada = null;
             showAlert("Bloqueada", "Puede desbloquear la reserva en el boton aceptar");
         }
     }
 
     @FXML
     void validar(ActionEvent actionEvent){
-        if(seleccionada == null){
+        if(seleccionada == null || seleccionada.getTurista() == null){
             showAlert("ERROR", "seleccione una reserva");
         }else{
             reservaMgr.validar(seleccionada);
-
             updateTable();
             searchReserva();
+            seleccionada = null;
             showAlert("Reserva aceptada", "Se aceptó la reserva");
         }
     }

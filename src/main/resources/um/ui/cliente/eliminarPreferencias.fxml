@@ -2,17 +2,16 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <?import javafx.scene.text.*?>
 <?import org.controlsfx.control.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.EliminarPreferenciaController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="600.0" styleClass="background2" stylesheets="@/um/ui/user/estilo1.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.EliminarPreferenciaController">
     <center>
-        <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+        <AnchorPane prefHeight="375.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
             <children>
                 <CheckListView fx:id="preferenciaCheckListView" layoutY="7.0" prefHeight="336.0" prefWidth="600.0" />
-                <Button layoutX="517.0" layoutY="355.0" mnemonicParsing="false" onAction="#deletePreferencias" text="Eliminar" />
-                <Button layoutX="443.0" layoutY="355.0" mnemonicParsing="false" onAction="#close" text="Cancelar" />
+                <Button layoutX="491.0" layoutY="346.0" mnemonicParsing="false" onAction="#deletePreferencias" styleClass="custom-button" text="Eliminar" />
+                <Button layoutX="384.0" layoutY="346.0" mnemonicParsing="false" onAction="#close" styleClass="custom-button" text="Cancelar" />
             </children>
         </AnchorPane>
     </center>

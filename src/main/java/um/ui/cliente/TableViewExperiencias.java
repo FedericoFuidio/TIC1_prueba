@@ -97,7 +97,7 @@ public class TableViewExperiencias implements Initializable {
     @FXML
     void verReservas(ActionEvent actionEvent){
 
-        if(seleccionada == null){
+        if(seleccionada == null || seleccionada.getNombre() == null){
             showAlert("ERROR", "Seleccione una experiencia para ver sus reservas");
         } else{
             try {

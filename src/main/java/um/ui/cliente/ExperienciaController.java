@@ -52,6 +52,12 @@ public class ExperienciaController implements Initializable {
     @FXML
     private TextField txtDescripcion;
 
+    @FXML
+    private Button btnAdd;
+
+    @FXML
+    private Button btnClose;
+
 
     @FXML
     public Label nombreImagen;

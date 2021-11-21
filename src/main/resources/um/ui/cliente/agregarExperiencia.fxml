@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="355.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.ExperienciaController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="355.0" prefWidth="500.0" styleClass="background" stylesheets="@/um/ui/user/estilo1.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.ExperienciaController">
     <center>
         <AnchorPane prefHeight="317.0" prefWidth="459.0" BorderPane.alignment="CENTER">
             <children>
@@ -18,15 +18,15 @@
                 <Label layoutX="23.0" layoutY="70.0" text="Ubicacion:" />
                 <Label layoutX="23.0" layoutY="105.0" text="Descripcion:" />
 
-                <Label layoutX="23.0" layoutY="140.0" text="Foto:" />
-                <TextField fx:id="txtNombre" layoutX="158.0" layoutY="32.0" />
-                <TextField fx:id="txtUbicacion" layoutX="158.0" layoutY="67.0" />
-                <TextField fx:id="txtDescripcion" layoutX="158.0" layoutY="102.0" />
-            <Button fx:id="btnImg" layoutX="158.0" layoutY="140.0" mnemonicParsing="false" onAction="#addImagen" text="Insertar Imagen" />
-            <Label fx:id="nombreImagen" layoutX="158.0" layoutY="174.0" mouseTransparent="true" prefHeight="18.0" prefWidth="212.0" />
-            <Label layoutX="22.0" layoutY="180.0" prefHeight="18.0" prefWidth="102.0" text="Mapa:" />
-            <Button fx:id="btnImgn2" layoutX="158.0" layoutY="180.0" mnemonicParsing="false" onAction="#addMapa" text="Insertar Imagen" />
-            <Label fx:id="nombreImagen2" layoutX="158.0" layoutY="208.0" mouseTransparent="true" prefHeight="18.0" prefWidth="212.0" />
+                <Label layoutX="23.0" layoutY="160.0" text="Foto:" />
+                <TextField fx:id="txtNombre" layoutX="158.0" layoutY="25.0" />
+                <TextField fx:id="txtUbicacion" layoutX="158.0" layoutY="60.0" />
+                <TextField fx:id="txtDescripcion" layoutX="158.0" layoutY="95.0" />
+            <Button fx:id="btnImg" layoutX="158.0" layoutY="150.0" mnemonicParsing="false" onAction="#addImagen" text="Insertar Imagen" styleClass="custom-button-image"/>
+            <Label fx:id="nombreImagen" layoutX="158.0" layoutY="160.0" mouseTransparent="true" prefHeight="18.0" prefWidth="212.0" />
+            <Label layoutX="22.0" layoutY="210.0" prefHeight="18.0" prefWidth="102.0" text="Mapa:" />
+            <Button fx:id="btnImgn2" layoutX="158.0" layoutY="200.0" mnemonicParsing="false" onAction="#addMapa" text="Insertar Imagen" styleClass="custom-button-image"/>
+            <Label fx:id="nombreImagen2" layoutX="158.0" layoutY="210.0" mouseTransparent="true" prefHeight="18.0" prefWidth="212.0" />
             </children>
         </AnchorPane>
     </center>
@@ -40,12 +40,12 @@
     <bottom>
         <HBox alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="btnClose" mnemonicParsing="false" onAction="#close" text="Cancelar">
+                <Button fx:id="btnClose" mnemonicParsing="false" onAction="#close" text="Cancelar" styleClass="custom-button">
                     <HBox.margin>
                         <Insets left="10.0" right="5.0" />
                     </HBox.margin>
                 </Button>
-                <Button fx:id="btnAdd" defaultButton="true" mnemonicParsing="false" onAction="#addExperiencia" text="Agregar" />
+                <Button fx:id="btnAdd" defaultButton="true" mnemonicParsing="false" onAction="#addExperiencia" text="Agregar" styleClass="custom-button"/>
             </children>
         </HBox>
     </bottom>

@@ -51,8 +51,7 @@ public class OperadorController {
     private TextField txtWebsite;
 
 
-    @FXML
-    private TextField txtPicture;
+
 
     @FXML
     private Button btnAdd;
@@ -75,14 +74,13 @@ public class OperadorController {
 
             String mail = txtMail.getText();
             String name = txtName.getText();
-            String foto = txtPicture.getText();
             String phone = txtPhone.getText();
             String descripcion = txtDescriprtion.getText();
             String sitioWeb = txtWebsite.getText();
             String ubicacion = txtLocation.getText();
 
 
-            operadorMgr.addOperador(mail, foto, name, phone, descripcion, sitioWeb, ubicacion);
+            operadorMgr.addOperador(mail, name, phone, descripcion, sitioWeb, ubicacion);
             nuevo = operadorMgr.getByMail(mail);
 
 
@@ -127,7 +125,6 @@ public class OperadorController {
         txtPhone.setText(null);
         txtMail.setText(null);
         txtPassword.setText(null);
-        txtPicture.setText(null);
         txtDescriprtion.setText(null);
         txtWebsite.setText(null);
     }

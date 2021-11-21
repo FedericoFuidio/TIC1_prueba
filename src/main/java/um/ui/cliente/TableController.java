@@ -46,8 +46,6 @@ public class TableController implements Initializable {
     @FXML
     public TableColumn<Operador, String> name;
 
-    @FXML
-    private TableColumn<Operador, String> foto;
 
     @FXML
     private TableColumn<Operador, String> descripcion;
@@ -133,7 +131,6 @@ public class TableController implements Initializable {
         descripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
         mail.setCellValueFactory(new PropertyValueFactory<>("mail"));
         validado.setCellValueFactory(new PropertyValueFactory<>("validado"));
-        foto.setCellValueFactory(new PropertyValueFactory<>("foto"));
         ubicacion.setCellValueFactory(new PropertyValueFactory<>("ubicacion"));
 
 
@@ -155,7 +152,6 @@ public class TableController implements Initializable {
         descripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
         mail.setCellValueFactory(new PropertyValueFactory<>("mail"));
         validado.setCellValueFactory(new PropertyValueFactory<>("validado"));
-        foto.setCellValueFactory(new PropertyValueFactory<>("foto"));
         ubicacion.setCellValueFactory(new PropertyValueFactory<>("ubicacion"));
 
         dataList.clear();

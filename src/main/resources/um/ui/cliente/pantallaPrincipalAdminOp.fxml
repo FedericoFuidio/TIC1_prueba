@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.PantallaAminOperadorController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background2" stylesheets="@/um/ui/user/estilo1.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.PantallaAminOperadorController">
     <top>
         <Text strokeType="OUTSIDE" strokeWidth="20.0" text="Bienvenido!" BorderPane.alignment="CENTER">
             <font>
@@ -15,8 +15,8 @@
     <center>
         <AnchorPane prefHeight="317.0" prefWidth="459.0" BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="btnVerExperiencias" layoutX="20.0" layoutY="50.0" mnemonicParsing="false" onAction="#verExperiencias" text="Ver experiencias" />
-                <Button fx:id="btnAgregarAdministrador" layoutX="20.0" layoutY="90.0" mnemonicParsing="false" onAction="#addAdinistrador" text="Agregar administrador" />
+                <Button fx:id="btnVerExperiencias" layoutX="20.0" layoutY="50.0" mnemonicParsing="false" onAction="#verExperiencias" styleClass="custom-button" text="Ver experiencias" />
+                <Button fx:id="btnAgregarAdministrador" layoutX="20.0" layoutY="103.0" mnemonicParsing="false" onAction="#addAdinistrador" styleClass="custom-button" text="Agregar administrador" />
 
             </children>
         </AnchorPane>

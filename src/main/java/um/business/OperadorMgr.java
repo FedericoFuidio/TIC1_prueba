@@ -15,7 +15,7 @@ public class OperadorMgr {
     private OperadorRepository operadorRepository;
 
     //Agregamos un Operador al sistema:
-    public void addOperador(String mail,String foto, String name,
+    public void addOperador(String mail, String name,
                             String phone, String descripcion, String sitioWeb, String ubicacion) throws RepitedMail,
 
             InvalidInformation, RepitedMail {
@@ -32,7 +32,7 @@ public class OperadorMgr {
         }
 
 
-        Operador nuevo = new Operador(mail, foto, name, phone, descripcion, sitioWeb, ubicacion);
+        Operador nuevo = new Operador(mail, name, phone, descripcion, sitioWeb, ubicacion);
         operadorRepository.save(nuevo);
 
 

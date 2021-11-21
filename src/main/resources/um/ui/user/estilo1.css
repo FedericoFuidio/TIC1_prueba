@@ -4,7 +4,10 @@
     -fx-background-radius: 0 ;
 }
 .text-field:focused {
-    -fx-background-color: -fx-focus-color, -fx-background ;
+    -fx-background-color: transparent
+            /*
+            -fx-focus-color, -fx-background ;
+             */
 }
 
 .custom-button{
@@ -47,12 +50,27 @@
     -fx-padding: 10 20 10 20;
 }
 
+.custom-button-image{
+    -fx-background-color: linear-gradient(#F98C10, #4b0082);
+    -fx-background-radius: 5;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #f5fffa;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-padding: 10 20 10 20;
+}
+
 .background {
     -fx-background-color: #E8F9FA;
 }
 
 .background2 {
     -fx-background-color: linear-gradient(#E8F9FA, #67DCF5);
+
+}
+
+.background3{
+    -fx-background-color: linear-gradient(to left, #333, #333 50%, #eee 75%, #333 75%);;
 }
 
 
@@ -72,9 +90,10 @@
 }
 
 .label-header {
-    -fx-font-size: 30pt;
-    -fx-font-family: "Jazz LET, fantasy";
-    -fx-text-fill: #DC7809;
+    -fx-font-size: 28pt;
+    -fx-font-family: "Arial Rounded MT Bold";
+    -fx-text-fill: linear-gradient(#DC7809, #4408BB);
+    -fx-alignment: "CENTER";
     -fx-opacity: 1;
     -fx-font-weight: 1000px;
 
@@ -220,5 +239,70 @@
     -fx-font-family: "Segoe UI Semibold";
     -fx-border-width: 0 0 1 0;
 
+}
+
+
+.check-box .mark {
+    -fx-shape: "M1.73,12.91 8.1,19.28 22.79,4.59 22.79,1.59 8.1,16.28 1.73,9.91";
+}
+
+/* List element */
+
+
+.check-box:selected .box {
+
+    -fx-background-color: #30F408;
+}
+
+
+.check-box .box {
+
+    -fx-background-color: #67DCF5;
+    -fx-border-color: transparent;
+    -fx-border-radius:3px;
+    -fx-background-radius: 10;
 
 }
+
+
+.text-area {
+    -fx-background-color: -fx-text-box-border, -fx-background ;
+    -fx-background-insets: 0, 0 0 1 0 ;
+    -fx-border-color: #00008b;
+    -fx-background-radius: 0 ;
+}
+
+.text-area:focused {
+    -fx-background-color: transparent
+
+
+    /*
+    -fx-focus-color, -fx-background ;
+     */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

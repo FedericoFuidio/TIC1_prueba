@@ -15,24 +15,21 @@ public class Operador {
     @GenericGenerator(name="operadores_ids", strategy = "increment")
     private long id;
     private String mail;
-    private String foto;
     private String name;
     private String phone;
     private String descripcion;
     private String sitioWeb;
     private String ubicacion;
     private boolean validado;
-    private byte[] image;
 
     public Operador(){
 
     }
 
-    public Operador(String mail, String foto, String name,
+    public Operador(String mail, String name,
                     String phone, String descripcion, String sitioWeb, String ubicacion){
 
         this.mail = mail;
-        this.foto = foto;
         this.name = name;
         this.phone = phone;
         this.descripcion = descripcion;
@@ -42,13 +39,6 @@ public class Operador {
 
     }
 
-    public String getFoto() {
-        return foto;
-    }
-
-    public void setFoto(String foto) {
-        this.foto = foto;
-    }
 
     public String getName() {
         return name;
@@ -115,11 +105,4 @@ public class Operador {
         this.id = id;
     }
 
-    public byte[] getImage() {
-        return image;
-    }
-
-    public void setImage(byte[] image) {
-        this.image = image;
-    }
 }

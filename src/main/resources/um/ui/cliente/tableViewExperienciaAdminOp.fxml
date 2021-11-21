@@ -6,14 +6,14 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1085.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.TableViewExperiencias">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/16" styleClass="background" stylesheets="@/um/ui/user/estilo1.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.TableViewExperiencias">
     <children>
-        <AnchorPane prefHeight="400.0" prefWidth="180.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <AnchorPane prefHeight="400.0" prefWidth="180.0" style="-fx-background-color: linear-gradient(#063C3D, #0A635E);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Button fx:id="BtnAddExperiencia" layoutX="16.0" layoutY="186.0" mnemonicParsing="false" onAction="#agregarExperienciaAction" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: green;" text="agregar experiencia" />
-                <Button fx:id="BtnAddCupo" layoutX="16.0" layoutY="230.0" mnemonicParsing="false" onAction="#agregarCupoAction" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: green;" text="agregar cupo" />
-                <Button fx:id="BtnReservas" layoutX="16.0" layoutY="274.0" mnemonicParsing="false" onAction="#verReservas" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: Yellow;" text="ver reservas" />
-                <Button fx:id="btnVerExperiencia" layoutX="16.0" layoutY="318.0" mnemonicParsing="false" onAction="#verExperiencia" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: Yellow;" text="ver experiencia" />
+                <Button fx:id="BtnAddExperiencia" layoutX="10.0" layoutY="186.0" mnemonicParsing="false" onAction="#agregarExperienciaAction" prefHeight="30.0" prefWidth="160.0" styleClass="custom-button2" text="agregar experiencia" />
+                <Button fx:id="BtnAddCupo" layoutX="10.0" layoutY="230.0" mnemonicParsing="false" onAction="#agregarCupoAction" prefHeight="30.0" prefWidth="160.0" styleClass="custom-button2" text="agregar cupo" />
+                <Button fx:id="BtnReservas" layoutX="10.0" layoutY="274.0" mnemonicParsing="false" onAction="#verReservas" prefHeight="30.0" prefWidth="160.0" styleClass="custom-button2" text="ver reservas" />
+                <Button fx:id="btnVerExperiencia" layoutX="10.0" layoutY="318.0" mnemonicParsing="false" onAction="#verExperiencia" prefHeight="30.0" prefWidth="160.0" styleClass="custom-button2" text="ver experiencia" />
 
             </children>
         </AnchorPane>
@@ -24,7 +24,7 @@
                 <TableColumn fx:id="descripcion" minWidth="0.0" prefWidth="200.0" text="Descripcion" />
                 <TableColumn fx:id="validado" prefWidth="100" text="Validado" />
                 <TableColumn fx:id="puntaje" prefWidth="100" text="Puntaje" />
-                <TableColumn fx:id="calificaciones" prefWidth="250." text="Cantidad de calificaciones" />
+                <TableColumn fx:id="calificaciones" prefWidth="215." text="Cantidad de calificaciones" />
             </columns>
         </TableView>
         <TextField fx:id="filterField" alignment="CENTER" layoutX="380.0" layoutY="14.0" prefWidth="300.0" promptText="Buscar" />

@@ -17,7 +17,6 @@
         <columns>
             <TableColumn fx:id="id" prefWidth="50.399993896484375" text="ID" />
             <TableColumn fx:id="name" prefWidth="135.20001220703125" text="Nombre" />
-            <TableColumn fx:id="foto" minWidth="0.0" prefWidth="0.0" text="Foto" />
             <TableColumn fx:id="descripcion" prefWidth="236.79998779296875" text="Descripción" />
             <TableColumn minWidth="0.0" prefWidth="149.5999755859375" text="Contacto">
                <columns>

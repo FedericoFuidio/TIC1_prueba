@@ -6,17 +6,17 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1085.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.TableViewReservas">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/16" styleClass="background" stylesheets="@/um/ui/user/estilo1.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.TableViewReservas">
     <children>
-        <AnchorPane prefHeight="400.0" prefWidth="180.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <AnchorPane prefHeight="400.0"  prefWidth="180.0" style="-fx-background-color: linear-gradient(#063C3D, #0A635E);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Button fx:id="btnAceptar" layoutX="16.0" layoutY="230.0" mnemonicParsing="false" onAction="#validar" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: green;" text="aceptar reserva" />
-                <Button fx:id="btnBloquear" layoutX="16.0" layoutY="290.0" mnemonicParsing="false" onAction="#bloquear" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: green;" text="rechazar reserva" />
+                <Button fx:id="btnAceptar" layoutX="16.0" layoutY="230.0" mnemonicParsing="false" onAction="#validar" prefHeight="30.0" prefWidth="150.0" styleClass="custom-button4" text="aceptar reserva" />
+                <Button fx:id="btnBloquear" layoutX="16.0" layoutY="290.0" mnemonicParsing="false" onAction="#bloquear" prefHeight="30.0" prefWidth="150.0" styleClass="custom-button3" text="rechazar reserva" />
 
 
             </children>
         </AnchorPane>
-        <TableView fx:id="reservaTableView" layoutX="132.0" layoutY="51.0" onMouseClicked="#getSelected" prefHeight="349.0" prefWidth="935.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="51.0">
+        <TableView fx:id="reservaTableView" layoutX="132.0" layoutY="51.0" onMouseClicked="#getSelected" prefHeight="349.0" prefWidth="585.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="51.0">
             <columns>
                 <TableColumn fx:id="turista" prefWidth="150" text="Turista" />
                 <TableColumn fx:id="cantidad" prefWidth="135." text="personas" />
@@ -25,7 +25,7 @@
 
             </columns>
         </TableView>
-        <TextField fx:id="filterField" alignment="CENTER" layoutX="380.0" layoutY="14.0" prefWidth="300.0" promptText="Buscar" />
+        <TextField fx:id="filterField" alignment="CENTER" layoutX="380.0" layoutY="14.0" prefWidth="300.0" promptText="Buscar por fecha" />
     </children>
 </AnchorPane>
 

@@ -6,11 +6,9 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" styleClass="background2" stylesheets="@/um/ui/user/estilo1.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.PantallaAdminController">
     <top>
-        <Text strokeType="OUTSIDE" strokeWidth="20.0" text="Bienvenido!" BorderPane.alignment="CENTER">
-            <font>
-                <Font name="Arial" size="48.0" />
-            </font>
-        </Text>
+        <Label text="Bienvenido!" BorderPane.alignment="CENTER" styleClass="label-header">
+
+        </Label>
     </top>
    <left>
         <AnchorPane prefHeight="317.0" prefWidth="459.0" BorderPane.alignment="CENTER">

@@ -8,7 +8,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/16" styleClass="background" stylesheets="@/um/ui/user/estilo1.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.TableViewExperiencias">
     <children>
-        <AnchorPane prefHeight="400.0" prefWidth="170.0"  style="-fx-background-color: #063C3D;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <AnchorPane prefHeight="400.0" prefWidth="170.0"  style="-fx-background-color: linear-gradient(#063C3D, #0A635E);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <Button fx:id="BtnValidar" layoutX="5.0" layoutY="186.0" mnemonicParsing="false" onAction="#validar" prefHeight="30.0" prefWidth="160.0" styleClass="custom-button4" stylesheets="@/um/ui/user/estilo1.css" text="validar experiencia" />
                 <Button fx:id="BtnBloquear" layoutX="5.0" layoutY="230.0" mnemonicParsing="false" onAction="#bloquear" prefHeight="30.0" prefWidth="160.0" styleClass="custom-button3" stylesheets="@/um/ui/user/estilo1.css" text="bloquear experienia" />
