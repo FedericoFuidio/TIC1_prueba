@@ -23,15 +23,18 @@ public class CupoMgr {
         if(dia == null || horaInicio == null || horaFin == null){
             throw new InvalidInformation();
         }
-
-        Cupo nuevo = new Cupo(cupos, dia, horaInicio, horaFin, experiencia);
-
-        if(cupoRepository.getCupoByDiaAndHoraAperturaAndExperiencia(dia, horaInicio, experiencia) != null){
-
-            throw new ClassAlreadyExists();
+        Cupo c = cupoRepository.getCupoByExperienciaAndDia(experiencia, dia);
+        if(c != null){
+            c.setHoraApertura(horaInicio);
+            c.setHoraCierre(horaFin);
+            c.setCupos(cupos);
+            cupoRepository.save(c);
+        }else{
+            Cupo nuevo = new Cupo(cupos, dia, horaInicio, horaFin, experiencia);
+            cupoRepository.save(nuevo);
         }
 
-        cupoRepository.save(nuevo);
+
 
     }
 

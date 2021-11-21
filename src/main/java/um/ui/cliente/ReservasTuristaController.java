@@ -54,6 +54,7 @@ public class ReservasTuristaController implements Initializable {
 
     @FXML
     void cancelarReserva(ActionEvent event) {
+
         reservaMgr.cancelarReserva(re);
         showAlert("Atención", "Su reserva fue cancelada con éxito");
     }

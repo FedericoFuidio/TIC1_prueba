@@ -81,18 +81,20 @@ public class ExperienciaMgr {
             throw new InvalidInformation();
         }
 
-        Cupo cupo = cupoRepository.getCupoByDiaAndHoraAperturaAndExperiencia(dia, horaApertura, experiencia);
+        Cupo cupo = cupoRepository.getCupoByExperienciaAndDia(experiencia, dia);
 
         if(cupo != null){
-
             cupo.setHoraApertura(horaApertura);
             cupo.setHoraCierre(horaCierre);
+            cupo.setCupos(personas);
             cupoRepository.save(cupo);
 
+        }else{
+            Cupo nuevo = new Cupo(personas, dia, horaApertura, horaCierre, experiencia);
+            cupoRepository.save(nuevo);
         }
 
-        Cupo nuevo = new Cupo(personas, dia, horaApertura, horaCierre, experiencia);
-        cupoRepository.save(nuevo);
+
 
 
     }

@@ -218,7 +218,7 @@ public class ExperienciaCompletaContoller {
         }catch (IllegalArgumentException e){
             //Cuando cambio de día
         }catch (Exception e){
-            e.printStackTrace();
+            //e.printStackTrace();
         }
     }
 

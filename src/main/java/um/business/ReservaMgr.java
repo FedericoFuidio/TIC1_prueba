@@ -132,7 +132,9 @@ public class ReservaMgr {
         Iterable<Reserva> reservas = reservaRepository.findAllByFechaAndHora(fecha, hora);
         int cLibres = cupo.getCupos();
         for (Reserva r : reservas) {
-            cLibres -= r.getCantidad();
+            if (!r.isCancelada() /*&& r.isAceptada()*/){ //El isAceptada depede de la política q tomemos. Como arranca no aceptada decidimos q es mejor no contemplar eso.
+                cLibres -= r.getCantidad();
+            }
         }
         return cLibres;
     }

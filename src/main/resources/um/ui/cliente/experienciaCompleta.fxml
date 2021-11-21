@@ -73,7 +73,7 @@
                                  <children>
                                     <Label prefHeight="26.0" prefWidth="180.0" text="Seleccione Hora:" />
                                     <Pane prefHeight="32.0" prefWidth="30.0" />
-                                    <ComboBox fx:id="hourPicker" onAction="#updateLibres" prefHeight="26.0" prefWidth="96.0" />
+                                    <ComboBox fx:id="hourPicker" onAction="#updateLibres" prefHeight="31.0" prefWidth="137.0" />
                                  </children>
                               </HBox>
                               <Pane prefHeight="30.0" prefWidth="329.0" />
