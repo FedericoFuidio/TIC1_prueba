@@ -54,6 +54,9 @@ public class TableViewExperiencias implements Initializable {
     private TableColumn<Experiencia, Integer> calificaciones;
 
     @FXML
+    private TableColumn<?, ?> operador;
+
+    @FXML
     private Button btnVerExperiencia;
 
     @FXML
@@ -170,7 +173,9 @@ public class TableViewExperiencias implements Initializable {
         validado.setCellValueFactory(new PropertyValueFactory<>("validado"));
         puntaje.setCellValueFactory(new PropertyValueFactory<>("puntaje"));
         calificaciones.setCellValueFactory(new PropertyValueFactory<>("calificaciones"));
-
+        if (operador != null){
+            operador.setCellValueFactory(new PropertyValueFactory<>("NombreOperador"));
+        }
 
 
 
@@ -194,6 +199,9 @@ public class TableViewExperiencias implements Initializable {
         validado.setCellValueFactory(new PropertyValueFactory<>("validado"));
         puntaje.setCellValueFactory(new PropertyValueFactory<>("puntaje"));
         calificaciones.setCellValueFactory(new PropertyValueFactory<>("calificaciones"));
+        if (operador != null){
+            operador.setCellValueFactory(new PropertyValueFactory<>("NombreOperador"));
+        }
 
         dataList.clear();
         Iterable<Experiencia> iterableExperiencias = experienciaMgr.getExperienciaByOperador(UserController.operadorAsociado);
@@ -215,6 +223,8 @@ public class TableViewExperiencias implements Initializable {
                 }else if (person.getDescripcion().toLowerCase().contains(lowerCaseFilter)){
                     return true;
                 }else if (String.valueOf(person.getUbicacion()).toLowerCase().contains(lowerCaseFilter)){
+                    return true;
+                }else if (String.valueOf(person.getNombreOperador()).toLowerCase().contains(lowerCaseFilter)){
                     return true;
                 }else{return false;}
             });

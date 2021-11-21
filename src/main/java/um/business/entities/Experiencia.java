@@ -168,4 +168,8 @@ public class Experiencia {
     public void setHoraFin(int horaFin) {
         this.horaFin = horaFin;
     }
+
+    public String getNombreOperador(){
+        return  this.operador.getName();
+    }
 }
