@@ -21,12 +21,12 @@
                   </Label>
                   <HBox prefHeight="34.0" prefWidth="630.0">
                      <children>
-                        <Label prefHeight="35.0" prefWidth="84.0" text="Fecha Reserva:" underline="true" />
-                        <Label fx:id="fechaReserva" prefHeight="34.0" prefWidth="234.0" text="Lunes 15 de Noviembre de 2021" />
-                        <Label prefHeight="34.0" prefWidth="78.0" text="Hora Reserva:" underline="true" />
-                        <Label fx:id="horaReserva" prefHeight="34.0" prefWidth="95.0" text="17:00" />
-                        <Label prefHeight="34.0" prefWidth="121.0" text="Cantidad de Personas:" underline="true" />
-                        <Label fx:id="personasReserva" prefHeight="34.0" prefWidth="44.0" text="150" />
+                        <Label prefHeight="34.0" prefWidth="48.0" text="Fecha:" underline="true" />
+                        <Label fx:id="fechaReserva" prefHeight="34.0" prefWidth="261.0" text="Lunes 15 de Noviembre de 2021" />
+                        <Label prefHeight="34.0" prefWidth="41.0" text="Hora:" underline="true" />
+                        <Label fx:id="horaReserva" prefHeight="34.0" prefWidth="122.0" text="17:00" />
+                        <Label prefHeight="34.0" prefWidth="65.0" text="Personas:" underline="true" />
+                        <Label fx:id="personasReserva" prefHeight="34.0" prefWidth="74.0" text="150" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="10.0" top="20.0" />
@@ -34,7 +34,7 @@
                   </HBox>
                   <HBox prefHeight="32.0" prefWidth="630.0">
                      <children>
-                        <Label prefHeight="32.0" prefWidth="75.0" text="Ubicación:" underline="true" />
+                        <Label prefHeight="32.0" prefWidth="86.0" text="Ubicación:" underline="true" />
                         <Label fx:id="ubicacion" prefHeight="32.0" prefWidth="298.0" text="Av Maldonado 2312 esquina Romance" />
                         <Label prefHeight="32.0" prefWidth="75.0" text="Contacto:" underline="true" />
                         <Label fx:id="contacto" prefHeight="32.0" prefWidth="247.0" text="plazaMaldonado@gmail.com" />
