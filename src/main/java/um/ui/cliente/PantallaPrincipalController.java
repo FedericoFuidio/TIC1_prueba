@@ -380,7 +380,7 @@ public class PantallaPrincipalController implements Initializable {
 
     public void gastronomia(ActionEvent actionEvent){
 
-        seleccion = "Gastronoma";
+        seleccion = "Gastronomia";
         filtrarPreferencias(actionEvent);
     }
 
