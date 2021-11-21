@@ -35,19 +35,29 @@ public class ReservaMgr {
         if(turista == null || cupo == null || cantidad == null || fecha == null || hora == null){
             throw new InvalidInformation();
         }
-        if(reservaRepository.findAllByFechaAndTuristaAndCupo(fecha, turista, cupo) != null){
-            throw new ClassAlreadyExists();
+        Reserva r = reservaRepository.findAllByFechaAndTuristaAndCupo(fecha, turista, cupo);
+        if(r != null){
+            if(r.isCancelada()){
+                r.setCantidad(cantidad);
+                r.setHora(hora);
+                reservaRepository.save(r);
+
+            }else{
+                throw new ClassAlreadyExists();
+            }
+
+        }else {
+
+            int cLibres = cuposLibresFechaHora(cupo, fecha, hora);
+            if (cLibres < cantidad) {
+                throw new InvalidInformation();
+            }
+
+            ReservaKey id = new ReservaKey(turista.getId(), cupo.getId());
+
+            Reserva re = new Reserva(turista, cupo, cantidad, fecha, hora);
+            reservaRepository.save(re);
         }
-
-        int cLibres = cuposLibresFechaHora(cupo, fecha, hora);
-        if(cLibres < cantidad){
-            throw new InvalidInformation();
-        }
-
-        ReservaKey id = new ReservaKey(turista.getId(), cupo.getId());
-
-        Reserva r = new Reserva(turista, cupo, cantidad, fecha, hora);
-        reservaRepository.save(r);
     }
 
     public Iterable<Reserva> GetReservasTurista(Turista t){
