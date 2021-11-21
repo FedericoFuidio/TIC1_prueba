@@ -61,6 +61,21 @@ public class ReservaMgr {
         return rvs;
     }
 
+    public Iterable<Reserva> GetReservasPorIr(Turista t){
+
+        ObservableList<Reserva> reservas = FXCollections.observableArrayList();
+        Iterable<Reserva> rs = reservaRepository.findAllByTurista(t);
+        for(Reserva r : rs){
+
+            if(!r.isCancelada() && r.getFecha().after(java.sql.Date.valueOf(LocalDate.now()))){
+
+                reservas.add(r);
+            }
+        }
+
+        return reservas;
+    }
+
     public ObservableList<Reserva> getReservasByExperiencia(Experiencia experiencia){
 
         ObservableList<Reserva> reservas = FXCollections.observableArrayList();
@@ -72,6 +87,24 @@ public class ReservaMgr {
             }
 
         }
+
+        return reservas;
+    }
+
+    public ObservableList<Reserva> getReservasByExperienciasFechaMayorAHoy(Experiencia experiencia){
+
+        ObservableList<Reserva> reservas = FXCollections.observableArrayList();
+        Iterable<Cupo> cupos = cupoRepository.findAllByExperiencia(experiencia);
+        for(Cupo c : cupos){
+
+            Iterable<Reserva> reseva_cupo = reservaRepository.findAllByCupo(c);
+            for(Reserva r : reseva_cupo){
+                if(!r.isCancelada() && r.getFecha().after(java.sql.Date.valueOf(LocalDate.now()))){
+                    reservas.add(r);
+                }
+            }
+        }
+
 
         return reservas;
     }
@@ -138,4 +171,6 @@ public class ReservaMgr {
         }
         return cLibres;
     }
+
+
 }

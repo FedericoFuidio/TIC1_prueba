@@ -80,7 +80,7 @@ public class TableViewReservas implements Initializable {
         }
 
          */
-        reservas = reservaMgr.getReservasByExperiencia(TableViewExperiencias.seleccionada);
+        reservas = reservaMgr.getReservasByExperienciasFechaMayorAHoy(TableViewExperiencias.seleccionada);
 
         reservaTableView.setItems(reservas);
 
@@ -134,7 +134,7 @@ public class TableViewReservas implements Initializable {
 
          */
 
-        dataList = reservaMgr.getReservasByExperiencia(TableViewExperiencias.seleccionada);
+        dataList = reservaMgr.getReservasByExperienciasFechaMayorAHoy(TableViewExperiencias.seleccionada);
         reservaTableView.setItems(dataList);
 
         FilteredList<Reserva> filteredData = new FilteredList<>(dataList, b -> true);

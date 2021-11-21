@@ -50,6 +50,16 @@
     -fx-padding: 10 20 10 20;
 }
 
+.custom-button5{
+    -fx-background-color: linear-gradient(#13AB81, #139DAB);
+    -fx-background-radius: 5;
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: #f5fffa;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-padding: 10 20 10 20;
+}
+
 .custom-button-image{
     -fx-background-color: linear-gradient(#F98C10, #4b0082);
     -fx-background-radius: 5;
@@ -70,8 +80,19 @@
 }
 
 .background3{
-    -fx-background-color: linear-gradient(to left, #333, #333 50%, #eee 75%, #333 75%);;
+    -fx-background-color: #FFF9C8;
 }
+
+.background4{
+
+    -fx-background-color: linear-gradient(#0E035A, #B2F1FE);
+}
+
+.background5{
+
+    -fx-background-color: linear-gradient(#CDFAFF, #E9FDFF, #E8FCFE, #E8FCFE, #E8FCFE, #E9FDFF,#CDFAFF);
+}
+
 
 
 
@@ -242,6 +263,8 @@
 }
 
 
+
+
 .check-box .mark {
     -fx-shape: "M1.73,12.91 8.1,19.28 22.79,4.59 22.79,1.59 8.1,16.28 1.73,9.91";
 }
@@ -264,6 +287,16 @@
 
 }
 
+.combo-box .scroll-bar{
+    -fx-border-color: #00008b;
+    -fx-background-color: transparent;
+}
+
+.combo-box .scroll-bar .thumb{
+    -fx-border-color: transparent;
+    -fx-background-color: #00008b;
+}
+
 
 .text-area {
     -fx-background-color: -fx-text-box-border, -fx-background ;
@@ -283,8 +316,60 @@
 
 
 
+.date-picker {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.date-picker .cell {
+    -fx-background-color: transparent;
+    -fx-border-color: blue;
+    -fx-border-radius: 30;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: #00008b;
+    -fx-background-radius: 30;
+    -fx-border-color: transparent;
+}
+
+.date-picker-popup .month-year-pane {
+    -fx-background-color: transparent;
+}
+
+.date-picker .arrow-button .arrow {
+    -fx-background-color: white;
+}
 
 
+.date-picker .calendar {
+    -fx-background-color: #E8F9FA;
+}
+
+
+.image-view{
+    -fx-background-radius: 30;
+}
+
+.scroll-bar {
+    -fx-background-color: #E8F9FA;
+}
+
+.scroll-bar .thumb{
+    -fx-background-color: #00008b;
+    -fx-border-radius: 0;
+}
+
+.rating {
+
+    -fx-background-color: transparent;
+
+}
+
+.rating > .container > .button {
+    -fx-background-color: transparent;
+
+}
 
 
 

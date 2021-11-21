@@ -20,7 +20,7 @@
 
 
 <?import javafx.scene.control.TextArea?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" styleClass="background" stylesheets="@/um/ui/user/estilo1.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.CalificacionController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0"  xmlns="http://javafx.com/javafx/16" styleClass="background" stylesheets="@/um/ui/user/estilo1.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.CalificacionController">
     <top>
         <Label  text="Calificar experiencia"  BorderPane.alignment="CENTER" styleClass="label-header">
 

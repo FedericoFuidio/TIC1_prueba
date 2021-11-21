@@ -38,7 +38,7 @@
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin></Label>
-                                    <Rating fx:id="ratingActividad" mouseTransparent="true" nodeOrientation="LEFT_TO_RIGHT" partialRating="true" prefHeight="32.0" prefWidth="122.0" scaleX="0.5" scaleY="0.5" scaleZ="0.5">
+                                    <Rating fx:id="ratingActividad" mouseTransparent="true" nodeOrientation="LEFT_TO_RIGHT" partialRating="true" prefHeight="32.0" prefWidth="122.0" scaleX="0.5" scaleY="0.5" scaleZ="0.5" styleClass="rating">
                                        <effect>
                                           <Blend mode="OVERLAY" opacity="0.37" />
                                        </effect>

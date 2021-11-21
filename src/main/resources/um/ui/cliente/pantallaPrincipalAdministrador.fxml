@@ -4,23 +4,28 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" styleClass="background2" stylesheets="@/um/ui/user/estilo1.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.PantallaAdminController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background2" stylesheets="@/um/ui/user/estilo1.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.PantallaAdminController">
     <top>
-        <Label text="Bienvenido!" BorderPane.alignment="CENTER" styleClass="label-header">
+        <Label styleClass="label-header" text="Bienvenido!" BorderPane.alignment="CENTER">
 
         </Label>
     </top>
    <left>
         <AnchorPane prefHeight="317.0" prefWidth="459.0" BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="verOperadores" layoutX="21.0" layoutY="30.0" mnemonicParsing="false" onAction="#verOperadores" prefHeight="39.0" prefWidth="164.0"  text="Ver operadores" textFill="white" styleClass="custom-button">
+                <Button fx:id="verOperadores" layoutX="21.0" layoutY="30.0" mnemonicParsing="false" onAction="#verOperadores" prefHeight="40.0" prefWidth="196.0" styleClass="custom-button" text="Ver operadores" textFill="white">
                <font>
                   <Font size="18.0" />
                </font></Button>
-                <Button fx:id="verExperiencias" layoutX="21.0" layoutY="84.0" mnemonicParsing="false" onAction="#verExperiencias" prefHeight="41.0" prefWidth="165.0"  text="Ver experiencias" textFill="white" styleClass="custom-button">
+                <Button fx:id="verExperiencias" layoutX="21.0" layoutY="84.0" mnemonicParsing="false" onAction="#verExperiencias" prefHeight="41.0" prefWidth="195.0" styleClass="custom-button" text="Ver experiencias" textFill="white">
                <font>
                   <Font size="18.0" />
                </font></Button>
+
+                <Button fx:id="addAdmin" layoutX="21.0" layoutY="138.0" mnemonicParsing="false" onAction="#addAdministrador" prefHeight="40.0" prefWidth="195.0" styleClass="custom-button" text="Agregar Administrador" textFill="white">
+                    <font>
+                        <Font size="18.0" />
+                    </font></Button>
 
             </children>
         </AnchorPane>

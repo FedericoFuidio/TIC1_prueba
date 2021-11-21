@@ -3,6 +3,7 @@ package um.ui.cliente;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import org.controlsfx.control.Rating;
 import org.springframework.stereotype.Component;
 import um.business.ExperienciaMgr;
 import um.business.entities.Calificacion;
@@ -31,6 +32,10 @@ public class VistaCalificacionController implements Initializable {
 
     private List<Calificacion> calificaciones;
 
+    @FXML
+    private Rating calificacion;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -40,7 +45,9 @@ public class VistaCalificacionController implements Initializable {
 
     public void setData(Calificacion c){
 
-        nombreUsuario.setText("Usuario: " + c.getTurista().getUserName() + "               " + c.getPuntaje() + "/5");
+        nombreUsuario.setText("Usuario: " + c.getTurista().getUserName());
+
+        calificacion.setRating(c.getPuntaje());
 
         comentario.setText(c.getCometario());
 

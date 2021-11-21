@@ -19,7 +19,7 @@
                <children>
                   <HBox prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#addPreferencias" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: #3335FF;" text="Agregar Intereses" textAlignment="CENTER" textFill="WHITE">
+                        <Button alignment="CENTER" mnemonicParsing="false" styleClass="custom-button5" onAction="#addPreferencias" prefHeight="26.0" prefWidth="120.0"  text="Intereses" textAlignment="CENTER" textFill="WHITE">
                            <HBox.margin>
                               <Insets bottom="15.0" left="4.0" top="60.0" />
                            </HBox.margin>
@@ -31,7 +31,7 @@
                   </HBox>
                   <HBox prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#deletePreferencias" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: #3335FF;" text="Eliminar Intereses" textAlignment="CENTER" textFill="WHITE">
+                        <Button alignment="CENTER" mnemonicParsing="false" styleClass="custom-button5" onAction="#deletePreferencias" prefHeight="26.0" prefWidth="120.0" text="Mis Intereses" textAlignment="CENTER" textFill="WHITE">
                            <HBox.margin>
                               <Insets bottom="15.0" left="4.0" top="15.0" />
                            </HBox.margin>
@@ -43,7 +43,7 @@
                   </HBox>
                   <HBox prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="btnReservas" alignment="CENTER" mnemonicParsing="false" onAction="#openReservas" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: #3335FF;" text="Mis Reservas" textFill="WHITE">
+                        <Button fx:id="btnReservas" alignment="CENTER" styleClass="custom-button5" mnemonicParsing="false" onAction="#openReservas" prefHeight="26.0" prefWidth="120.0" text="Mis Reservas" textFill="WHITE">
                            <HBox.margin>
                               <Insets bottom="15.0" left="4.0" top="15.0" />
                            </HBox.margin>
@@ -55,7 +55,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="btnCalificar" alignment="CENTER" mnemonicParsing="false" onAction="#openCalificaciones" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: #3335FF;" text="Calificar" textAlignment="CENTER" textFill="WHITE">
+                        <Button fx:id="btnCalificar" alignment="CENTER" mnemonicParsing="false" onAction="#openCalificaciones" prefHeight="26.0" prefWidth="120.0" styleClass="custom-button5" text="Calificar" textAlignment="CENTER" textFill="WHITE">
                            <HBox.margin>
                               <Insets bottom="15.0" left="4.0" top="15.0" />
                            </HBox.margin>

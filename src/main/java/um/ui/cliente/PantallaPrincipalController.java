@@ -338,7 +338,7 @@ public class PantallaPrincipalController implements Initializable {
 
     private List<Reserva> getReservas(){
         List<Reserva> lReservas = new ArrayList<>();
-        Iterable<Reserva> resBD = reservaMgr.GetReservasTurista(UserController.turistaIngresado);
+        Iterable<Reserva> resBD = reservaMgr.GetReservasPorIr(UserController.turistaIngresado);
         for(Reserva r : resBD){
             if (r.isAceptada()){reservas.add(r);}
 

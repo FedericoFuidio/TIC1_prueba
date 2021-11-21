@@ -5,6 +5,9 @@ import org.springframework.stereotype.Service;
 import um.business.entities.Administrador;
 import um.business.entities.Turista;
 import um.business.entities.User;
+import um.business.exception.ClassAlreadyExists;
+import um.business.exception.InvalidInformation;
+import um.persistance.AdminOperadorRepository;
 import um.persistance.AdministradorRepository;
 import um.persistance.TuristaRepository;
 import um.persistance.UserRepository;
@@ -23,6 +26,9 @@ public class UserMgr{
 
     @Autowired
     AdministradorRepository administradorRepository;
+
+    @Autowired
+    AdminOperadorRepository adminOperadorRepository;
 
     //Agregar un usuario al sistema:
     public void addUser(String nombre, String apellido, String userName, String mail, LocalDate birthDate,
@@ -104,6 +110,28 @@ public class UserMgr{
                 return null;
             }
         }
+    }
+
+    public void addAdministrador(String nombre, String apellido, String mail, String password, String username)
+    throws InvalidInformation, ClassAlreadyExists{
+
+        if(nombre == null || nombre.equals("") || apellido == null || apellido.equals("")
+        || mail == null || mail.equals("") || password == null || password.equals("") ||
+        username == null || username.equals("")){
+
+            throw new InvalidInformation();
+        }
+
+        if(administradorRepository.findAdministradorByUserName(username) != null
+        || turistaRepository.findTuristaByUserName(username) != null
+        || administradorRepository.findAdministradorByUserName(username) != null){
+
+            throw new ClassAlreadyExists();
+        }
+
+        Administrador nuevo = new Administrador(nombre, apellido, password, mail, username);
+        administradorRepository.save(nuevo);
+
     }
 
 
