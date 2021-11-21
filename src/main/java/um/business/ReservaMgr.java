@@ -40,6 +40,8 @@ public class ReservaMgr {
             if(r.isCancelada()){
                 r.setCantidad(cantidad);
                 r.setHora(hora);
+                r.setCancelada(false);
+                r.setAceptada(false);
                 reservaRepository.save(r);
 
             }else{
