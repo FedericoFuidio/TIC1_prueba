@@ -2,17 +2,16 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <?import javafx.scene.text.*?>
 <?import org.controlsfx.control.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.CheckListPreferenciaEspecifica">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="600.0" styleClass="background2" stylesheets="@/um/ui/user/estilo1.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.CheckListPreferenciaEspecifica">
     <center>
         <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
             <children>
                 <CheckListView fx:id="preferenciaEspecificaCheckListView" layoutY="7.0" prefHeight="336.0" prefWidth="600.0" />
-                <Button layoutX="517.0" layoutY="355.0" mnemonicParsing="false" onAction="#addPreferencias" text="Siguiente" />
-                <Button layoutX="443.0" layoutY="355.0" mnemonicParsing="false" onAction="#close" text="Cancelar" />
+                <Button layoutX="484.0" layoutY="346.0" mnemonicParsing="false" onAction="#addPreferencias" styleClass="custom-button" text="Siguiente" />
+                <Button layoutX="371.0" layoutY="346.0" mnemonicParsing="false" onAction="#close" styleClass="custom-button" text="Cancelar" />
             </children>
         </AnchorPane>
     </center>
