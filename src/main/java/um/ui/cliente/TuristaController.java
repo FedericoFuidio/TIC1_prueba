@@ -20,6 +20,7 @@ import um.business.entities.Turista;
 import um.business.exception.InvalidInformation;
 import um.business.exception.RepitedMail;
 import um.business.exception.RepitedUserName;
+import um.ui.user.JavaFXApplication;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -152,5 +153,23 @@ public class TuristaController implements Initializable {
         temp = paisMgr.getPaises();
         cmbPais.setItems(temp);
 
+    }
+
+    @FXML
+    public void volver(ActionEvent actionEvent){
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+            Parent root = fxmlLoader.load(JavaFXApplication.class.getResourceAsStream("User.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+            UserController.adminIngresado = null;
+            close(actionEvent);
+        }catch (Exception e){
+            showAlert("ERROR", "Lo sentimos, algo salió mal");
+        }
     }
 }

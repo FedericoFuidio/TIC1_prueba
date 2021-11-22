@@ -47,7 +47,7 @@
     <bottom>
         <HBox alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="btnClose" layoutY="250" mnemonicParsing="false" onAction="#close" text="Cancelar" styleClass="custom-button">
+                <Button fx:id="btnClose" layoutY="250" mnemonicParsing="false" onAction="#volver" text="Cancelar" styleClass="custom-button">
                     <HBox.margin>
                         <Insets left="10.0" right="10.0" />
                     </HBox.margin>

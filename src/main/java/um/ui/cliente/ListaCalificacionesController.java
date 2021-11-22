@@ -42,7 +42,6 @@ public class ListaCalificacionesController implements Initializable {
         int row = 0;
         try {
             for (Calificacion c : calificaciones) {
-                System.out.println("Hola");
                 calificacion = c;
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setControllerFactory(Main.getContext()::getBean);

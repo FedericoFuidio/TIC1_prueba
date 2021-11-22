@@ -24,6 +24,7 @@ import um.business.ReservaMgr;
 import um.business.TuristaMgr;
 import um.business.entities.Experiencia;
 import um.business.entities.Reserva;
+import um.ui.user.JavaFXApplication;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -422,6 +423,24 @@ public class PantallaPrincipalController implements Initializable {
             showAlert("ERROR", "Lo sentimos, ocurrió un error inesperado");
         }
 
+    }
+
+    @FXML
+    void volver(ActionEvent actionEvent){
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+            Parent root = fxmlLoader.load(JavaFXApplication.class.getResourceAsStream("User.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+            UserController.adminIngresado = null;
+            close(actionEvent);
+        }catch (Exception e){
+            showAlert("ERROR", "Lo sentimos, algo salió mal");
+        }
     }
 
 }

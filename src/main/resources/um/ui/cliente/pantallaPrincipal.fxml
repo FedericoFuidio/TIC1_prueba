@@ -74,6 +74,18 @@
                         <Insets />
                      </opaqueInsets>
                   </HBox>
+                  <HBox prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <Button alignment="CENTER" styleClass="custom-button-image" mnemonicParsing="false" onAction="#volver" prefHeight="26.0" prefWidth="120.0" text="Cerrar sesión" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets bottom="15.0" left="4.0" top="225.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
                </children>
             </VBox>
          </left>

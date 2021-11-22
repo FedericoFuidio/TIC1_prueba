@@ -11,11 +11,12 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
 import um.Main;
+import um.ui.user.JavaFXApplication;
 
 import java.io.IOException;
 
 @Component
-public class PantallaAdminController {
+public class PantallaAdminController  {
 
     @FXML
     private Button verOperadores;
@@ -27,6 +28,8 @@ public class PantallaAdminController {
     private Button addAdmin;
 
     static Integer cambiarPassword;
+
+    private Parent root;
 
     @FXML
     void verOperadores(ActionEvent actionEvent) throws IOException {
@@ -82,6 +85,25 @@ public class PantallaAdminController {
         }catch (Exception e){
             showAlert("ERROR", "Lo sentimos, algo salió mal");
         }
+    }
+
+    @FXML
+    void volver(ActionEvent actionEvent){
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+            Parent root = fxmlLoader.load(JavaFXApplication.class.getResourceAsStream("User.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+            UserController.adminIngresado = null;
+            close(actionEvent);
+        }catch (Exception e){
+            showAlert("ERROR", "Lo sentimos, algo salió mal");
+        }
+
     }
 
     private void showAlert(String title, String contextText) {

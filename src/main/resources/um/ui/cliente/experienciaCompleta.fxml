@@ -51,7 +51,7 @@
                                     </Rating>
                                  </children>
                               </HBox>
-                              <Button mnemonicParsing="false" onAction="#comentarios" prefHeight="46.0" prefWidth="145.0" style="-fx-background-color: blue;" text="VER CALIFICACIONES" textFill="white" />
+                              <Button mnemonicParsing="false" onAction="#comentarios" prefHeight="46.0" prefWidth="145.0" style="-fx-background-color: blue" text="VER CALIFICACIONES" textFill="white" />
                               <Label fx:id="descActividad" prefHeight="116.0" prefWidth="342.0" text="Descripción" />
                               <Label fx:id="precioActividad" prefHeight="38.0" prefWidth="342.0" text="Precio" />
                               <Label fx:id="contacto" prefHeight="54.0" prefWidth="342.0" text="Contacto" />

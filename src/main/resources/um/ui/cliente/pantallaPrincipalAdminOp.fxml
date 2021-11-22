@@ -18,6 +18,7 @@
                 <Button fx:id="btnVerExperiencias" layoutX="15.0" layoutY="51.0" mnemonicParsing="false" onAction="#verExperiencias" prefHeight="40.0" prefWidth="190.0" styleClass="custom-button" text="Ver experiencias" />
                 <Button fx:id="btnAgregarAdministrador" layoutX="14.0" layoutY="104.0" mnemonicParsing="false" onAction="#addAdinistrador" styleClass="custom-button" text="Agregar administrador" />
                 <Button layoutX="14.0" layoutY="161.0" mnemonicParsing="false"  prefHeight="40.0" onAction="#ajustes" prefWidth="88.0" styleClass="custom-button" text="Ajustes" />
+                <Button layoutX="460.0" layoutY="310.0" mnemonicParsing="false"  prefHeight="40.0" onAction="#volver" prefWidth="120.0" styleClass="custom-button-image" text="Cerrar sesión" />
 
             </children>
         </AnchorPane>

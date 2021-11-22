@@ -14,6 +14,7 @@ import um.Main;
 import um.business.AdminOperadorMgr;
 import um.business.UserMgr;
 import um.business.entities.*;
+import um.ui.user.JavaFXApplication;
 
 import java.time.LocalDate;
 
@@ -137,6 +138,24 @@ public class UserController {
         alert.setHeaderText(null);
         alert.setContentText(contextText);
         alert.showAndWait();
+    }
+
+    @FXML
+    void volver(ActionEvent actionEvent){
+        try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+            Parent root = fxmlLoader.load(JavaFXApplication.class.getResourceAsStream("User.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+            UserController.adminIngresado = null;
+            close(actionEvent);
+        }catch (Exception e){
+            showAlert("ERROR", "Lo sentimos, algo salió mal");
+        }
     }
 
     @FXML
