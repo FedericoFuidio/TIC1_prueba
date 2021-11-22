@@ -7,6 +7,7 @@ import um.business.entities.Turista;
 import um.business.entities.User;
 import um.business.exception.ClassAlreadyExists;
 import um.business.exception.InvalidInformation;
+import um.business.exception.RepitedMail;
 import um.persistance.AdminOperadorRepository;
 import um.persistance.AdministradorRepository;
 import um.persistance.TuristaRepository;
@@ -131,6 +132,54 @@ public class UserMgr{
 
         Administrador nuevo = new Administrador(nombre, apellido, password, mail, username);
         administradorRepository.save(nuevo);
+
+    }
+
+    public void validarPassword(Administrador administrador, String password) throws InvalidInformation{
+
+        if(password == null || password.equals("")){
+            throw new InvalidInformation();
+        }
+
+        if(!password.equals(administrador.getPassword())){
+            throw new InvalidInformation();
+        }
+
+
+    }
+
+    public void cambiarPassword(Administrador administrador, String password) throws InvalidInformation{
+
+        if(password == null || password.equals("")){
+            throw new InvalidInformation();
+        }
+
+
+        administrador.setPassword(password);
+        administradorRepository.save(administrador);
+
+    }
+
+    public void cambiarUserName(Administrador administrador, String username) throws InvalidInformation,
+            ClassAlreadyExists, RepitedMail{
+
+        if(username == null || username.equals("")){
+            throw new InvalidInformation();
+        }
+
+        if(administrador.getUserName().equals(username)){
+            throw new RepitedMail();
+        }
+
+        if(adminOperadorRepository.findAdminOperadorByUsername(username) != null
+                || administradorRepository.findAdministradorByUserName(username) != null
+                || turistaRepository.findTuristaByUserName(username) != null){
+            throw new ClassAlreadyExists();
+        }
+
+        administrador.setUserName(username);
+        administradorRepository.save(administrador);
+
 
     }
 

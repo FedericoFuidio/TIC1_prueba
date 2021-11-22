@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="600.0" styleClass="background3" stylesheets="@/um/ui/user/estilo1.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.PerfilTuristaController">
+
+    <Button layoutX="31.0" layoutY="26.0" mnemonicParsing="false" onAction="#cambiarPassword" prefHeight="40.0" prefWidth="240.0" styleClass="custom-button" text="Cambiar Contraseña" />
+    <Button layoutX="339.0" layoutY="26.0" mnemonicParsing="false" onAction="#cambiarUserName" prefHeight="40.0" prefWidth="240.0" styleClass="custom-button" text="Cambiar nombre de usuario" />
+    <Button layoutX="505.0" layoutY="96.0" mnemonicParsing="false" onAction="#close" styleClass="custom-button" text="voler" />
+</AnchorPane>

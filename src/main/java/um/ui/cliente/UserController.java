@@ -213,11 +213,10 @@ public class UserController {
                 stage.show();
 
             } else{
-                showAlert("Contraseña incorrecta", "Intente nuevamente");
+                showAlert("ERROR", "Nombre de usuario o contraseña incorrectos");
             }
         } catch (Exception e){
 
-            e.printStackTrace();
             showAlert("Usuario no encontrado", "Intente nuevamente");
         }
 

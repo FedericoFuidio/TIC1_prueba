@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import um.business.entities.*;
+import um.business.exception.ClassAlreadyExists;
 import um.business.exception.InvalidInformation;
 import um.business.exception.RepitedMail;
 import um.business.exception.RepitedUserName;
@@ -215,6 +216,45 @@ public class TuristaMgr {
             }
         }
 
+    }
+
+    public void validar(Turista turista, String password) throws InvalidInformation{
+
+        if(!turista.getPassword().equals(password)){
+            throw new InvalidInformation();
+        }
+    }
+
+    public void cambiarPassword(Turista turista, String password) throws InvalidInformation{
+
+        if(password == null || password.equals("")){
+            throw new InvalidInformation();
+        }
+
+        turista.setPassword(password);
+        turistaRepository.save(turista);
+    }
+
+    public void cambiarUserName(Turista turista, String username) throws InvalidInformation, ClassAlreadyExists, RepitedUserName{
+
+        if(username == null || username.equals("")){
+            throw new InvalidInformation();
+        }
+
+        if(turista.getUserName().equals(username)){
+            throw new RepitedUserName();
+        }
+
+        if(turistaRepository.findTuristaByUserName(username) != null
+        || administradorRepository.findAdministradorByUserName(username) != null
+        || adminOperadorRepository.findAdminOperadorByUsername(username) != null){
+
+            throw new ClassAlreadyExists();
+        }
+
+
+        turista.setUserName(username);
+        turistaRepository.save(turista);
     }
 
 }

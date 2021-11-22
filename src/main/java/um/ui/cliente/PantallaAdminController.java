@@ -26,6 +26,8 @@ public class PantallaAdminController {
     @FXML
     private Button addAdmin;
 
+    static Integer cambiarPassword;
+
     @FXML
     void verOperadores(ActionEvent actionEvent) throws IOException {
 
@@ -65,6 +67,21 @@ public class PantallaAdminController {
         }
 
 
+    }
+
+    @FXML
+    void ajustes(ActionEvent actionEvent){
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+            Parent root = fxmlLoader.load(AjustesAdministrador.class.getResourceAsStream("ajustesAdministrador.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        }catch (Exception e){
+            showAlert("ERROR", "Lo sentimos, algo salió mal");
+        }
     }
 
     private void showAlert(String title, String contextText) {

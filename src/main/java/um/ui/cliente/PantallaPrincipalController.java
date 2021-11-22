@@ -90,6 +90,8 @@ public class PantallaPrincipalController implements Initializable {
     @FXML
     private Button addPreferencias;
 
+    static Integer cambiarUserName;
+
     private List<Experiencia> experiencias = new ArrayList<>();
     private List<Reserva> reservas = new ArrayList<>();
     private List<Reserva> reservas_a_calificar = new ArrayList<>();
@@ -405,6 +407,21 @@ public class PantallaPrincipalController implements Initializable {
         stage.close();
     }
 
+    @FXML
+    void ajustes(ActionEvent actionEvent){
+        try {
 
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(Main.getContext()::getBean);
+
+            Parent root = fxmlLoader.load(PerfilTuristaController.class.getResourceAsStream("ajustesTurista.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        }catch (Exception e){
+            showAlert("ERROR", "Lo sentimos, ocurrió un error inesperado");
+        }
+
+    }
 
 }

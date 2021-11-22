@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="500.0" styleClass="background3" stylesheets="@/um/ui/user/estilo1.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="um.ui.cliente.CambiarUserNameAdminOperador">
+    <Label layoutX="10.0" layoutY="10.0" text="Nuevo nombre de usuario: " />
+    <TextField fx:id="txtUserName" layoutX="180.0" layoutY="-1.0" prefHeight="31.0" prefWidth="306.0" />
+    <Button defaultButton="true" layoutX="118.0" layoutY="46.0" mnemonicParsing="false" onAction="#cambiarUserName" styleClass="custom-button" text="Aceptar " />
+    <Button layoutX="274.0" layoutY="46.0" mnemonicParsing="false" onAction="#close" prefHeight="40.0" prefWidth="103.0" styleClass="custom-button" text="Volver" />
+</AnchorPane>

@@ -10,7 +10,7 @@
 
         </Label>
     </top>
-   <left>
+   <center>
         <AnchorPane prefHeight="317.0" prefWidth="459.0" BorderPane.alignment="CENTER">
             <children>
                 <Button fx:id="verOperadores" layoutX="21.0" layoutY="30.0" mnemonicParsing="false" onAction="#verOperadores" prefHeight="40.0" prefWidth="196.0" styleClass="custom-button" text="Ver operadores" textFill="white">
@@ -27,7 +27,12 @@
                         <Font size="18.0" />
                     </font></Button>
 
+                <Button layoutX="21.0" layoutY="190.0" mnemonicParsing="false" onAction="#ajustes" prefHeight="40.0" prefWidth="93.0" styleClass="custom-button" text="Ajustes" textFill="white">
+                    <font>
+                        <Font size="18.0" />
+                    </font></Button>
+
             </children>
         </AnchorPane>
-   </left>
+   </center>
 </BorderPane>
